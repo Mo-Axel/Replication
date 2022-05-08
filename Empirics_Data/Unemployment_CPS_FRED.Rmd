@@ -1,0 +1,49 @@
+Unemployment_CPS_FRED
+=======================================
+
+--------------------------------------------------------
+
+### Introduction
+This note loads quarterly unemployment series constructed from CPS and downloaded from FRED. 
+
+--------------------------------------------------------
+
+### Part 1: Importing the data into R
+
+The data is from 1989Q1 to 2017Q3. The first column is the time periods. The second column is quarterly unemployment rate from CPS and the thrid column is from FRED.
+
+```{r}
+unrate <- read.csv("data/UNRATE_CPS_FRED.csv",header=TRUE)
+colnames(unrate) <- c("periods", "unrate_cps", "unrate_fred")
+unrate$unrate_cps <- 100*unrate$unrate_cps
+head(unrate)
+```
+
+```{r}
+
+# uncomment the subsequent line to print to file 
+png("Figures/UNRATE_CPS_FRED.png")
+plot(unrate$periods, unrate$unrate_cps, type = "l", lwd = 4,  xlab = "Period", 
+    ylab = "", ylim = c(0, 10), col="blue", lty=1, cex.axis=1.5, cex.lab=1.5)
+lines(unrate$periods, unrate$unrate_fred, lwd=4, lty=2, col="red")
+dev.off()
+```
+
+### Part 2: Draw the transformation 
+
+```{r}
+
+xgrid <- seq(0.01, 10, 0.1)
+logx <- log(xgrid)
+ttheta <- 1
+invsinhx<- log(ttheta*xgrid + (ttheta^2*xgrid^2 + 1)^(1/2))/ttheta
+
+# uncomment the subsequent line to print to file 
+png("Figures/invsinhy.png")
+plot(xgrid, invsinhx, type = "l", lwd = 4,  xlab = "x", 
+     ylab = "", ylim = c(-5, 10), col="blue", lty=1, cex.axis=1.5, cex.lab=1.5)
+lines(xgrid, logx, lwd=4, lty=2, col="red")
+lines(xgrid, xgrid, lwd=4, lty=3, col="orange")
+dev.off()
+
+```

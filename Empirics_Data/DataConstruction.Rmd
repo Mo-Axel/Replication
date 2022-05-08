@@ -1,0 +1,186 @@
+---
+content: "Data Construction for Empirical Analysis"
+output: html_document
+---
+
+### Import Unemployment Data
+Ordering: period, unrate-CPS, unrate-FRED
+```{r}
+unratedata <- read.csv("data/UNRATE_CPS_FRED.csv", header = TRUE)
+head(unratedata)
+period <- unratedata[,1]
+unrate <- unratedata[,2]
+```
+
+### Importing Nominal GDP per capita
+
+We load quarterly percapita real and nominal GDP from FRED.
+Ordering: period, real GDP, nom GDP
+
+```{r}
+GDPpc    <- read.csv("data/GDPpc.csv", header = TRUE)
+GDPpc    <- data.matrix(GDPpc)
+GDPpc_r  <- GDPpc[,2]
+GDPpc_n  <- GDPpc[,3] 
+```
+
+### Importing the labor share
+
+We load the quarterly labor share for non-farm business sector 
+Ordering: period, Lsh
+
+```{r}
+Lsh      <- read.csv("data/LShare_BLS.csv", header = TRUE)
+Lsh      <- data.matrix(Lsh)
+Lsh      <- Lsh[,2]/100
+Lsh_mean <- mean(Lsh)
+```
+
+
+### Import CPS Quarterly Earnings Data 
+Ordering: period, nom earnings
+```{r}
+earnings_n <- read.table("data/earnings_nodetrend.txt", header = TRUE)
+earnings_n <- earnings_n[earnings_n[,2]>0.0,] # drop zero earnings observations 
+earnings_n[,2] <- 52*earnings_n[,2]
+head(earnings_n)
+```
+
+### Detrending the Earnings Data
+
+Compare the mean of log quarterly earnings over time to log GDP (nominal).
+
+```{r}
+nperiods      <- dim(GDPpc)[1]
+log_earnings_mean <- rep(0, nperiods)
+nobs <- rep(0, nperiods)
+
+timeidx <- 1989
+for (ii in 1:nperiods){
+  log_earnings_mean[ii] <- mean(log(earnings_n[earnings_n[,1]==timeidx,2]))
+  nobs[ii] <- sum(earnings_n[,1]==timeidx)
+  timeidx <- timeidx + 0.25
+}
+
+#write.csv(nobs, file = "data/cross_section_nobs.csv")
+
+png("figures/MeanLogEarningsAndGDP.png")
+plot(GDPpc[,1], log_earnings_mean, type = "l", lwd = 4,  xlab = "Period", ylab = "",  ylim = c(9.5, 11), col="blue", lty=1, cex.axis=1.5, cex.lab=1.5)
+lines(GDPpc[,1], (log(GDPpc_n)+log(2/3)), lwd=4, lty=2, col="red")
+dev.off()
+
+```
+
+Detrend individual log earnings by log GDP and plot the mean of detrended log earnings
+
+```{r}
+log_earnings_detrended_mean <- rep(0, nperiods)
+earnings_detrended <- earnings_n
+
+timeidx <- 1989
+for (ii in 1:nperiods){
+  earnings_detrended[earnings_n[,1] == timeidx,2] <- (earnings_n[earnings_n[,1]==timeidx,2] / ((2/3)*GDPpc[ii,3]))
+  log_earnings_detrended_mean[ii] <- mean(log(earnings_detrended[earnings_n[,1]==timeidx,2]))
+  timeidx <- timeidx + 0.25
+}
+
+png("figures/MeanDetrendedLogEarnings.png")
+plot(GDPpc[,1], log_earnings_detrended_mean, type = "l", lwd = 4, xlab = "Period", ylab = "", ylim = c(-0.1, 0.1),
+      col="blue", lty = 1, cex.axis = 1.5, cex.lab = 1.5)
+lines(GDPpc[,1], rep(0, nperiods), lwd=1, lty=1, col="black")
+lines(GDPpc[,1], log(Lsh)-mean(log(Lsh)), lwd=4, lty=2, col="red")
+dev.off()
+
+```
+
+### Apply the Inverse Hyperbolic Sine Transformation to Detrended Earnings
+
+```{r}
+theta_sinh = 1
+earnings_detrended[,2] <- log(theta_sinh*earnings_detrended[,2] + (theta_sinh^2*earnings_detrended[,2]^2+1)^(1/2))/theta_sinh
+head(earnings_detrended)
+
+#write.csv(earnings_detrended, file = "data/earnings_detrended_inversesign.csv")
+```
+
+### Replicate Figure 6
+
+```{r}
+
+percentiles_inte  <- read.csv("data/percentiles_mixedDist2_seasonality.csv", header = FALSE)
+percentiles_inte <- data.matrix(percentiles_inte)
+
+```
+
+
+
+```{r}
+
+## percentile for mixed distribution!!! 
+library(reldist)
+
+xmin <- 0
+xmax <- 3
+xn   <- 301
+xgrid <- seq(from = xmin, to = xmax, by = ((xmax-xmin)/(xn-1)))
+
+percentiles_mat <- matrix(0, nperiods, 5)
+gini_coef <- matrix(0, nperiods, 1)
+probMass_below1 <- matrix(0, nperiods, 1)
+
+timeidx <- 1989
+for (tt in 1:nperiods) {
+#tt=1
+  earnings_detrended_t = earnings_detrended[earnings_detrended[,1]==timeidx,2]
+
+  earnings_detrended_t_undo = 1/(2*theta_sinh)*(exp(theta_sinh*earnings_detrended_t) - exp(-theta_sinh*earnings_detrended_t))   # undo the inverse-hyperbolic transformation
+  
+  earnings_detrended_t_undo = c(rep(0,round(unrate[tt]/(1-unrate[tt])*length(earnings_detrended_t_undo))),earnings_detrended_t_undo) # zeros are added back to the data according to the unemployment rate
+  percentiles_mat[tt,] = quantile(earnings_detrended_t_undo, c(.1, .2, .5, .8, .9))
+
+  gini_coef[tt,] = gini(earnings_detrended_t_undo)
+  probMass_below1[tt,] = length(earnings_detrended_t_undo[earnings_detrended_t_undo < 1])/length(earnings_detrended_t_undo) 
+
+  
+  timeidx <- timeidx + 0.25
+}
+
+#write.csv(percentiles_mat, file = "data/percentiles_data.csv")
+#write.csv(gini_coef, file = "data/gini_coef_data.csv")
+#write.csv(probMass_below1, file = "data/probMass_below1_data.csv")
+
+```
+
+
+
+```{r}
+#png(paste(OutPath,"Compare_Data_v_Est_percentiles_80.png",sep=""))
+plot(percentiles_inte[,4], type = "l", lwd = 6,  xlab = "", ylab = "",ylim=c(1.6, 2.2), col="red", lty=2, cex.axis=2.5)
+lines(percentiles_mat[-c(1,2),4], type = "l", lwd = 6,  xlab = "", ylab = "", col="blue", lty=4, cex.axis=2.5)
+#plot(period, percentiles_inte[,4], type = "l", lwd = 6,  xlab = "", ylab = "",ylim=c(1.6, 2.2), col="red", lty=2, cex.axis=2.5)
+#lines(period, percentiles_mat[-c(1,2),4], type = "l", lwd = 6,  xlab = "", ylab = "", col="blue", lty=4, cex.axis=2.5)
+
+```
+
+```{r}
+#png(paste(OutPath,"Compare_Data_v_Est_percentiles_50.png",sep=""))
+plot(percentiles_inte[,3], type = "l", lwd = 6,  xlab = "", ylab = "",ylim=c(0.8, 1.2), col="red", lty=2, cex.axis=2.5)
+lines(percentiles_mat[-c(1,2),3], type = "l", lwd = 6,  xlab = "", ylab = "", col="blue", lty=4, cex.axis=2.5)
+
+#plot(period, percentiles_inte[,3], type = "l", lwd = 6,  xlab = "", ylab = "",ylim=c(0.8, 1.2), col="red", lty=2, cex.axis=2.5)
+#lines(period, percentiles_mat[-c(1,2),3], type = "l", lwd = 6,  xlab = "", ylab = "", col="blue", lty=4, cex.axis=2.5)
+
+```
+
+```{r}
+#png(paste(OutPath,"Compare_Data_v_Est_percentiles_20.png",sep=""))
+plot(percentiles_inte[,2], type = "l", lwd = 6,  xlab = "", ylab = "",ylim=c(0.3, 0.6), col="red", lty=2, cex.axis=2.5)
+lines(percentiles_mat[-c(1,2),2], type = "l", lwd = 6,  xlab = "", ylab = "", col="blue", lty=4, cex.axis=2.5)
+
+#plot(period, percentiles_inte[,2], type = "l", lwd = 6,  xlab = "", ylab = "",ylim=c(0.3, 0.6), col="red", lty=2, cex.axis=2.5)
+#lines(period, percentiles_mat[-c(1,2),2], type = "l", lwd = 6,  xlab = "", ylab = "", col="blue", lty=4, cex.axis=2.5)
+
+```
+
+
+
