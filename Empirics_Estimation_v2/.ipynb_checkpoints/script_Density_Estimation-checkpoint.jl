@@ -13,14 +13,14 @@ using Revise
 # include Functions
 #-------------------------------------------------------------
 #cd("$(pwd())/Dropbox/Heterogeneity/Software/Empirical_Analysis/")
-cd("$(pwd())")
+
 readDir = "$(pwd())/Empirics_Estimation_v2/Functions/"
 include(readDir *"logSpline_Procedures.jl");
 #### File: Empirics_Estimation_v2 should be added in $(pwd())
 #-------------------------------------------------------------
 # load data
 #-------------------------------------------------------------
-dataDir = "$(pwd())/Empirics_Estimation_v2/Data/"
+dataDir = "$(pwd())/Empirics_Estimation_v2/data/"
 
 unrate_data     = CSV.read(dataDir * "UNRATE_CPS_FRED.csv", DataFrame, header = true);
 earnings_data   = CSV.read(dataDir * "earnings_detrended_inversesign.csv", DataFrame, header = true);

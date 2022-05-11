@@ -6,7 +6,7 @@ conda install --yes -c conda-forge Julia
 julia -v
 julia
 
-#-using Pkg
+using Pkg
 Pkg.add("IJulia")
 using IJulia
-jupyterlab(detached=true)-#
+jupyterlab(detached=true)
