@@ -35,7 +35,7 @@ MDD (Tab 4).
 7. Graph_MDD.m: plots cuts of the MDD surface (not used).
 
 8. script_SS_Estimation.jl: estimates state-space representation
-conditional on K and lambda. 
+conditional on K and lambda. 。
 SSspec1: K=10, lambda-hat
 SSspec2: K=10, lambda2,3=1
 SSspec3: K=22, lambda-hat
