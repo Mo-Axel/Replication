@@ -1,0 +1,12 @@
+source activate
+conda create --yes -n julia
+conda activate julia
+conda env list
+conda install --yes -c conda-forge Julia
+julia -v
+julia
+
+using Pkg
+Pkg.add("IJulia")
+using IJulia
+jupyterlab(detached=true)
