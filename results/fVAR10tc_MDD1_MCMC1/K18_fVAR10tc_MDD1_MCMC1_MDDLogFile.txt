@@ -1,0 +1,1583 @@
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 0.0009118819655545162 
+Hyperparameter lambda3 = 0.0009118819655545162 
+lnpYY = -5259.295359057665 
+Rel. Marginal data density  = 0.0 
+Elapsed time           = 57.281742794 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 0.0009118819655545162 
+Hyperparameter lambda3 = 0.0038659201394728076 
+lnpYY = -5220.295320775227 
+Rel. Marginal data density  = 39.00003821612336 
+Elapsed time           = 56.505637064 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 0.0009118819655545162 
+Hyperparameter lambda3 = 0.016389553790213604 
+lnpYY = -5181.29525522754 
+Rel. Marginal data density  = 78.00010050600395 
+Elapsed time           = 55.77596651 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 0.0009118819655545162 
+Hyperparameter lambda3 = 0.06948345122280154 
+lnpYY = -5142.295176548462 
+Rel. Marginal data density  = 117.00015924242325 
+Elapsed time           = 55.808882239 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 0.0009118819655545162 
+Hyperparameter lambda3 = 0.29457482831010734 
+lnpYY = -5103.295253159569 
+Rel. Marginal data density  = 155.99998546228744 
+Elapsed time           = 56.222966501 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 0.0009118819655545162 
+Hyperparameter lambda3 = 1.2488488690016821 
+lnpYY = -5064.296422439663 
+Rel. Marginal data density  = 194.9983782907948 
+Elapsed time           = 55.842237671 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 0.0009118819655545162 
+Hyperparameter lambda3 = 5.29449005047003 
+lnpYY = -5025.303117312645 
+Rel. Marginal data density  = 233.9897747100331 
+Elapsed time           = 55.854760213 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 0.0009118819655545162 
+Hyperparameter lambda3 = 22.445970517581 
+lnpYY = -4986.335058089497 
+Rel. Marginal data density  = 272.94965775636956 
+Elapsed time           = 56.357307985 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 0.0009118819655545162 
+Hyperparameter lambda3 = 95.1596070015067 
+lnpYY = -4947.477432347655 
+Rel. Marginal data density  = 311.7728826513048 
+Elapsed time           = 56.148194838 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 0.0009118819655545162 
+Hyperparameter lambda3 = 403.4287934927351 
+lnpYY = -4907.561646955606 
+Rel. Marginal data density  = 351.5506929771509 
+Elapsed time           = 56.182528336 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 0.0038659201394728076 
+Hyperparameter lambda3 = 0.0009118819655545162 
+lnpYY = -5220.295333586176 
+Rel. Marginal data density  = 39.00002852734178 
+Elapsed time           = 56.537551108 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 0.0038659201394728076 
+Hyperparameter lambda3 = 0.0038659201394728076 
+lnpYY = -5181.295295303875 
+Rel. Marginal data density  = 78.00006674346514 
+Elapsed time           = 57.190653431 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 0.0038659201394728076 
+Hyperparameter lambda3 = 0.016389553790213604 
+lnpYY = -5142.295229756404 
+Rel. Marginal data density  = 117.00012903288007 
+Elapsed time           = 56.061631796 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 0.0038659201394728076 
+Hyperparameter lambda3 = 0.06948345122280154 
+lnpYY = -5103.295151077764 
+Rel. Marginal data density  = 156.0001877688337 
+Elapsed time           = 56.080815277 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 0.0038659201394728076 
+Hyperparameter lambda3 = 0.29457482831010734 
+lnpYY = -5064.295227689951 
+Rel. Marginal data density  = 195.00001398753375 
+Elapsed time           = 56.33257962 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 0.0038659201394728076 
+Hyperparameter lambda3 = 1.2488488690016821 
+lnpYY = -5025.29639697188 
+Rel. Marginal data density  = 233.9984068137128 
+Elapsed time           = 56.002663641 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 0.0038659201394728076 
+Hyperparameter lambda3 = 5.29449005047003 
+lnpYY = -4986.303091848856 
+Rel. Marginal data density  = 272.9898032285273 
+Elapsed time           = 55.994020923 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 0.0038659201394728076 
+Hyperparameter lambda3 = 22.445970517581 
+lnpYY = -4947.335032633497 
+Rel. Marginal data density  = 311.94968626555055 
+Elapsed time           = 56.348362536 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 0.0038659201394728076 
+Hyperparameter lambda3 = 95.1596070015067 
+lnpYY = -4908.477406907318 
+Rel. Marginal data density  = 350.77291114185937 
+Elapsed time           = 56.017265392 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 0.0038659201394728076 
+Hyperparameter lambda3 = 403.4287934927351 
+lnpYY = -4868.561626127625 
+Rel. Marginal data density  = 390.5507168509066 
+Elapsed time           = 56.013357407 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 0.016389553790213604 
+Hyperparameter lambda3 = 0.0009118819655545162 
+lnpYY = -5181.295288059639 
+Rel. Marginal data density  = 78.0000797950197 
+Elapsed time           = 56.381405795 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 0.016389553790213604 
+Hyperparameter lambda3 = 0.0038659201394728076 
+lnpYY = -5142.295249777525 
+Rel. Marginal data density  = 117.00011801091023 
+Elapsed time           = 55.969351055 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 0.016389553790213604 
+Hyperparameter lambda3 = 0.016389553790213604 
+lnpYY = -5103.295184230503 
+Rel. Marginal data density  = 156.0001802998595 
+Elapsed time           = 55.998201248 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 0.016389553790213604 
+Hyperparameter lambda3 = 0.06948345122280154 
+lnpYY = -5064.295105552749 
+Rel. Marginal data density  = 195.00023903488182 
+Elapsed time           = 56.263207182 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 0.016389553790213604 
+Hyperparameter lambda3 = 0.29457482831010734 
+lnpYY = -5025.295182166816 
+Rel. Marginal data density  = 234.00006525125355 
+Elapsed time           = 56.357687375 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 0.016389553790213604 
+Hyperparameter lambda3 = 1.2488488690016821 
+lnpYY = -4986.29635145264 
+Rel. Marginal data density  = 272.9984580730088 
+Elapsed time           = 58.082665038 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 0.016389553790213604 
+Hyperparameter lambda3 = 5.29449005047003 
+lnpYY = -4947.303046337436 
+Rel. Marginal data density  = 311.9898544785101 
+Elapsed time           = 57.771644973 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 0.016389553790213604 
+Hyperparameter lambda3 = 22.445970517581 
+lnpYY = -4908.334987137478 
+Rel. Marginal data density  = 350.9497374976054 
+Elapsed time           = 58.240542035 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 0.016389553790213604 
+Hyperparameter lambda3 = 95.1596070015067 
+lnpYY = -4869.477361443279 
+Rel. Marginal data density  = 389.77296233642846 
+Elapsed time           = 57.754848797 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 0.016389553790213604 
+Hyperparameter lambda3 = 403.4287934927351 
+lnpYY = -4829.56158994266 
+Rel. Marginal data density  = 429.5507587585598 
+Elapsed time           = 57.962146978 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 0.06948345122280154 
+Hyperparameter lambda3 = 0.0009118819655545162 
+lnpYY = -5142.295223654967 
+Rel. Marginal data density  = 117.00015368568711 
+Elapsed time           = 58.602722176 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 0.06948345122280154 
+Hyperparameter lambda3 = 0.0038659201394728076 
+lnpYY = -5103.295185373289 
+Rel. Marginal data density  = 156.00019190111198 
+Elapsed time           = 59.624428853 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 0.06948345122280154 
+Hyperparameter lambda3 = 0.016389553790213604 
+lnpYY = -5064.295119827076 
+Rel. Marginal data density  = 195.00025418912992 
+Elapsed time           = 57.679685538 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 0.06948345122280154 
+Hyperparameter lambda3 = 0.06948345122280154 
+lnpYY = -5025.295041150972 
+Rel. Marginal data density  = 234.00031292205676 
+Elapsed time           = 58.183515655 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 0.06948345122280154 
+Hyperparameter lambda3 = 0.29457482831010734 
+lnpYY = -4986.295117768392 
+Rel. Marginal data density  = 273.0001391347032 
+Elapsed time           = 59.586512072 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 0.06948345122280154 
+Hyperparameter lambda3 = 1.2488488690016821 
+lnpYY = -4947.296287061406 
+Rel. Marginal data density  = 311.99853194807656 
+Elapsed time           = 58.840802157 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 0.06948345122280154 
+Hyperparameter lambda3 = 5.29449005047003 
+lnpYY = -4908.3029819605135 
+Rel. Marginal data density  = 350.98992833681405 
+Elapsed time           = 58.647445307 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 0.06948345122280154 
+Hyperparameter lambda3 = 22.445970517581 
+lnpYY = -4869.334922790392 
+Rel. Marginal data density  = 389.94981132121757 
+Elapsed time           = 56.014810767 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 0.06948345122280154 
+Hyperparameter lambda3 = 95.1596070015067 
+lnpYY = -4830.477297159576 
+Rel. Marginal data density  = 428.7730360873975 
+Elapsed time           = 55.993938666 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 0.06948345122280154 
+Hyperparameter lambda3 = 403.4287934927351 
+lnpYY = -4790.561543841929 
+Rel. Marginal data density  = 468.5508143163752 
+Elapsed time           = 56.440141411 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 0.29457482831010734 
+Hyperparameter lambda3 = 0.0009118819655545162 
+lnpYY = -5103.295215411595 
+Rel. Marginal data density  = 156.00017156056128 
+Elapsed time           = 55.992739925 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 0.29457482831010734 
+Hyperparameter lambda3 = 0.0038659201394728076 
+lnpYY = -5064.295177130409 
+Rel. Marginal data density  = 195.0002097755205 
+Elapsed time           = 55.956472011 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 0.29457482831010734 
+Hyperparameter lambda3 = 0.016389553790213604 
+lnpYY = -5025.295111585472 
+Rel. Marginal data density  = 234.00027206190862 
+Elapsed time           = 56.484779766 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 0.29457482831010734 
+Hyperparameter lambda3 = 0.06948345122280154 
+lnpYY = -4986.295032911899 
+Rel. Marginal data density  = 273.0003307920415 
+Elapsed time           = 55.997903191 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 0.29457482831010734 
+Hyperparameter lambda3 = 0.29457482831010734 
+lnpYY = -4947.295109534731 
+Rel. Marginal data density  = 312.0001569981687 
+Elapsed time           = 55.926573663 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 0.29457482831010734 
+Hyperparameter lambda3 = 1.2488488690016821 
+lnpYY = -4908.296278838759 
+Rel. Marginal data density  = 350.99854979873635 
+Elapsed time           = 56.563001093 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 0.29457482831010734 
+Hyperparameter lambda3 = 5.29449005047003 
+lnpYY = -4869.30297376143 
+Rel. Marginal data density  = 389.9899461604655 
+Elapsed time           = 55.980816214 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 0.29457482831010734 
+Hyperparameter lambda3 = 22.445970517581 
+lnpYY = -4830.334914642655 
+Rel. Marginal data density  = 428.94982908689417 
+Elapsed time           = 55.94647407 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 0.29457482831010734 
+Hyperparameter lambda3 = 95.1596070015067 
+lnpYY = -4791.4772891331795 
+Rel. Marginal data density  = 467.7730537217576 
+Elapsed time           = 55.98398859 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 0.29457482831010734 
+Hyperparameter lambda3 = 403.4287934927351 
+lnpYY = -4751.561569340694 
+Rel. Marginal data density  = 507.55079842801206 
+Elapsed time           = 56.552729012 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 1.2488488690016821 
+Hyperparameter lambda3 = 0.0009118819655545162 
+lnpYY = -5064.295725693785 
+Rel. Marginal data density  = 194.99963913904503 
+Elapsed time           = 55.96612388 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 1.2488488690016821 
+Hyperparameter lambda3 = 0.0038659201394728076 
+lnpYY = -5025.295687412996 
+Rel. Marginal data density  = 233.99967735330574 
+Elapsed time           = 55.99592675 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 1.2488488690016821 
+Hyperparameter lambda3 = 0.016389553790213604 
+lnpYY = -4986.295621868846 
+Rel. Marginal data density  = 272.99973963876255 
+Elapsed time           = 56.398720552 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 1.2488488690016821 
+Hyperparameter lambda3 = 0.06948345122280154 
+lnpYY = -4947.295543197102 
+Rel. Marginal data density  = 311.99979836679995 
+Elapsed time           = 55.983774156 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 1.2488488690016821 
+Hyperparameter lambda3 = 0.29457482831010734 
+lnpYY = -4908.295619823449 
+Rel. Marginal data density  = 350.9996245687362 
+Elapsed time           = 55.983395272 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 1.2488488690016821 
+Hyperparameter lambda3 = 1.2488488690016821 
+lnpYY = -4869.296789136038 
+Rel. Marginal data density  = 389.99801735952497 
+Elapsed time           = 56.449843477 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 1.2488488690016821 
+Hyperparameter lambda3 = 5.29449005047003 
+lnpYY = -4830.303484080409 
+Rel. Marginal data density  = 428.98941369797103 
+Elapsed time           = 55.91125117 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 1.2488488690016821 
+Hyperparameter lambda3 = 22.445970517581 
+lnpYY = -4791.335425024369 
+Rel. Marginal data density  = 467.9492965617683 
+Elapsed time           = 55.952247385 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 1.2488488690016821 
+Hyperparameter lambda3 = 95.1596070015067 
+lnpYY = -4752.477799726007 
+Rel. Marginal data density  = 506.77252100175247 
+Elapsed time           = 56.378520458 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 1.2488488690016821 
+Hyperparameter lambda3 = 403.4287934927351 
+lnpYY = -4712.562132363632 
+Rel. Marginal data density  = 546.5502133837435 
+Elapsed time           = 55.96182285 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 5.29449005047003 
+Hyperparameter lambda3 = 0.0009118819655545162 
+lnpYY = -5025.299011542344 
+Rel. Marginal data density  = 233.9961298336275 
+Elapsed time           = 55.802343021 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 5.29449005047003 
+Hyperparameter lambda3 = 0.0038659201394728076 
+lnpYY = -4986.298973258612 
+Rel. Marginal data density  = 272.99616805138066 
+Elapsed time           = 56.119250465 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 5.29449005047003 
+Hyperparameter lambda3 = 0.016389553790213604 
+lnpYY = -4947.298907708501 
+Rel. Marginal data density  = 311.99623034358956 
+Elapsed time           = 55.876596902 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 5.29449005047003 
+Hyperparameter lambda3 = 0.06948345122280154 
+lnpYY = -4908.298829024529 
+Rel. Marginal data density  = 350.99628908536397 
+Elapsed time           = 55.784185854 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 5.29449005047003 
+Hyperparameter lambda3 = 0.29457482831010734 
+lnpYY = -4869.298905627251 
+Rel. Marginal data density  = 389.9961153145414 
+Elapsed time           = 55.845078182 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 5.29449005047003 
+Hyperparameter lambda3 = 1.2488488690016821 
+lnpYY = -4830.300074895933 
+Rel. Marginal data density  = 428.99450815748423 
+Elapsed time           = 56.529611151 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 5.29449005047003 
+Hyperparameter lambda3 = 5.29449005047003 
+lnpYY = -4791.306769771625 
+Rel. Marginal data density  = 467.9859045855701 
+Elapsed time           = 55.915350658 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 5.29449005047003 
+Hyperparameter lambda3 = 22.445970517581 
+lnpYY = -4752.338710665145 
+Rel. Marginal data density  = 506.94578755972907 
+Elapsed time           = 55.880506237 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 5.29449005047003 
+Hyperparameter lambda3 = 95.1596070015067 
+lnpYY = -4713.481085636091 
+Rel. Marginal data density  = 545.7690119210165 
+Elapsed time           = 56.229055332 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 5.29449005047003 
+Hyperparameter lambda3 = 403.4287934927351 
+lnpYY = -4673.565455893324 
+Rel. Marginal data density  = 585.5466673278715 
+Elapsed time           = 55.884883881 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 22.445970517581 
+Hyperparameter lambda3 = 0.0009118819655545162 
+lnpYY = -4986.315248787875 
+Rel. Marginal data density  = 272.9786801075097 
+Elapsed time           = 55.847986727 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 22.445970517581 
+Hyperparameter lambda3 = 0.0038659201394728076 
+lnpYY = -4947.315210482234 
+Rel. Marginal data density  = 311.97871835017577 
+Elapsed time           = 56.211685707 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 22.445970517581 
+Hyperparameter lambda3 = 0.016389553790213604 
+lnpYY = -4908.315144887556 
+Rel. Marginal data density  = 350.9787806933746 
+Elapsed time           = 55.833071 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 22.445970517581 
+Hyperparameter lambda3 = 0.06948345122280154 
+lnpYY = -4869.315066113017 
+Rel. Marginal data density  = 389.97883953899145 
+Elapsed time           = 55.845349082 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 22.445970517581 
+Hyperparameter lambda3 = 0.29457482831010734 
+lnpYY = -4830.315142534856 
+Rel. Marginal data density  = 428.9786659774836 
+Elapsed time           = 56.35786735 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 22.445970517581 
+Hyperparameter lambda3 = 1.2488488690016821 
+lnpYY = -4791.316311454239 
+Rel. Marginal data density  = 467.97705923207104 
+Elapsed time           = 55.862927329 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 22.445970517581 
+Hyperparameter lambda3 = 5.29449005047003 
+lnpYY = -4752.323005709293 
+Rel. Marginal data density  = 506.9684564266354 
+Elapsed time           = 55.899648228 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 22.445970517581 
+Hyperparameter lambda3 = 22.445970517581 
+lnpYY = -4713.354945741838 
+Rel. Marginal data density  = 545.9283406345639 
+Elapsed time           = 55.85498338 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 22.445970517581 
+Hyperparameter lambda3 = 95.1596070015067 
+lnpYY = -4674.497320588181 
+Rel. Marginal data density  = 584.751566178631 
+Elapsed time           = 56.519007445 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 22.445970517581 
+Hyperparameter lambda3 = 403.4287934927351 
+lnpYY = -4634.5814721561665 
+Rel. Marginal data density  = 624.5294434032403 
+Elapsed time           = 55.899512591 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 95.1596070015067 
+Hyperparameter lambda3 = 0.0009118819655545162 
+lnpYY = -4947.388739733034 
+Rel. Marginal data density  = 311.8995379325934 
+Elapsed time           = 55.779822132 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 95.1596070015067 
+Hyperparameter lambda3 = 0.0038659201394728076 
+lnpYY = -4908.38870131646 
+Rel. Marginal data density  = 350.89957630168647 
+Elapsed time           = 56.19788866 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 95.1596070015067 
+Hyperparameter lambda3 = 0.016389553790213604 
+lnpYY = -4869.388635494303 
+Rel. Marginal data density  = 389.89963890518993 
+Elapsed time           = 55.844697453 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 95.1596070015067 
+Hyperparameter lambda3 = 0.06948345122280154 
+lnpYY = -4830.3885562575 
+Rel. Marginal data density  = 428.89969828142785 
+Elapsed time           = 55.822972389 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 95.1596070015067 
+Hyperparameter lambda3 = 0.29457482831010734 
+lnpYY = -4791.388631751943 
+Rel. Marginal data density  = 467.89952579233795 
+Elapsed time           = 56.232564471 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 95.1596070015067 
+Hyperparameter lambda3 = 1.2488488690016821 
+lnpYY = -4752.389798866281 
+Rel. Marginal data density  = 506.8979211682454 
+Elapsed time           = 55.886320344 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 95.1596070015067 
+Hyperparameter lambda3 = 5.29449005047003 
+lnpYY = -4713.396489850608 
+Rel. Marginal data density  = 545.8893223595805 
+Elapsed time           = 55.836901961 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 95.1596070015067 
+Hyperparameter lambda3 = 22.445970517581 
+lnpYY = -4674.428425026569 
+Rel. Marginal data density  = 584.8492132320534 
+Elapsed time           = 56.260220128 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 95.1596070015067 
+Hyperparameter lambda3 = 95.1596070015067 
+lnpYY = -4635.570797199719 
+Rel. Marginal data density  = 623.672446401557 
+Elapsed time           = 55.940040223 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 95.1596070015067 
+Hyperparameter lambda3 = 403.4287934927351 
+lnpYY = -4595.653291177899 
+Rel. Marginal data density  = 663.4519951869734 
+Elapsed time           = 55.913510968 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 403.4287934927351 
+Hyperparameter lambda3 = 0.0009118819655545162 
+lnpYY = -4908.707989913154 
+Rel. Marginal data density  = 350.55592194083147 
+Elapsed time           = 56.272599494 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 403.4287934927351 
+Hyperparameter lambda3 = 0.0038659201394728076 
+lnpYY = -4869.707950996308 
+Rel. Marginal data density  = 389.55596087896265 
+Elapsed time           = 55.896506154 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 403.4287934927351 
+Hyperparameter lambda3 = 0.016389553790213604 
+lnpYY = -4830.707884150557 
+Rel. Marginal data density  = 428.5560246480163 
+Elapsed time           = 55.82593593 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 403.4287934927351 
+Hyperparameter lambda3 = 0.06948345122280154 
+lnpYY = -4791.707802834055 
+Rel. Marginal data density  = 467.5560864007566 
+Elapsed time           = 55.87446366 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 403.4287934927351 
+Hyperparameter lambda3 = 0.29457482831010734 
+lnpYY = -4752.707874165016 
+Rel. Marginal data density  = 506.5559187035542 
+Elapsed time           = 56.304079991 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 403.4287934927351 
+Hyperparameter lambda3 = 1.2488488690016821 
+lnpYY = -4713.709033211327 
+Rel. Marginal data density  = 545.5543235160876 
+Elapsed time           = 55.920390757 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 403.4287934927351 
+Hyperparameter lambda3 = 5.29449005047003 
+lnpYY = -4674.71570973135 
+Rel. Marginal data density  = 584.5457423038315 
+Elapsed time           = 55.956418443 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 403.4287934927351 
+Hyperparameter lambda3 = 22.445970517581 
+lnpYY = -4634.076558517779 
+Rel. Marginal data density  = 625.1767273244914 
+Elapsed time           = 56.279299187 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 403.4287934927351 
+Hyperparameter lambda3 = 95.1596070015067 
+lnpYY = -4595.244869695803 
+Rel. Marginal data density  = 663.9740425911732 
+Elapsed time           = 55.849557577 
+================================= 
+Hyperparameter lambda1 = 0.0009118819655545162 
+Hyperparameter lambda2 = 403.4287934927351 
+Hyperparameter lambda3 = 403.4287934927351 
+lnpYY = -4556.964862448344 
+Rel. Marginal data density  = 702.1161512902472 
+Elapsed time           = 58.010663635 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 0.0009118819655545162 
+Hyperparameter lambda3 = 0.0009118819655545162 
+lnpYY = -4940.909826067578 
+Rel. Marginal data density  = 318.38159809214994 
+Elapsed time           = 56.491789702 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 0.0009118819655545162 
+Hyperparameter lambda3 = 0.0038659201394728076 
+lnpYY = -4901.909664024607 
+Rel. Marginal data density  = 357.3817597569432 
+Elapsed time           = 55.954185946 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 0.0009118819655545162 
+Hyperparameter lambda3 = 0.016389553790213604 
+lnpYY = -4862.909386597947 
+Rel. Marginal data density  = 396.382023191778 
+Elapsed time           = 55.962187387 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 0.0009118819655545162 
+Hyperparameter lambda3 = 0.06948345122280154 
+lnpYY = -4823.909053719716 
+Rel. Marginal data density  = 435.3822712399997 
+Elapsed time           = 56.655436189 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 0.0009118819655545162 
+Hyperparameter lambda3 = 0.29457482831010734 
+lnpYY = -4784.909378732344 
+Rel. Marginal data density  = 474.38153407000937 
+Elapsed time           = 55.955577061 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 0.0009118819655545162 
+Hyperparameter lambda3 = 1.2488488690016821 
+lnpYY = -4745.914330547738 
+Rel. Marginal data density  = 513.3747275979258 
+Elapsed time           = 55.945327501 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 0.0009118819655545162 
+Hyperparameter lambda3 = 5.29449005047003 
+lnpYY = -4706.942663051329 
+Rel. Marginal data density  = 552.3383318642154 
+Elapsed time           = 56.452577964 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 0.0009118819655545162 
+Hyperparameter lambda3 = 22.445970517581 
+lnpYY = -4668.077533562205 
+Rel. Marginal data density  = 591.1692758377176 
+Elapsed time           = 55.981954974 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 0.0009118819655545162 
+Hyperparameter lambda3 = 95.1596070015067 
+lnpYY = -4628.136352321591 
+Rel. Marginal data density  = 630.9726761919446 
+Elapsed time           = 55.996901399 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 0.0009118819655545162 
+Hyperparameter lambda3 = 403.4287934927351 
+lnpYY = -4591.9620260077645 
+Rel. Marginal data density  = 666.6736269704998 
+Elapsed time           = 56.807286752 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 0.0038659201394728076 
+Hyperparameter lambda3 = 0.0009118819655545162 
+lnpYY = -4901.909718095124 
+Rel. Marginal data density  = 357.3817190169357 
+Elapsed time           = 56.329683597 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 0.0038659201394728076 
+Hyperparameter lambda3 = 0.0038659201394728076 
+lnpYY = -4862.909556054148 
+Rel. Marginal data density  = 396.38188067940064 
+Elapsed time           = 56.004431281 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 0.0038659201394728076 
+Hyperparameter lambda3 = 0.016389553790213604 
+lnpYY = -4823.909278631556 
+Rel. Marginal data density  = 435.3821441095788 
+Elapsed time           = 55.932053369 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 0.0038659201394728076 
+Hyperparameter lambda3 = 0.06948345122280154 
+lnpYY = -4784.9089457617165 
+Rel. Marginal data density  = 474.3823921477888 
+Elapsed time           = 56.305026941 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 0.0038659201394728076 
+Hyperparameter lambda3 = 0.29457482831010734 
+lnpYY = -4745.909270791488 
+Rel. Marginal data density  = 513.381654957775 
+Elapsed time           = 55.952124561 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 0.0038659201394728076 
+Hyperparameter lambda3 = 1.2488488690016821 
+lnpYY = -4706.914222641912 
+Rel. Marginal data density  = 552.3748484449461 
+Elapsed time           = 55.983778046 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 0.0038659201394728076 
+Hyperparameter lambda3 = 5.29449005047003 
+lnpYY = -4667.942555216101 
+Rel. Marginal data density  = 591.3384526285809 
+Elapsed time           = 56.334369033 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 0.0038659201394728076 
+Hyperparameter lambda3 = 22.445970517581 
+lnpYY = -4629.077425868264 
+Rel. Marginal data density  = 630.1693964363076 
+Elapsed time           = 56.00287159 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 0.0038659201394728076 
+Hyperparameter lambda3 = 95.1596070015067 
+lnpYY = -4589.136264068406 
+Rel. Marginal data density  = 669.972777306335 
+Elapsed time           = 56.028556162 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 0.0038659201394728076 
+Hyperparameter lambda3 = 403.4287934927351 
+lnpYY = -4552.961936568323 
+Rel. Marginal data density  = 705.6737292599864 
+Elapsed time           = 56.379787246 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 0.016389553790213604 
+Hyperparameter lambda3 = 0.0009118819655545162 
+lnpYY = -4862.909525114531 
+Rel. Marginal data density  = 396.3819363322109 
+Elapsed time           = 55.994325591 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 0.016389553790213604 
+Hyperparameter lambda3 = 0.0038659201394728076 
+lnpYY = -4823.909363077467 
+Rel. Marginal data density  = 435.3820979902521 
+Elapsed time           = 56.023490761 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 0.016389553790213604 
+Hyperparameter lambda3 = 0.016389553790213604 
+lnpYY = -4784.909085662915 
+Rel. Marginal data density  = 474.3823614108842 
+Elapsed time           = 56.356679355 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 0.016389553790213604 
+Hyperparameter lambda3 = 0.06948345122280154 
+lnpYY = -4745.90875280927 
+Rel. Marginal data density  = 513.3826094304677 
+Elapsed time           = 56.05128304 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 0.016389553790213604 
+Hyperparameter lambda3 = 0.29457482831010734 
+lnpYY = -4706.909077872653 
+Rel. Marginal data density  = 552.3818722013384 
+Elapsed time           = 56.037615118 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 0.016389553790213604 
+Hyperparameter lambda3 = 1.2488488690016821 
+lnpYY = -4667.914029791787 
+Rel. Marginal data density  = 591.3750656084158 
+Elapsed time           = 55.99990672 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 0.016389553790213604 
+Hyperparameter lambda3 = 5.29449005047003 
+lnpYY = -4628.942362505315 
+Rel. Marginal data density  = 630.338669629069 
+Elapsed time           = 56.429554454 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 0.016389553790213604 
+Hyperparameter lambda3 = 22.445970517581 
+lnpYY = -4590.077233438404 
+Rel. Marginal data density  = 669.1696131085046 
+Elapsed time           = 56.0050436 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 0.016389553790213604 
+Hyperparameter lambda3 = 95.1596070015067 
+lnpYY = -4550.13611076034 
+Rel. Marginal data density  = 708.9729547754396 
+Elapsed time           = 55.948931869 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 0.016389553790213604 
+Hyperparameter lambda3 = 403.4287934927351 
+lnpYY = -4513.961780775869 
+Rel. Marginal data density  = 744.6739092057105 
+Elapsed time           = 56.399901039 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 0.06948345122280154 
+Hyperparameter lambda3 = 0.0009118819655545162 
+lnpYY = -4823.909252137974 
+Rel. Marginal data density  = 435.38224951853044 
+Elapsed time           = 56.067094274 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 0.06948345122280154 
+Hyperparameter lambda3 = 0.0038659201394728076 
+lnpYY = -4784.909090108028 
+Rel. Marginal data density  = 474.3824111681897 
+Elapsed time           = 56.01330787 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 0.06948345122280154 
+Hyperparameter lambda3 = 0.016389553790213604 
+lnpYY = -4745.908812707997 
+Rel. Marginal data density  = 513.3826745718252 
+Elapsed time           = 56.412581766 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 0.06948345122280154 
+Hyperparameter lambda3 = 0.06948345122280154 
+lnpYY = -4706.908479884496 
+Rel. Marginal data density  = 552.3829225562513 
+Elapsed time           = 55.989982157 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 0.06948345122280154 
+Hyperparameter lambda3 = 0.29457482831010734 
+lnpYY = -4667.90880500965 
+Rel. Marginal data density  = 591.3821852551773 
+Elapsed time           = 55.938152409 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 0.06948345122280154 
+Hyperparameter lambda3 = 1.2488488690016821 
+lnpYY = -4628.913757055859 
+Rel. Marginal data density  = 630.3753785139415 
+Elapsed time           = 56.457522461 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 0.06948345122280154 
+Hyperparameter lambda3 = 5.29449005047003 
+lnpYY = -4589.942090029327 
+Rel. Marginal data density  = 669.3389822321478 
+Elapsed time           = 56.020389562 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 0.06948345122280154 
+Hyperparameter lambda3 = 22.445970517581 
+lnpYY = -4551.076961497933 
+Rel. Marginal data density  = 708.169925092021 
+Elapsed time           = 56.000492982 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 0.06948345122280154 
+Hyperparameter lambda3 = 95.1596070015067 
+lnpYY = -4511.135915525501 
+Rel. Marginal data density  = 747.9731899192557 
+Elapsed time           = 56.257133594 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 0.06948345122280154 
+Hyperparameter lambda3 = 403.4287934927351 
+lnpYY = -4474.9615802477 
+Rel. Marginal data density  = 783.674149694154 
+Elapsed time           = 56.122997791 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 0.29457482831010734 
+Hyperparameter lambda3 = 0.0009118819655545162 
+lnpYY = -4784.909217383885 
+Rel. Marginal data density  = 474.3823251039721 
+Elapsed time           = 55.933982668 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 0.29457482831010734 
+Hyperparameter lambda3 = 0.0038659201394728076 
+lnpYY = -4745.909055364832 
+Rel. Marginal data density  = 513.3824867408257 
+Elapsed time           = 55.977846392 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 0.29457482831010734 
+Hyperparameter lambda3 = 0.016389553790213604 
+lnpYY = -4706.908777987241 
+Rel. Marginal data density  = 552.3827501183841 
+Elapsed time           = 56.53028892 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 0.29457482831010734 
+Hyperparameter lambda3 = 0.06948345122280154 
+lnpYY = -4667.908445210106 
+Rel. Marginal data density  = 591.3829980483279 
+Elapsed time           = 56.037413497 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 0.29457482831010734 
+Hyperparameter lambda3 = 0.29457482831010734 
+lnpYY = -4628.9087704313515 
+Rel. Marginal data density  = 630.3822606350295 
+Elapsed time           = 56.045657819 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 0.29457482831010734 
+Hyperparameter lambda3 = 1.2488488690016821 
+lnpYY = -4589.913722677613 
+Rel. Marginal data density  = 669.3754536614288 
+Elapsed time           = 56.434365245 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 0.29457482831010734 
+Hyperparameter lambda3 = 5.29449005047003 
+lnpYY = -4550.942056073166 
+Rel. Marginal data density  = 708.3390568939503 
+Elapsed time           = 55.998337695 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 0.29457482831010734 
+Hyperparameter lambda3 = 22.445970517581 
+lnpYY = -4512.076928463871 
+Rel. Marginal data density  = 747.1699987167958 
+Elapsed time           = 56.000964858 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 0.29457482831010734 
+Hyperparameter lambda3 = 95.1596070015067 
+lnpYY = -4472.136024094594 
+Rel. Marginal data density  = 786.9731218065135 
+Elapsed time           = 56.413209069 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 0.29457482831010734 
+Hyperparameter lambda3 = 403.4287934927351 
+lnpYY = -4435.961677164647 
+Rel. Marginal data density  = 822.6740936222486 
+Elapsed time           = 56.011929469 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 1.2488488690016821 
+Hyperparameter lambda3 = 0.0009118819655545162 
+lnpYY = -4745.911381456258 
+Rel. Marginal data density  = 513.3800672159996 
+Elapsed time           = 56.05031884 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 1.2488488690016821 
+Hyperparameter lambda3 = 0.0038659201394728076 
+lnpYY = -4706.9112194438085 
+Rel. Marginal data density  = 552.3802288447041 
+Elapsed time           = 56.427854702 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 1.2488488690016821 
+Hyperparameter lambda3 = 0.016389553790213604 
+lnpYY = -4667.910942080234 
+Rel. Marginal data density  = 591.3804922050331 
+Elapsed time           = 55.989693544 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 1.2488488690016821 
+Hyperparameter lambda3 = 0.06948345122280154 
+lnpYY = -4628.910609332972 
+Rel. Marginal data density  = 630.3807400991209 
+Elapsed time           = 56.004666204 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 1.2488488690016821 
+Hyperparameter lambda3 = 0.29457482831010734 
+lnpYY = -4589.9109346196965 
+Rel. Marginal data density  = 669.3800026080571 
+Elapsed time           = 56.140987821 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 1.2488488690016821 
+Hyperparameter lambda3 = 1.2488488690016821 
+lnpYY = -4550.91588701844 
+Rel. Marginal data density  = 708.3731954607647 
+Elapsed time           = 56.264834621 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 1.2488488690016821 
+Hyperparameter lambda3 = 5.29449005047003 
+lnpYY = -4511.944220801656 
+Rel. Marginal data density  = 747.3367982776836 
+Elapsed time           = 56.090456492 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 1.2488488690016821 
+Hyperparameter lambda3 = 22.445970517581 
+lnpYY = -4473.079094322905 
+Rel. Marginal data density  = 786.167738978751 
+Elapsed time           = 56.053967058 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 1.2488488690016821 
+Hyperparameter lambda3 = 95.1596070015067 
+lnpYY = -4433.138412139688 
+Rel. Marginal data density  = 825.9706402071752 
+Elapsed time           = 56.379467541 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 1.2488488690016821 
+Hyperparameter lambda3 = 403.4287934927351 
+lnpYY = -4396.9640380330275 
+Rel. Marginal data density  = 861.671641199151 
+Elapsed time           = 56.047806165 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 5.29449005047003 
+Hyperparameter lambda3 = 0.0009118819655545162 
+lnpYY = -4706.925313016303 
+Rel. Marginal data density  = 552.3651895020157 
+Elapsed time           = 55.962893604 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 5.29449005047003 
+Hyperparameter lambda3 = 0.0038659201394728076 
+lnpYY = -4667.925150951102 
+Rel. Marginal data density  = 591.365351190092 
+Elapsed time           = 56.258838015 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 5.29449005047003 
+Hyperparameter lambda3 = 0.016389553790213604 
+lnpYY = -4628.924873480003 
+Rel. Marginal data density  = 630.3656146717258 
+Elapsed time           = 55.909563018 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 5.29449005047003 
+Hyperparameter lambda3 = 0.06948345122280154 
+lnpYY = -4589.924540515976 
+Rel. Marginal data density  = 669.3658628119156 
+Elapsed time           = 55.881230008 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 5.29449005047003 
+Hyperparameter lambda3 = 0.29457482831010734 
+lnpYY = -4550.924865377379 
+Rel. Marginal data density  = 708.3651258109603 
+Elapsed time           = 56.423310307 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 5.29449005047003 
+Hyperparameter lambda3 = 1.2488488690016821 
+lnpYY = -4511.929816988795 
+Rel. Marginal data density  = 747.3583196005784 
+Elapsed time           = 55.940472187 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 5.29449005047003 
+Hyperparameter lambda3 = 5.29449005047003 
+lnpYY = -4472.958149534837 
+Rel. Marginal data density  = 786.3219240312465 
+Elapsed time           = 55.948888354 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 5.29449005047003 
+Hyperparameter lambda3 = 22.445970517581 
+lnpYY = -4434.0930221380295 
+Rel. Marginal data density  = 825.1528667076491 
+Elapsed time           = 56.285117 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 5.29449005047003 
+Hyperparameter lambda3 = 95.1596070015067 
+lnpYY = -4394.152503927048 
+Rel. Marginal data density  = 864.9556071774568 
+Elapsed time           = 55.891929339 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 5.29449005047003 
+Hyperparameter lambda3 = 403.4287934927351 
+lnpYY = -4357.978060444374 
+Rel. Marginal data density  = 900.6566867358051 
+Elapsed time           = 55.922784002 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 22.445970517581 
+Hyperparameter lambda3 = 0.0009118819655545162 
+lnpYY = -4667.994092100268 
+Rel. Marginal data density  = 591.2913003927097 
+Elapsed time           = 55.788777425 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 22.445970517581 
+Hyperparameter lambda3 = 0.0038659201394728076 
+lnpYY = -4628.993929645555 
+Rel. Marginal data density  = 630.291462524794 
+Elapsed time           = 56.225911478 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 22.445970517581 
+Hyperparameter lambda3 = 0.016389553790213604 
+lnpYY = -4589.993651377797 
+Rel. Marginal data density  = 669.2917269165628 
+Elapsed time           = 56.042162522 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 22.445970517581 
+Hyperparameter lambda3 = 0.06948345122280154 
+lnpYY = -4550.993316795852 
+Rel. Marginal data density  = 708.29197691218 
+Elapsed time           = 55.812518085 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 22.445970517581 
+Hyperparameter lambda3 = 0.29457482831010734 
+lnpYY = -4511.993638422632 
+Rel. Marginal data density  = 747.2912436514162 
+Elapsed time           = 56.200776782 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 22.445970517581 
+Hyperparameter lambda3 = 1.2488488690016821 
+lnpYY = -4472.9985837909435 
+Rel. Marginal data density  = 786.2844447966199 
+Elapsed time           = 55.896591604 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 22.445970517581 
+Hyperparameter lambda3 = 5.29449005047003 
+lnpYY = -4434.02690528651 
+Rel. Marginal data density  = 825.248062865343 
+Elapsed time           = 55.860934605 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 22.445970517581 
+Hyperparameter lambda3 = 22.445970517581 
+lnpYY = -4395.1617626560965 
+Rel. Marginal data density  = 864.0790272895247 
+Elapsed time           = 56.243506369 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 22.445970517581 
+Hyperparameter lambda3 = 95.1596070015067 
+lnpYY = -4355.220373571283 
+Rel. Marginal data density  = 903.8826558855362 
+Elapsed time           = 55.858632151 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 22.445970517581 
+Hyperparameter lambda3 = 403.4287934927351 
+lnpYY = -4319.045731304477 
+Rel. Marginal data density  = 939.5839743441902 
+Elapsed time           = 55.908626644 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 95.1596070015067 
+Hyperparameter lambda3 = 0.0009118819655545162 
+lnpYY = -4629.3039448290465 
+Rel. Marginal data density  = 629.958129105391 
+Elapsed time           = 56.771881682 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 95.1596070015067 
+Hyperparameter lambda3 = 0.0038659201394728076 
+lnpYY = -4590.303780416718 
+Rel. Marginal data density  = 668.9582934647333 
+Elapsed time           = 55.991276237 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 95.1596070015067 
+Hyperparameter lambda3 = 0.016389553790213604 
+lnpYY = -4551.3034981441115 
+Rel. Marginal data density  = 707.9585624202155 
+Elapsed time           = 55.831216483 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 95.1596070015067 
+Hyperparameter lambda3 = 0.06948345122280154 
+lnpYY = -4512.303155426819 
+Rel. Marginal data density  = 746.9588217183482 
+Elapsed time           = 56.200399305 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 95.1596070015067 
+Hyperparameter lambda3 = 0.29457482831010734 
+lnpYY = -4473.303460775606 
+Rel. Marginal data density  = 785.9581072097644 
+Elapsed time           = 55.872343977 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 95.1596070015067 
+Hyperparameter lambda3 = 1.2488488690016821 
+lnpYY = -4434.308374665489 
+Rel. Marginal data density  = 824.9513452269603 
+Elapsed time           = 55.901078122 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 95.1596070015067 
+Hyperparameter lambda3 = 5.29449005047003 
+lnpYY = -4395.3366401432095 
+Rel. Marginal data density  = 863.9150316698942 
+Elapsed time           = 55.893397955 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 95.1596070015067 
+Hyperparameter lambda3 = 22.445970517581 
+lnpYY = -4354.823655135481 
+Rel. Marginal data density  = 904.3938688456547 
+Elapsed time           = 56.30758959 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 95.1596070015067 
+Hyperparameter lambda3 = 95.1596070015067 
+lnpYY = -4316.5239233322 
+Rel. Marginal data density  = 942.5559176614042 
+Elapsed time           = 55.869242428 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 95.1596070015067 
+Hyperparameter lambda3 = 403.4287934927351 
+lnpYY = -4280.348647477661 
+Rel. Marginal data density  = 978.2580361624714 
+Elapsed time           = 55.904020622 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 403.4287934927351 
+Hyperparameter lambda3 = 0.0009118819655545162 
+lnpYY = -4589.927462333292 
+Rel. Marginal data density  = 669.2423545741476 
+Elapsed time           = 56.462293029 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 403.4287934927351 
+Hyperparameter lambda3 = 0.0038659201394728076 
+lnpYY = -4550.927241590702 
+Rel. Marginal data density  = 708.2425762317143 
+Elapsed time           = 55.863499964 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 403.4287934927351 
+Hyperparameter lambda3 = 0.016389553790213604 
+lnpYY = -4511.926853995106 
+Rel. Marginal data density  = 747.2429525183979 
+Elapsed time           = 55.920885588 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 403.4287934927351 
+Hyperparameter lambda3 = 0.06948345122280154 
+lnpYY = -4472.92633963568 
+Rel. Marginal data density  = 786.2433876593132 
+Elapsed time           = 56.421189697 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 403.4287934927351 
+Hyperparameter lambda3 = 0.29457482831010734 
+lnpYY = -4433.926483415939 
+Rel. Marginal data density  = 825.2428436472546 
+Elapsed time           = 55.858684988 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 403.4287934927351 
+Hyperparameter lambda3 = 1.2488488690016821 
+lnpYY = -4394.931878606896 
+Rel. Marginal data density  = 864.2356199249625 
+Elapsed time           = 55.927891351 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 403.4287934927351 
+Hyperparameter lambda3 = 5.29449005047003 
+lnpYY = -4355.964581183279 
+Rel. Marginal data density  = 903.194914476946 
+Elapsed time           = 58.708410932 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 403.4287934927351 
+Hyperparameter lambda3 = 22.445970517581 
+lnpYY = -4317.1228740272045 
+Rel. Marginal data density  = 942.0025863123592 
+Elapsed time           = 58.733839849 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 403.4287934927351 
+Hyperparameter lambda3 = 95.1596070015067 
+lnpYY = -4278.822576374061 
+Rel. Marginal data density  = 980.1654904934112 
+Elapsed time           = 57.956854701 
+================================= 
+Hyperparameter lambda1 = 0.0038659201394728076 
+Hyperparameter lambda2 = 403.4287934927351 
+Hyperparameter lambda3 = 403.4287934927351 
+lnpYY = -4242.645263697289 
+Rel. Marginal data density  = 1015.870253439527 
+Elapsed time           = 58.617855324 
+================================= 
+Hyperparameter lambda1 = 0.016389553790213604 
+Hyperparameter lambda2 = 0.0009118819655545162 
+Hyperparameter lambda3 = 0.0009118819655545162 
+lnpYY = -4622.894751874805 
+Rel. Marginal data density  = 636.3800751811359 
+Elapsed time           = 57.759098881 
+================================= 
+Hyperparameter lambda1 = 0.016389553790213604 
+Hyperparameter lambda2 = 0.0009118819655545162 
+Hyperparameter lambda3 = 0.0038659201394728076 
+lnpYY = -4583.894069502288 
+Rel. Marginal data density  = 675.3807542081922 
+Elapsed time           = 58.090228298 
+================================= 
+Hyperparameter lambda1 = 0.016389553790213604 
+Hyperparameter lambda2 = 0.0009118819655545162 
+Hyperparameter lambda3 = 0.016389553790213604 
+lnpYY = -4544.892901695453 
+Rel. Marginal data density  = 714.3818594855256 
+Elapsed time           = 57.714056764 
+================================= 
+Hyperparameter lambda1 = 0.016389553790213604 
+Hyperparameter lambda2 = 0.0009118819655545162 
+Hyperparameter lambda3 = 0.06948345122280154 
+lnpYY = -4505.891502759527 
+Rel. Marginal data density  = 753.3828937169164 
+Elapsed time           = 58.813617785 
+================================= 
+Hyperparameter lambda1 = 0.016389553790213604 
+Hyperparameter lambda2 = 0.0009118819655545162 
+Hyperparameter lambda3 = 0.29457482831010734 
+lnpYY = -4466.892884670521 
+Rel. Marginal data density  = 792.379760708427 
+Elapsed time           = 58.653490033 
+================================= 
+Hyperparameter lambda1 = 0.016389553790213604 
+Hyperparameter lambda2 = 0.0009118819655545162 
+Hyperparameter lambda3 = 1.2488488690016821 
+lnpYY = -4427.913782268751 
+Rel. Marginal data density  = 831.3510320782661 
+Elapsed time           = 56.006563707 
+================================= 
+Hyperparameter lambda1 = 0.016389553790213604 
+Hyperparameter lambda2 = 0.0009118819655545162 
+Hyperparameter lambda3 = 5.29449005047003 
+lnpYY = -4389.033002375376 
+Rel. Marginal data density  = 870.1981336837634 
+Elapsed time           = 56.31975792 
+================================= 
+Hyperparameter lambda1 = 0.016389553790213604 
+Hyperparameter lambda2 = 0.0009118819655545162 
+Hyperparameter lambda3 = 22.445970517581 
+lnpYY = -4349.036536051038 
+Rel. Marginal data density  = 910.0575867188163 
+Elapsed time           = 55.943885748 
+================================= 
+Hyperparameter lambda1 = 0.016389553790213604 
+Hyperparameter lambda2 = 0.0009118819655545162 
+Hyperparameter lambda3 = 95.1596070015067 
+lnpYY = -4312.787955928294 
+Rel. Marginal data density  = 945.8314064736478 
+Elapsed time           = 56.02423593 
+================================= 
+Hyperparameter lambda1 = 0.016389553790213604 
+Hyperparameter lambda2 = 0.0009118819655545162 
+Hyperparameter lambda3 = 403.4287934927351 
+lnpYY = -4283.071728890058 
+Rel. Marginal data density  = 974.4963379448745 
+Elapsed time           = 56.458866601 
+================================= 
+Hyperparameter lambda1 = 0.016389553790213604 
+Hyperparameter lambda2 = 0.0038659201394728076 
+Hyperparameter lambda3 = 0.0009118819655545162 
+lnpYY = -4583.894294371821 
+Rel. Marginal data density  = 675.3805875449907 
+Elapsed time           = 55.956816933 
+================================= 
+Hyperparameter lambda1 = 0.016389553790213604 
+Hyperparameter lambda2 = 0.0038659201394728076 
+Hyperparameter lambda3 = 0.0038659201394728076 
+lnpYY = -4544.893612034954 
+Rel. Marginal data density  = 714.3812665303703 
+Elapsed time           = 55.971349868 
+================================= 
+Hyperparameter lambda1 = 0.016389553790213604 
+Hyperparameter lambda2 = 0.0038659201394728076 
+Hyperparameter lambda3 = 0.016389553790213604 
+lnpYY = -4505.892444301378 
+Rel. Marginal data density  = 753.3823717222549 
+Elapsed time           = 56.398547342 
+================================= 
+Hyperparameter lambda1 = 0.016389553790213604 
+Hyperparameter lambda2 = 0.0038659201394728076 
+Hyperparameter lambda3 = 0.06948345122280154 
+lnpYY = -4466.891045516037 
+Rel. Marginal data density  = 792.3834057780914 
+Elapsed time           = 55.9342165 
+================================= 
+Hyperparameter lambda1 = 0.016389553790213604 
+Hyperparameter lambda2 = 0.0038659201394728076 
+Hyperparameter lambda3 = 0.29457482831010734 
+lnpYY = -4427.89242773635 
+Rel. Marginal data density  = 831.3802724087145 
+Elapsed time           = 55.954992736 
+================================= 
+Hyperparameter lambda1 = 0.016389553790213604 
+Hyperparameter lambda2 = 0.0038659201394728076 
+Hyperparameter lambda3 = 1.2488488690016821 
+lnpYY = -4388.913325964286 
+Rel. Marginal data density  = 870.3515430437401 
+Elapsed time           = 56.403316607 
+================================= 
+Hyperparameter lambda1 = 0.016389553790213604 
+Hyperparameter lambda2 = 0.0038659201394728076 
+Hyperparameter lambda3 = 5.29449005047003 
+lnpYY = -4350.032547331722 
+Rel. Marginal data density  = 909.1986431775149 
+Elapsed time           = 55.984237156 
+================================= 
+Hyperparameter lambda1 = 0.016389553790213604 
+Hyperparameter lambda2 = 0.0038659201394728076 
+Hyperparameter lambda3 = 22.445970517581 
+lnpYY = -4310.036162237571 
+Rel. Marginal data density  = 949.0580145935528 
+Elapsed time           = 55.979752366 
+================================= 
+Hyperparameter lambda1 = 0.016389553790213604 
+Hyperparameter lambda2 = 0.0038659201394728076 
+Hyperparameter lambda3 = 95.1596070015067 
+lnpYY = -4273.787577725356 
+Rel. Marginal data density  = 984.8318383318838 
+Elapsed time           = 56.479363815 
+================================= 
+Hyperparameter lambda1 = 0.016389553790213604 
+Hyperparameter lambda2 = 0.0038659201394728076 
+Hyperparameter lambda3 = 403.4287934927351 
+lnpYY = -4244.071339043662 
+Rel. Marginal data density  = 1013.4967817389406 
+Elapsed time           = 56.011657997 
+================================= 
+Hyperparameter lambda1 = 0.016389553790213604 
+Hyperparameter lambda2 = 0.016389553790213604 
+Hyperparameter lambda3 = 0.0009118819655545162 
+lnpYY = -4544.893476751373 
+Rel. Marginal data density  = 714.3815082493238 
+Elapsed time           = 55.956277346 
+================================= 
+Hyperparameter lambda1 = 0.016389553790213604 
+Hyperparameter lambda2 = 0.016389553790213604 
+Hyperparameter lambda3 = 0.0038659201394728076 
+lnpYY = -4505.89279448408 
+Rel. Marginal data density  = 753.3821871534456 
+Elapsed time           = 55.937125846 
+================================= 
+Hyperparameter lambda1 = 0.016389553790213604 
+Hyperparameter lambda2 = 0.016389553790213604 
+Hyperparameter lambda3 = 0.016389553790213604 
+lnpYY = -4466.891626893856 
+Rel. Marginal data density  = 792.3832921779249 
+Elapsed time           = 56.335256038 
+================================= 
+Hyperparameter lambda1 = 0.016389553790213604 
+Hyperparameter lambda2 = 0.016389553790213604 
+Hyperparameter lambda3 = 0.06948345122280154 
+lnpYY = -4427.890228403425 
+Rel. Marginal data density  = 831.3843258894049 
+Elapsed time           = 56.023787471 
+================================= 
+Hyperparameter lambda1 = 0.016389553790213604 
+Hyperparameter lambda2 = 0.016389553790213604 
+Hyperparameter lambda3 = 0.29457482831010734 
+lnpYY = -4388.891611229117 
+Rel. Marginal data density  = 870.3811918136198 
+Elapsed time           = 55.989303081 
+================================= 
+Hyperparameter lambda1 = 0.016389553790213604 
+Hyperparameter lambda2 = 0.016389553790213604 
+Hyperparameter lambda3 = 1.2488488690016821 
+lnpYY = -4349.912510692393 
+Rel. Marginal data density  = 909.3524610078894 
+Elapsed time           = 56.372897041 
+================================= 
+Hyperparameter lambda1 = 0.016389553790213604 
