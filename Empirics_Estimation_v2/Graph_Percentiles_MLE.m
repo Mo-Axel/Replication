@@ -19,13 +19,13 @@ nKSpec    = 'K22_';
 sName = ['fVAR', nfVARSpec];
 
 % load sample percentiles (from the data)
-dataDir = [pwd, '/', 'Data' ,'/'];
-sample_percs = csvread( [dataDir, 'percentiles_data.csv'], 2, 1); % sample percentiles
+dataDir = [pwd, '\','Empirics_Estimation_v2','\', 'Data','\' ];
+sample_percs = readmatrix([dataDir,'percentiles_data.csv']);
+sample_percs = sample_percs(2:end,2:6)% sample percentiles
 
 % load estimated percentiles 
 estDir = [pwd, '/', 'Results' ,'/', sName, '/'];
-estimated_percs = csvread( [estDir, nKSpec, sName, '_PredPctl_MLE.csv'], 1, 0); % estimated percentiles
-
+estimated_percs = readmatrix( [estDir, nKSpec, sName, '_PredPctl_MLE.csv']); % estimated percentiles
 %--------------------------------------------------------------------------
 % Percentiles Comparison 
 %--------------------------------------------------------------------------
