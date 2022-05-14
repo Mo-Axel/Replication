@@ -70,12 +70,12 @@ transformations of the original density responses. Use it for distributional sho
 18. Graph_IRF_fVAR_DistrSh.m: generates a variety of IRF plots for
 distributional shocks (Fig 13)
 
-19. script_AltVAR_MDD_Estimation: compute MDD for hyperparameter
+19. script_AltVAR_MDD_Estimation.jl: compute MDD for hyperparameter
 selection. AltMDDspec1 = Pctl, AltMDDspec2 = Gini
 
-20. script_AltVAR_Estimation: estimate alternative VAR conditional on
+20. script_AltVAR_Estimation.jl: estimate alternative VAR conditional on
 hyperparameters. AltVARspec1 = Pctl, AltVARspec2 = Gini
 
-21. script_AltVAR_IRF: convert parameters into IRFs.
+21. script_AltVAR_IRF.jl: convert parameters into IRFs.
 
-22. Graph_IRF_fVAR_v_AltVAR: overlay IRFs from functional model and AltVAR (Fig 11, 12)
+22. Graph_IRF_fVAR_v_AltVAR.m: overlay IRFs from functional model and AltVAR (Fig 11, 12)
