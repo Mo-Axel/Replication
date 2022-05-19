@@ -6,21 +6,20 @@ using Optim
 using ForwardDiff
 using CSV
 using LinearAlgebra
-using Revise
+
 #clearconsole()
 
 #-------------------------------------------------------------
 # include Functions
 #-------------------------------------------------------------
 #cd("$(pwd())/Dropbox/Heterogeneity/Software/Empirical_Analysis/")
-cd("$(pwd())")
-readDir = "$(pwd())/Empirics_Estimation_v2/Functions/"
+readDir = "$(pwd())/Functions/"
 include(readDir *"logSpline_Procedures.jl");
-#### File: Empirics_Estimation_v2 should be added in $(pwd())
+
 #-------------------------------------------------------------
 # load data
 #-------------------------------------------------------------
-dataDir = "$(pwd())/Empirics_Estimation_v2/Data/"
+dataDir = "$(pwd())/data/"
 
 unrate_data     = CSV.read(dataDir * "UNRATE_CPS_FRED.csv", DataFrame, header = true);
 earnings_data   = CSV.read(dataDir * "earnings_detrended_inversesign.csv", DataFrame, header = true);
@@ -35,7 +34,7 @@ Tend       = length(unrate)
 # choose specification file
 #-------------------------------------------------------------
 nfVARSpec = "10tc"
-specDir   = "$(pwd())/Empirics_Estimation_v2/SpecFiles/"
+specDir   = "$(pwd())/SpecFiles/"
 include(specDir * "/fVARspec" * nfVARSpec * ".jl")
 
 # subsequently use the same knots regardless of sample size N,T
@@ -183,19 +182,17 @@ for ii = 1:K_vec_n
     sNameFile = "K" * string(K) * "_fVAR" * nfVARSpec
     savedir = "$(pwd())/results/" * sNameDir *"/";
     try mkdir(savedir) catch; end
-    #### add | , :auto | in every DataFrame below.
-    #### creat Files results/fVAR10tc in the Replication
-    CSV.write(savedir * sNameFile * "_DensityPeriod.csv", DataFrame(Period_all, :auto))
-    CSV.write(savedir * sNameFile * "_PhatDensValue.csv", DataFrame(PhatDensValue, :auto))
-    CSV.write(savedir * sNameFile * "_PhatDensCoef.csv", DataFrame(PhatDensCoef, :auto))
-    CSV.write(savedir * sNameFile * "_PhatDensCoef_factor.csv", DataFrame(PhatDensCoef_factor, :auto))
-    CSV.write(savedir * sNameFile * "_PhatDensCoef_lambda.csv", DataFrame(PhatDensCoef_lambda, :auto))
-    CSV.write(savedir * sNameFile * "_PhatDensCoef_mean.csv", DataFrame(PhatDensCoef_mean, :auto))
-    CSV.write(savedir * sNameFile * "_PhatDensCoef_mean_allt.csv", DataFrame(PhatDensCoef_mean_allt, :auto))
-    CSV.write(savedir * sNameFile * "_Vinv_all.csv", DataFrame(Vinv_all, :auto))
-    CSV.write(savedir * sNameFile * "_N_all.csv", DataFrame(N_all, :auto))
-    CSV.write(savedir * sNameFile * "_N_details.csv", DataFrame(N_details, :auto))
-    CSV.write(savedir * sNameFile * "_MDD_GoF.csv", DataFrame(MDD_GoF, :auto))
+    CSV.write(savedir * sNameFile * "_DensityPeriod.csv", DataFrame(Period_all))
+    CSV.write(savedir * sNameFile * "_PhatDensValue.csv", DataFrame(PhatDensValue))
+    CSV.write(savedir * sNameFile * "_PhatDensCoef.csv", DataFrame(PhatDensCoef))
+    CSV.write(savedir * sNameFile * "_PhatDensCoef_factor.csv", DataFrame(PhatDensCoef_factor))
+    CSV.write(savedir * sNameFile * "_PhatDensCoef_lambda.csv", DataFrame(PhatDensCoef_lambda))
+    CSV.write(savedir * sNameFile * "_PhatDensCoef_mean.csv", DataFrame(PhatDensCoef_mean))
+    CSV.write(savedir * sNameFile * "_PhatDensCoef_mean_allt.csv", DataFrame(PhatDensCoef_mean_allt))
+    CSV.write(savedir * sNameFile * "_Vinv_all.csv", DataFrame(Vinv_all))
+    CSV.write(savedir * sNameFile * "_N_all.csv", DataFrame(N_all))
+    CSV.write(savedir * sNameFile * "_N_details.csv", DataFrame(N_details))
+    CSV.write(savedir * sNameFile * "_MDD_GoF.csv", DataFrame(MDD_GoF))
 
 end
 
@@ -203,6 +200,5 @@ sNameDir  = "fVAR" * nfVARSpec;
 sNameFile = "fVAR" * nfVARSpec;
 savedir = "$(pwd())/results/" * sNameDir *"/";
 try mkdir(savedir) catch; end
-#### add | , :auto | in every DataFrame below.
-CSV.write(savedir * sNameFile * "_MDD_GoF_sum.csv", DataFrame(MDD_GoF_sum, :auto))
-CSV.write(savedir * sNameFile * "_knots_all.csv", DataFrame(knots_all', :auto))
+CSV.write(savedir * sNameFile * "_MDD_GoF_sum.csv", DataFrame(MDD_GoF_sum))
+CSV.write(savedir * sNameFile * "_knots_all.csv", DataFrame(knots_all'))

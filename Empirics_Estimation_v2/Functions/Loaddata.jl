@@ -1,5 +1,7 @@
 function loadaggdata(SampleStart,SampleEnd,v)
 
+    dataDir = "$(pwd())/data/"
+
     GDPpc_data       = CSV.read(dataDir * "GDPpc.csv", DataFrame, header = true); # run with version 1.5.
     TFPgr_data       = CSV.read(dataDir * "TFP.csv", DataFrame, header = false);
     unrate_data       = CSV.read(dataDir * "UNRATE_CPS_FRED.csv", DataFrame, header = true);
@@ -64,27 +66,19 @@ function loaddensdata(SampleStart,SampleEnd,K,nfVARSpec,v)
     N_all               = CSV.read(loaddir * sNameFile * "_N_all.csv", DataFrame, header = true);
 
 
-    period_Dens         = Matrix(period_Dens)
-    ####period_Dens         = convert(Array,period_Dens)
+    period_Dens         = convert(Array,period_Dens)
     period_Dens_ind     = dropdims((SampleStart .<= period_Dens .<= SampleEnd),dims=2)
     period_Dens         = period_Dens[period_Dens_ind]
-    PhatDensCoef_factor = Matrix(PhatDensCoef_factor)
-    ####PhatDensCoef_factor = convert(Array,PhatDensCoef_factor)
+    PhatDensCoef_factor = convert(Array,PhatDensCoef_factor)
     PhatDensCoef_factor = PhatDensCoef_factor[period_Dens_ind,:]
-    PhatDensCoef_lambda = Matrix(PhatDensCoef_lambda)
-    ####PhatDensCoef_lambda = convert(Array,PhatDensCoef_lambda)
-    PhatDensCoef_mean   = Matrix(PhatDensCoef_mean)
-    ####PhatDensCoef_mean   = convert(Array,PhatDensCoef_mean)
-    PhatDensCoef_mean_allt = Matrix(PhatDensCoef_mean_allt)
-    ####PhatDensCoef_mean_allt = convert(Array,PhatDensCoef_mean_allt)
+    PhatDensCoef_lambda = convert(Array,PhatDensCoef_lambda)
+    PhatDensCoef_mean   = convert(Array,PhatDensCoef_mean)
+    PhatDensCoef_mean_allt = convert(Array,PhatDensCoef_mean_allt)
     PhatDensCoef_mean_allt = PhatDensCoef_mean_allt[period_Dens_ind,:]
-    MDD_GoF             = Matrix(MDD_GoF)
-    ####MDD_GoF             = convert(Array,MDD_GoF)
+    MDD_GoF             = convert(Array,MDD_GoF)
     MDD_GoF             = MDD_GoF[period_Dens_ind]
-    N_all               = Matrix(N_all)
-    Vinv_all            = Matrix(Vinv_all)
-    ####N_all               = convert(Array,N_all)
-    ####Vinv_all            = convert(Array,Vinv_all)
+    N_all               = convert(Array,N_all)
+    Vinv_all            = convert(Array,Vinv_all)
     Ktilde              = size(PhatDensCoef_lambda)[1]
 
     VinvLam_all = zeros(Ktilde, Ktilde, sum(period_Dens_ind))

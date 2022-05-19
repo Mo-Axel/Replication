@@ -15,7 +15,7 @@ using Random
 #-------------------------------------------------------------
 # include Functions
 #-------------------------------------------------------------
-readDir = "$(pwd())/Empirics_Estimation_v2/Functions/"
+readDir = "$(pwd())/Functions/"
 include(readDir *"vech.jl");
 include(readDir *"VAR_Procedures.jl");
 include(readDir *"Loaddata.jl");
@@ -27,7 +27,7 @@ nfVARSpec = "10tc"
 nMDDSpec  = "1"
 nMCMCSpec = "1"
 
-specDir   = "$(pwd())/Empirics_Estimation_v2/SpecFiles/"
+specDir   = "$(pwd())/SpecFiles/"
 include(specDir * "/fVARspec" * nfVARSpec * ".jl")
 include(specDir * "/MDDspec" * nMDDSpec * ".jl")
 include(specDir * "/MDDMCMCspec" * nMCMCSpec * ".jl")
@@ -156,15 +156,15 @@ for ii = 1:K_vec_n
 
 end
 
-#### add , :auto
+
 sNameFile = "fVAR" * nfVARSpec * "_MDD" * nMDDSpec*"_MCMC" * nMCMCSpec
-CSV.write(savedir * sNameFile * "_MDD_Bayes_sum.csv", DataFrame(MDD_Bayes_sum, :auto))
-CSV.write(savedir * sNameFile * "_MDD_Laplace_sum.csv", DataFrame(MDD_Laplace_sum, :auto))
-CSV.write(savedir * sNameFile * "_Pen_Bayes_sum.csv", DataFrame(Pen_Bayes_sum, :auto))
-CSV.write(savedir * sNameFile * "_Pen_Laplace_sum.csv", DataFrame(Pen_Laplace_sum, :auto))
+CSV.write(savedir * sNameFile * "_MDD_Bayes_sum.csv", DataFrame(MDD_Bayes_sum))
+CSV.write(savedir * sNameFile * "_MDD_Laplace_sum.csv", DataFrame(MDD_Laplace_sum))
+CSV.write(savedir * sNameFile * "_Pen_Bayes_sum.csv", DataFrame(Pen_Bayes_sum))
+CSV.write(savedir * sNameFile * "_Pen_Laplace_sum.csv", DataFrame(Pen_Laplace_sum))
 
 sNameCols = ["K", "Ktilde", "Lam1", "Lam2", "Lam3", "MDD"]
-CSV.write(savedir * sNameFile * "_lambda_hat_K_BayesMax.csv", DataFrame(permutedims(sNameCols), :auto), header=false)
-CSV.write(savedir * sNameFile * "_lambda_hat_K_BayesMax.csv", DataFrame(lambda_hat_K_BayesMax, :auto),append=true)
-CSV.write(savedir * sNameFile * "_lambda_hat_K_LaplaceMax.csv", DataFrame(permutedims(sNameCols), :auto), header=false)
-CSV.write(savedir * sNameFile * "_lambda_hat_K_LaplaceMax.csv", DataFrame(lambda_hat_K_LaplaceMax, :auto),append=true)
+CSV.write(savedir * sNameFile * "_lambda_hat_K_BayesMax.csv", DataFrame(permutedims(sNameCols)), header=false)
+CSV.write(savedir * sNameFile * "_lambda_hat_K_BayesMax.csv", DataFrame(lambda_hat_K_BayesMax),append=true)
+CSV.write(savedir * sNameFile * "_lambda_hat_K_LaplaceMax.csv", DataFrame(permutedims(sNameCols)), header=false)
+CSV.write(savedir * sNameFile * "_lambda_hat_K_LaplaceMax.csv", DataFrame(lambda_hat_K_LaplaceMax),append=true)
