@@ -6,13 +6,13 @@ using LinearAlgebra
 using JLD
 using Interpolations
 
-clearconsole()
+#clearconsole()
 
 #-------------------------------------------------------------
 # include Functions
 #-------------------------------------------------------------
 #cd("$(pwd())/Dropbox/Heterogeneity/Software/KS_Simulation/")
-readDir = "$(pwd())/Functions/"
+readDir = "$(pwd())/Empirics_Estimation_v2/Functions/"
 include(readDir *"vech.jl");
 include(readDir *"logSpline_Procedures.jl");
 include(readDir *"VAR_Procedures.jl");
@@ -27,7 +27,7 @@ nModSpec  = "1"
 nMCMCSpec = "1"
 modName   = "SS"  # VAR or SS
 
-specDir   = "$(pwd())/SpecFiles/"
+specDir   = "$(pwd())/Empirics_Estimation_v2/SpecFiles/"
 include(specDir * "/fVARspec" * nfVARSpec * ".jl")
 include(specDir * "/" * modName * "spec" * nModSpec * ".jl")
 include(specDir * "/" * modName * "MCMCspec" * nMCMCSpec * ".jl")
@@ -46,7 +46,7 @@ sNameLoadDir = "fVAR" * nfVARSpec
 loaddir  = "$(pwd())/results/" * sNameLoadDir *"/";
 
 knots_all = CSV.read(loaddir * sNameLoadDir * "_knots_all.csv", DataFrame, header = true);
-knots_all = convert(Array, knots_all)'
+knots_all = Matrix(knots_all)'
 
 #-------------------------------------------------------------
 # Generate Lambda matrix and vector of means to convert a factors
@@ -102,6 +102,6 @@ for tt = 1:T
 end
 
 savedir  = "$(pwd())/results/" * sName *"/";
-CSV.write(savedir * sName * "_PredPctl_Smoothed.csv", DataFrame(emp_percs_all));
-CSV.write(savedir * sName * "_PhatDensCoef_Smoothed.csv", DataFrame(PhatDensCoef_smoothed));
-CSV.write(savedir * sName * "_PhatDensCoef_factor_Smoothed.csv", DataFrame(PhatDensCoef_factor_smoothed));
+CSV.write(savedir * sName * "_PredPctl_Smoothed.csv", DataFrame(emp_percs_all,:auto));
+CSV.write(savedir * sName * "_PhatDensCoef_Smoothed.csv", DataFrame(PhatDensCoef_smoothed,:auto));
+CSV.write(savedir * sName * "_PhatDensCoef_factor_Smoothed.csv", DataFrame(PhatDensCoef_factor_smoothed,:auto));

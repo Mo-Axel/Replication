@@ -6,7 +6,7 @@ using LinearAlgebra
 using JLD
 using Interpolations
 
-clearconsole()
+#clearconsole()
 
 #-------------------------------------------------------------
 # IRF Configuration
@@ -20,7 +20,7 @@ n_drawsread = 1000#100 # transform draws 1 to n_drawsread
 # include Functions
 #-------------------------------------------------------------
 #cd("$(pwd())/Dropbox/Heterogeneity/Software/KS_Simulation/")
-readDir = "$(pwd())/Functions/"
+readDir = "$(pwd())/Empirics_Estimation_v2/Functions/"
 include(readDir *"vech.jl");
 include(readDir *"logSpline_Procedures.jl");
 include(readDir *"VAR_Procedures.jl");
@@ -41,7 +41,7 @@ nShockspec= "AggSh1"
 # Aggregate shocks 1: TFP shock, 2: GDP shock,  3: Employment shock
 # Distr shock DistrSh is Gini on impact
 
-specDir   = "$(pwd())/SpecFiles/"
+specDir   = "$(pwd())/Empirics_Estimation_v2/SpecFiles/"
 include(specDir * "/fVARspec" * nfVARSpec * ".jl")
 include(specDir * "/" * modName * "spec" * nModSpec * ".jl")
 include(specDir * "/" * modName * "MCMCspec" * nMCMCSpec * ".jl")
@@ -66,7 +66,7 @@ sNameLoadDir = "fVAR" * nfVARSpec
 loaddir  = "$(pwd())/results/" * sNameLoadDir *"/";
 
 knots_all = CSV.read(loaddir * sNameLoadDir * "_knots_all.csv", DataFrame, header = true);
-knots_all = convert(Array, knots_all)'
+knots_all = Matrix(knots_all)'
 
 ii=getindex.(findall(K_vec.-K.==0),[1 2])[1] # find index ii where K==K_vec
 knots = knots_all[quant_sel[ii,:].==1]
@@ -86,8 +86,8 @@ PHIpdraw     = load(loadDir * sName * "_PostDraws.jld", "PHIpdraw")
 
 YY_IRF = CSV.read(loadDir * sName * "_IRF_YY_" *nShockspec * "_pmean.csv", DataFrame, header = true);
 PhatDens_IRF = CSV.read(loadDir * sName * "_IRF_PhatDens_" *nShockspec*"_pmean.csv", DataFrame, header = true);
-YY_IRF = convert(Array, YY_IRF)
-PhatDens_IRF = convert(Array, PhatDens_IRF)
+YY_IRF = Matrix(YY_IRF)
+PhatDens_IRF = Matrix(PhatDens_IRF)
 
 #-------------------------------------------------------------
 # Generate transformed IRFs at posterior mean of (Phi,Sigmatr)
@@ -117,9 +117,9 @@ for hh = 1:(H+1)
 end
 
 savedir = "$(pwd())/results/" * sName *"/";
-CSV.write(savedir * sName * "_IRF_Pctl_" *nShockspec*"_pmean.csv", DataFrame(emp_percs_all))
-CSV.write(savedir * sName * "_IRF_BelowCutoff_" *nShockspec*"_pmean.csv", DataFrame(PhatMassDiff_IRF))
-CSV.write(savedir * sName * "_IRF_Gini_" *nShockspec*"_pmean.csv", DataFrame(Gini_IRF))
+CSV.write(savedir * sName * "_IRF_Pctl_" *nShockspec*"_pmean.csv", DataFrame(emp_percs_all,:auto))
+CSV.write(savedir * sName * "_IRF_BelowCutoff_" *nShockspec*"_pmean.csv", DataFrame(PhatMassDiff_IRF,:auto))
+CSV.write(savedir * sName * "_IRF_Gini_" *nShockspec*"_pmean.csv", DataFrame(Gini_IRF,:auto))
 
 time_loop=signed(time_ns()-time_init_loop)/1000000000
 println("Elapsed time = $(time_loop)")
@@ -142,16 +142,16 @@ if juliaversion == 13
     YY_IRF_pp = CSV.read(loadDir * sName * "_IRF_YY_" *nShockspec * "_" * string(pp) * ".csv", header = true);
     PhatDens_IRF_pp = CSV.read(loadDir * sName * "_IRF_PhatDens_" *nShockspec*  "_" * string(pp) * ".csv", header = true);
 
-    YY_IRF_uncertainty[:,:,pp] = convert(Array, YY_IRF_pp)
-    PhatDens_IRF_uncertainty[:,:,pp] = convert(Array, PhatDens_IRF_pp)
+    YY_IRF_uncertainty[:,:,pp] = Matrix(YY_IRF_pp)
+    PhatDens_IRF_uncertainty[:,:,pp] = Matrix(PhatDens_IRF_pp)
     end
 else
     for pp = 1:n_drawsread
     YY_IRF_pp = CSV.read(loadDir * sName * "_IRF_YY_" *nShockspec * "_"*string(pp) *".csv", DataFrame, header = true);
     PhatDens_IRF_pp = CSV.read(loadDir * sName * "_IRF_PhatDens_" *nShockspec* "_" * string(pp) * ".csv", DataFrame, header = true);
 
-    YY_IRF_uncertainty[:,:,pp] = convert(Array, YY_IRF_pp)
-    PhatDens_IRF_uncertainty[:,:,pp] = convert(Array, PhatDens_IRF_pp)
+    YY_IRF_uncertainty[:,:,pp] = Matrix(YY_IRF_pp)
+    PhatDens_IRF_uncertainty[:,:,pp] = Matrix(PhatDens_IRF_pp)
     end
 end
 
@@ -181,9 +181,9 @@ for pp = 1:n_drawsread
     time_loop=signed(time_ns()-time_init_loop)/1000000000
     println("Elapsed time = $(time_loop)")
     println("")
-    CSV.write(savedir * sName * "_IRF_Pctl_" *nShockspec * "_" * string(pp)* ".csv", DataFrame(emp_percs_uncertainty[:,:,pp]))
+    CSV.write(savedir * sName * "_IRF_Pctl_" *nShockspec * "_" * string(pp)* ".csv", DataFrame(emp_percs_uncertainty[:,:,pp],:auto))
 
 end
 
-CSV.write(savedir * sName * "_IRF_BelowCutoff_" *nShockspec*"_uncertainty.csv", DataFrame(PhatMassDiff_IRF_uncertainty))
-CSV.write(savedir * sName * "_IRF_Gini_" *nShockspec*"_uncertainty.csv", DataFrame(Gini_IRF_uncertainty))
+CSV.write(savedir * sName * "_IRF_BelowCutoff_" *nShockspec*"_uncertainty.csv", DataFrame(PhatMassDiff_IRF_uncertainty,:auto))
+CSV.write(savedir * sName * "_IRF_Gini_" *nShockspec*"_uncertainty.csv", DataFrame(Gini_IRF_uncertainty,:auto))

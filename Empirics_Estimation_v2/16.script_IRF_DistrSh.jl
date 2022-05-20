@@ -6,40 +6,41 @@ using LinearAlgebra
 using JLD
 using Interpolations
 
-clearconsole()
+#clearconsole()
 
 #-------------------------------------------------------------
 # IRF Configuration
 #-------------------------------------------------------------
 
-H = 40 # maximum horizon
+H  = 40 # maximum horizon
+Hq = 1 # max horizon needed to determine q
 n_every = 10 # use every n_every'th draw from the posterior
 sh_size = 3   # shock size, in multiples of standard deviations
-sh_id = 3 # sh_id = 1: TFP shock, sh_id = 2: GDP shock, sh_id = 3: Employment shock
 
 
 #-------------------------------------------------------------
 # include Functions
 #-------------------------------------------------------------
 #cd("$(pwd())/Dropbox/Heterogeneity/Software/KS_Simulation/")
-readDir = "$(pwd())/Functions/"
+readDir = "$(pwd())/Empirics_Estimation_v2/Functions/"
 include(readDir *"vech.jl");
 include(readDir *"logSpline_Procedures.jl");
 include(readDir *"VAR_Procedures.jl");
 include(readDir *"Loaddata.jl");
-include(readDir *"EmpPercentiles_Procedures.jl")
 include(readDir *"GiniFracBelowCutoff_Procedures.jl")
 include(readDir *"IRF_Procedures.jl")
+
+
 
 #-------------------------------------------------------------
 # choose specification files
 #-------------------------------------------------------------
 nfVARSpec = "10tc"
-nModSpec  = "4"
+nModSpec  = "1"
 nMCMCSpec = "1"
 modName   = "SS"  # VAR or SS
 
-specDir   = "$(pwd())/SpecFiles/"
+specDir   = "$(pwd())/Empirics_Estimation_v2/SpecFiles/"
 include(specDir * "/fVARspec" * nfVARSpec * ".jl")
 include(specDir * "/" * modName * "spec" * nModSpec * ".jl")
 include(specDir * "/" * modName * "MCMCspec" * nMCMCSpec * ".jl")
@@ -47,7 +48,7 @@ include(specDir * "/" * modName * "MCMCspec" * nMCMCSpec * ".jl")
 #-------------------------------------------------------------
 # load aggregate data
 #-------------------------------------------------------------
-juliaversion = 15;
+
 agg_data, period_agg, mean_unrate = loadaggdata(SampleStart,SampleEnd,juliaversion)
 n_agg = size(agg_data)[2]
 
@@ -56,10 +57,9 @@ n_agg = size(agg_data)[2]
 #-------------------------------------------------------------
 sNameLoadDir = "fVAR" * nfVARSpec
 loaddir  = "$(pwd())/results/" * sNameLoadDir *"/";
-
 knots_all = CSV.read(loaddir * sNameLoadDir * "_knots_all.csv", DataFrame, header = true);
-knots_all = convert(Array, knots_all)'
 
+knots_all = Matrix(knots_all)'
 ii=getindex.(findall(K_vec.-K.==0),[1 2])[1] # find index ii where K==K_vec
 knots = knots_all[quant_sel[ii,:].==1]
 
@@ -67,7 +67,7 @@ PhatDensCoef_factor, MDD_term1, VinvLam_all, period_Dens, PhatDensCoef_lambda, P
 n_cross = size(PhatDensCoef_factor)[2]
 
 #-------------------------------------------------------------
-# Load posterior mean and draws
+# Load posterior draws
 #-------------------------------------------------------------
 
 sName    = "fVAR" * nfVARSpec * "_" * modName * nModSpec * "_" * "MCMC" * nMCMCSpec;
@@ -79,29 +79,46 @@ PHIpmean     = load(loadDir * sName * "_PostMeans.jld", "PHIpmean")
 SIGMAtrpmean = load(loadDir * sName * "_PostMeans.jld", "SIGMAtrpmean")
 
 #-------------------------------------------------------------
+# Create a grid for the rotation q
+#-------------------------------------------------------------
+
+lenq = 500 # out of 500 rotations, find the one that maximizes the Gini coefficients
+#Random.seed!(100000*seedindx+10*t+3+seedoffset)
+qgrid = randn(lenq,n_cross)
+
+for qq = 1:lenq
+   qgrid[qq,:] = qgrid[qq,:]./norm(qgrid[qq,:])
+end
+qgrid = [zeros(lenq,n_agg) qgrid]; # save candidate shocks
+
+#-------------------------------------------------------------
 # Generate IRFs at posterior mean of (Phi,Sigmatr)
 # hh=1 is steady state
 # hh=2 is period of impact
+# implemented for VAR(1)
 #-------------------------------------------------------------
-
-qstar = zeros(n_agg+n_cross)
-qstar[sh_id] = 1
-
 println("")
 println("Generating IRFs at posterior mean... ")
 println("")
 
-YY_IRF,PhatDens_IRF,~ = IRF_qSh(PHIpmean, SIGMAtrpmean, qstar, sh_size, H, xgrid)
+# find the optimal q
+Gini_vec = zeros(lenq,1)
+for qq = 1:lenq
+    ~,~,Gini_IRF = IRF_qSh(PHIpmean, SIGMAtrpmean, qgrid[qq,:], sh_size, Hq, xgrid)
+    Gini_vec[qq] = Gini_IRF[1+1]
+end
+maxGini_qstar = qgrid[getindex.(findall(Gini_vec.-maximum(Gini_vec).==0),[1 2])[1],:]
 
+# Recompute the IRFs
+YY_IRF,PhatDens_IRF,~ = IRF_qSh(PHIpmean, SIGMAtrpmean, maxGini_qstar, sh_size, H, xgrid)
 savedir = "$(pwd())/results/" * sName *"/";
 try mkdir(savedir) catch; end
-CSV.write(savedir * sName * "_IRF_PhatDens_AggSh"*string(sh_id)*"_pmean.csv", DataFrame(PhatDens_IRF))
-CSV.write(savedir * sName * "_IRF_YY_AggSh"*string(sh_id)*"_pmean.csv", DataFrame(YY_IRF))
+CSV.write(savedir * sName * "_IRF_PhatDens_DistrSh_pmean.csv", DataFrame(PhatDens_IRF,:auto))
+CSV.write(savedir * sName * "_IRF_YY_DistrSh_pmean.csv", DataFrame(YY_IRF,:auto))
 
 #-------------------------------------------------------------
 # Generate IRFs for a subset of posterior draws
 #-------------------------------------------------------------
-
 println("")
 println("Generating IRFs for subset of posterior draws... ")
 println("")
@@ -115,10 +132,19 @@ for pp = 1:n_subseq
     println("Remaining draws:  $(n_subseq-pp)")
     println("Posterior draw number: $(pp*n_every)")
 
-    YY_IRF,PhatDens_IRF,~ = IRF_qSh(PHIpdraw[pp*n_every,:,:], SIGMAtrpdraw[pp*n_every,:,:], qstar, sh_size, H, xgrid)
+    # find the optimal q
+    Gini_vec = zeros(lenq,1)
+    for qq = 1:lenq
+        ~,~,Gini_IRF = IRF_qSh(PHIpdraw[pp*n_every,:,:], SIGMAtrpdraw[pp*n_every,:,:], qgrid[qq,:], sh_size, Hq, xgrid)
+        Gini_vec[qq] = Gini_IRF[1+1]
+    end
+    maxGini_qstar = qgrid[getindex.(findall(Gini_vec.-maximum(Gini_vec).==0),[1 2])[1],:]
 
-    CSV.write(savedir * sName * "_IRF_PhatDens_AggSh" * string(sh_id) * "_" * string(pp) * ".csv", DataFrame(PhatDens_IRF))
-    CSV.write(savedir * sName * "_IRF_YY_AggSh" * string(sh_id) * "_" * string(pp) * ".csv", DataFrame(YY_IRF))
+    # Recompute the IRFs
+    YY_IRF,PhatDens_IRF,~ = IRF_qSh(PHIpdraw[pp*n_every,:,:], SIGMAtrpdraw[pp*n_every,:,:], maxGini_qstar, sh_size, H, xgrid)
+
+    CSV.write(savedir * sName * "_IRF_PhatDens_DistrSh" * "_" * string(pp) * ".csv", DataFrame(PhatDens_IRF,:auto))
+    CSV.write(savedir * sName * "_IRF_YY_DistrSh" * "_" * string(pp) * ".csv", DataFrame(YY_IRF,:auto))
 
     time_loop=signed(time_ns()-time_init_loop)/1000000000
     println("Elapsed time = $(time_loop)")

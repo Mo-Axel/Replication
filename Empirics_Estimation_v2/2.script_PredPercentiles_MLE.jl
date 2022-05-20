@@ -6,13 +6,13 @@ using LinearAlgebra
 using JLD
 using Interpolations
 
-clearconsole()
+#clearconsole()
 
 #-------------------------------------------------------------
 # include Functions
 #-------------------------------------------------------------
 #cd("$(pwd())/Dropbox/Heterogeneity/Software/KS_Simulation/")
-readDir = "$(pwd())/Functions/"
+readDir = "$(pwd())/Empirics_Estimation_v2/Functions/"
 include(readDir *"vech.jl");
 include(readDir *"logSpline_Procedures.jl");
 include(readDir *"VAR_Procedures.jl");
@@ -29,7 +29,7 @@ SampleEnd   = 2017.5
 
 nKSpec    = "K$(K)_"
 
-specDir   = "$(pwd())/SpecFiles/"
+specDir   = "$(pwd())/Empirics_Estimation_v2/SpecFiles/"
 include(specDir * "/fVARspec" * nfVARSpec * ".jl")
 
 #-------------------------------------------------------------
@@ -50,9 +50,9 @@ knots_all    = CSV.read(loaddir * sName * "_knots_all.csv", DataFrame, header = 
 PhatDensCoef = CSV.read(loaddir * nKSpec * sName * "_PhatDensCoef.csv", DataFrame, header = true);
 period_Dens  = CSV.read(loaddir * nKSpec * sName * "_DensityPeriod.csv", DataFrame, header = true);
 
-knots_all           = convert(Array, knots_all)'
-PhatDensCoef        = convert(Array,PhatDensCoef)
-period_Dens         = convert(Array,period_Dens)
+knots_all           = Matrix(knots_all)'
+PhatDensCoef        = Matrix(PhatDensCoef)
+period_Dens         = Matrix(period_Dens)
 period_Dens_ind     = dropdims((SampleStart .<= period_Dens .<= SampleEnd),dims=2)
 period_Dens         = period_Dens[period_Dens_ind]
 PhatDensCoef        = PhatDensCoef[period_Dens_ind,:]
@@ -98,4 +98,4 @@ for tt = 1:T
 end
 
 savedir  = "$(pwd())/results/" * sName *"/";
-CSV.write(savedir * nKSpec * sName * "_PredPctL_MLE.csv", DataFrame(emp_percs_all));
+CSV.write(savedir * nKSpec * sName * "_PredPctL_MLE.csv", DataFrame(emp_percs_all,:auto));

@@ -5,7 +5,7 @@ using CSV
 using LinearAlgebra
 using JLD
 
-clearconsole()
+#clearconsole()
 juliaversion = 15 #use 13 for 1.3 and 15 for 1.5
 
 #-------------------------------------------------------------
@@ -21,7 +21,7 @@ sh_id = 1 # sh_id = 1: TFP shock, sh_id = 2: GDP shock, sh_id = 3: Employment sh
 # include Functions
 #-------------------------------------------------------------
 #cd("$(pwd())/Dropbox/Heterogeneity/Software/KS_Simulation/")
-readDir = "$(pwd())/Functions/"
+readDir = "$(pwd())/Empirics_Estimation_v2/Functions/"
 include(readDir *"vech.jl");
 include(readDir *"logSpline_Procedures.jl");
 include(readDir *"VAR_Procedures.jl");
@@ -32,7 +32,7 @@ include(readDir *"Loaddata.jl");
 #-------------------------------------------------------------
 nVARSpec    = "2" # with 1= percentiles, and  2= gini, frac
 nVARMCMCSpec= "1"
-specDir   = "$(pwd())/SpecFiles/"
+specDir   = "$(pwd())/Empirics_Estimation_v2/SpecFiles/"
 include(specDir * "/AltVARspec" * nVARSpec * ".jl")
 include(specDir * "/AltVARMCMCspec" * nVARMCMCSpec * ".jl")
 
@@ -53,10 +53,10 @@ else
     probMass_below1_data = CSV.read("$(pwd())/data/probMass_below1_data.csv", DataFrame, header = true); # run with version 1.5.
 end
 
-percentiles_data = convert(Array, percentiles_data[2:end,2:end]) # include 10, 20, 50, 80, 90th percentiles
+percentiles_data = Matrix(percentiles_data)[2:end,2:end] # include 10, 20, 50, 80, 90th percentiles
 vec_percs = [0.1; 0.2; 0.5; 0.8; 0.9]
-gini_coef_data = convert(Array, gini_coef_data[2:end,2]) # include gini coefficient
-probMass_below1_data = convert(Array, probMass_below1_data[2:end,2]) # include fraction of individuals earning less than per-capita GDP
+gini_coef_data = Matrix(gini_coef_data)[2:end,2] # include gini coefficient
+probMass_below1_data = Matrix(probMass_below1_data)[2:end,2] # include fraction of individuals earning less than per-capita GDP
 
 #-------------------------------------------------------------
 # Combine agg data and density coefficients
@@ -106,7 +106,7 @@ end
 
 savedir = "$(pwd())/results/" * sName *"/";
 try mkdir(savedir) catch; end
-CSV.write(savedir * sName * "_IRF_YY_AggSh"*string(sh_id)*"_pmean.csv", DataFrame(YY_IRF))
+CSV.write(savedir * sName * "_IRF_YY_AggSh"*string(sh_id)*"_pmean.csv", DataFrame(YY_IRF,:auto))
 
 #-------------------------------------------------------------
 # Generate IRFs for a subset of posterior draws
@@ -180,4 +180,4 @@ end
 
 savedir = "$(pwd())/results/" * sName *"/";
 try mkdir(savedir) catch; end
-CSV.write(savedir * sName * "_IRF_nointeract_YY_AggSh"*string(sh_id)*"_pmean.csv", DataFrame(YY_IRF))
+CSV.write(savedir * sName * "_IRF_nointeract_YY_AggSh"*string(sh_id)*"_pmean.csv", DataFrame(YY_IRF,:auto))

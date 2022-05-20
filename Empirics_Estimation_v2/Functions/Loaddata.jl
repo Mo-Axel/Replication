@@ -1,6 +1,6 @@
 function loadaggdata(SampleStart,SampleEnd,v)
 
-    dataDir = "$(pwd())/data/"
+    dataDir = "$(pwd())/Empirics_Estimation_v2/data/"
 
     GDPpc_data       = CSV.read(dataDir * "GDPpc.csv", DataFrame, header = true); # run with version 1.5.
     TFPgr_data       = CSV.read(dataDir * "TFP.csv", DataFrame, header = false);

@@ -15,7 +15,7 @@ clearconsole()
 #-------------------------------------------------------------
 # include Functions
 #-------------------------------------------------------------
-readDir = "$(pwd())/Functions/"
+readDir = "$(pwd())/Empirics_Estimation_v2/Functions/"
 include(readDir *"vech.jl");
 include(readDir *"VAR_Procedures.jl");
 include(readDir *"SS_Procedures.jl");
@@ -27,7 +27,7 @@ include(readDir *"Loaddata.jl");
 nfVARSpec = "10tc"
 nSSSpec   = "4"
 nSSMCMCSpec= "1"
-specDir   = "$(pwd())/SpecFiles/"
+specDir   = "$(pwd())/Empirics_Estimation_v2/SpecFiles/"
 include(specDir * "/fVARspec" * nfVARSpec * ".jl")
 include(specDir * "/SSspec" * nSSSpec * ".jl")
 include(specDir * "/SSMCMCspec" * nSSMCMCSpec * ".jl")
@@ -157,9 +157,9 @@ save(savedir * sName* "_PostMeans.jld", "PHIpmean", PHIpmean, "SIGMAtrpmean", SI
 save(savedir * sName* "_StateMeans.jld", "statepmean", statepmean)
 
 # save OLS estiamtes and posterior means as CSV files
-CSV.write(savedir * sName * "_PHIols.csv", DataFrame(PHIhat))
-CSV.write(savedir * sName * "_SIGMAols.csv", DataFrame(SIGMAhat))
-CSV.write(savedir * sName * "_PHIpmean.csv", DataFrame(PHIpmean))
+CSV.write(savedir * sName * "_PHIols.csv", DataFrame(PHIhat,:auto))
+CSV.write(savedir * sName * "_SIGMAols.csv", DataFrame(SIGMAhat,:auto))
+CSV.write(savedir * sName * "_PHIpmean.csv", DataFrame(PHIpmean,:auto))
 SIGMApmean = SIGMAtrpmean*SIGMAtrpmean'
-CSV.write(savedir * sName * "_SIGMApmean.csv", DataFrame(SIGMApmean))
-CSV.write(savedir * sName * "_SIGMAtrpmean.csv", DataFrame(SIGMAtrpmean))
+CSV.write(savedir * sName * "_SIGMApmean.csv", DataFrame(SIGMApmean,:auto))
+CSV.write(savedir * sName * "_SIGMAtrpmean.csv", DataFrame(SIGMAtrpmean,:auto))

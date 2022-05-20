@@ -1,5 +1,4 @@
 using DataFrames
-
 using QuadGK
 using Distributions
 using JLD
@@ -10,15 +9,14 @@ using LinearAlgebra
 using SpecialFunctions
 using SparseArrays
 using Random
-
-clearconsole()
+#clearconsole()
 juliaversion = 15 #use 13 for 1.3 and 15 for 1.5
 
 #-------------------------------------------------------------
 # include Functions
 #-------------------------------------------------------------
 #cd("$(pwd())/Dropbox/Heterogeneity/Software/KS_Simulation/")
-readDir = "$(pwd())/Functions/"
+readDir = "$(pwd())/Empirics_Estimation_v2/Functions/"
 include(readDir *"vech.jl");
 include(readDir *"VAR_Procedures.jl");
 include(readDir *"Loaddata.jl");
@@ -28,7 +26,7 @@ include(readDir *"Loaddata.jl");
 #-------------------------------------------------------------
 nVARSpec    = "2"
 nVARMCMCSpec= "1"
-specDir   = "$(pwd())/SpecFiles/"
+specDir   = "$(pwd())/Empirics_Estimation_v2/SpecFiles/"
 include(specDir * "/AltVARspec" * nVARSpec * ".jl")
 include(specDir * "/AltVARMCMCspec" * nVARMCMCSpec * ".jl")
 
@@ -49,10 +47,10 @@ else
     probMass_below1_data = CSV.read("$(pwd())/data/probMass_below1_data.csv", DataFrame, header = true); # run with version 1.5.
 end
 
-percentiles_data = convert(Array, percentiles_data[2:end,2:end]) # include 10, 20, 50, 80, 90th percentiles
+percentiles_data = Matrix(percentiles_data)[2:end,2:end] # include 10, 20, 50, 80, 90th percentiles
 vec_percs = [0.1; 0.2; 0.5; 0.8; 0.9]
-gini_coef_data = convert(Array, gini_coef_data[2:end,2]) # include gini coefficient
-probMass_below1_data = convert(Array, probMass_below1_data[2:end,2]) # include fraction of individuals earning less than per-capita GDP
+gini_coef_data = Matrix(gini_coef_data)[2:end,2] # include gini coefficient
+probMass_below1_data = Matrix(probMass_below1_data)[2:end,2] # include fraction of individuals earning less than per-capita GDP
 
 #-------------------------------------------------------------
 # Combine agg data and density coefficients
@@ -136,9 +134,9 @@ SIGMAtrpmean = dropdims(mean(SIGMAtrpdraw,dims=1),dims=1)
 save(savedir * sName* "_PostMeans.jld", "PHIpmean", PHIpmean, "SIGMAtrpmean", SIGMAtrpmean)
 
 # save OLS estiamtes and posterior means as CSV files
-CSV.write(savedir * sName * "_PHIols.csv", DataFrame(PHIhat))
-CSV.write(savedir * sName * "_SIGMAols.csv", DataFrame(SIGMAhat))
-CSV.write(savedir * sName * "_PHIpmean.csv", DataFrame(PHIpmean))
+CSV.write(savedir * sName * "_PHIols.csv", DataFrame(PHIhat,:auto))
+CSV.write(savedir * sName * "_SIGMAols.csv", DataFrame(SIGMAhat,:auto))
+CSV.write(savedir * sName * "_PHIpmean.csv", DataFrame(PHIpmean,:auto))
 SIGMApmean = SIGMAtrpmean*SIGMAtrpmean'
-CSV.write(savedir * sName * "_SIGMApmean.csv", DataFrame(SIGMApmean))
-CSV.write(savedir * sName * "_SIGMAtrpmean.csv", DataFrame(SIGMAtrpmean))
+CSV.write(savedir * sName * "_SIGMApmean.csv", DataFrame(SIGMApmean,:auto))
+CSV.write(savedir * sName * "_SIGMAtrpmean.csv", DataFrame(SIGMAtrpmean,:auto))

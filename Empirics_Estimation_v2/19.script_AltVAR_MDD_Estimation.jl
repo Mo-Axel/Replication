@@ -16,7 +16,7 @@ using Random
 # include Functions
 #-------------------------------------------------------------
 #cd("$(pwd())/Dropbox/Heterogeneity/Software/KS_Simulation/")
-readDir = "$(pwd())/Functions/"
+readDir = "$(pwd())/Empirics_Estimation_v2/Functions/"
 include(readDir *"vech.jl");
 include(readDir *"VAR_Procedures.jl");
 include(readDir *"Loaddata.jl");
@@ -26,7 +26,7 @@ include(readDir *"Loaddata.jl");
 #-------------------------------------------------------------
 nMDDSpec  = "1"
 nMCMCSpec = "1"
-specDir   = "$(pwd())/SpecFiles/"
+specDir   = "$(pwd())/Empirics_Estimation_v2/SpecFiles/"
 include(specDir * "/AltMDDspec" * nMDDSpec * ".jl")
 include(specDir * "/AltMDDMCMCspec" * nMCMCSpec * ".jl")
 
@@ -48,10 +48,10 @@ else
     probMass_below1_data = CSV.read("$(pwd())/data/probMass_below1_data.csv", DataFrame, header = true); # run with version 1.5.
 end
 
-percentiles_data = convert(Array, percentiles_data[2:end,2:end]) # include 10, 20, 50, 80, 90th percentiles
+percentiles_data = Matrix(percentiles_data)[2:end,2:end] # include 10, 20, 50, 80, 90th percentiles
 vec_percs = [0.1; 0.2; 0.5; 0.8; 0.9]
-gini_coef_data = convert(Array, gini_coef_data[2:end,2]) # include gini coefficient
-probMass_below1_data = convert(Array, probMass_below1_data[2:end,2]) # include fraction of individuals earning less than per-capita GDP
+gini_coef_data = Matrix(gini_coef_data)[2:end,2] # include gini coefficient
+probMass_below1_data = Matrix(probMass_below1_data)[2:end,2] # include fraction of individuals earning less than per-capita GDP
 
 #-------------------------------------------------------------
 # Combine agg data and density coefficients
@@ -113,5 +113,5 @@ close(LogFile)
 lambda_MDD = [hyper_grid MDD_vec]
 sNameCols = ["Lam1", "Lam2", "Lam3", "MDD"]
 sNameFile = "AltMDD" * nMDDSpec* "_MCMC" * nMCMCSpec * "_" * nSpecStr
-CSV.write(savedir * sNameFile * "_lambda_MDD.csv", DataFrame(permutedims(sNameCols)), writeheader=false)
-CSV.write(savedir * sNameFile * "_lambda_MDD.csv", DataFrame(lambda_MDD), append=true);
+CSV.write(savedir * sNameFile * "_lambda_MDD.csv", DataFrame(permutedims(sNameCols,:auto)), writeheader=false)
+CSV.write(savedir * sNameFile * "_lambda_MDD.csv", DataFrame(lambda_MDD,:auto), append=true);
