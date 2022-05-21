@@ -1,0 +1,39 @@
+Before you run codes in this Replication folder，please run code from file "Set jupyter.txt" interminal and please use terminal to run all code.
+
+File1.jl (√): Density Estimation. By this file, we can estimate a cross-sectional density of transformed earning-to-gdp ratio for each period t.
+Output includes different approximation order K (4,6,8,10,14,22) (See file "results/fVAR10tc")
+
+Why we use MLE in this step? 
+The short answer is to gain the sieve coefficients. 
+In the paper, at first, the state-transition equation and the measurement equation are euqation (9) and (6).
+Because of the inclusion of the distributional varibale, this system is nonlinear. 
+To avoide this, we need to replace equation (6) by (14). The latter is MLE of density coeffients.
+This new transition equation can be adjusted to (23), if the distributional data is top coded.
+
+What compression means? 
+The coefficients vector (alpha^(wave+hat)_t) probably has colinearlity.
+To aoide it and take a cut short, we need to compress the alpha coefficients.
+
+See the final state space model in sectional 3.3
+
+File2.jl (√): Percentiles Computation. From File1, we gain spline density for each distribution. 
+In File2, we compute percentiles for each density.
+
+File3.m: Compariation between real data and spline estimation result. See Figure 6-Bottom row.
+
+File4.m: Ditto. See Figure 6-Top row.
+
+File5.m: Estimated Log Earnings Distributions. Because, in this paper, the distributional varibale is a transfomed data, author need to compare data distribution before and after transformation.
+
+File6.jl (√): Log MDD Estimation with K(4,6,8,10,14,22). 
+
+What is MDD and why we need that?
+In File1.jl, we gain the sieve approximiation of all K. 
+But, we still need to deteremine which K is suitable (model selection).
+In the File6.jl we use the Bayesian marginal data density
+
+How to use MDD?
+
+
+
+File8.jl (√)：

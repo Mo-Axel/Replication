@@ -10,7 +10,7 @@ using SpecialFunctions
 using SparseArrays
 using Random
 
-clearconsole()
+#clearconsole()
 
 #-------------------------------------------------------------
 # include Functions

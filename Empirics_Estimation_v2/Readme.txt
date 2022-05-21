@@ -42,7 +42,7 @@ SSspec3: K=22, lambda-hat
 SSspec4: K=22, lambda2,3=1
 
 9. script_PredPercentiles_Smoothed.jl: computes percentiles from
-smoothed a/alpha states using posterior mean parameter estimates.
+smoothed alpha states using posterior mean parameter estimates.
 
 10. Graph_Percentiles_Smoothed.m: overlays empirical and smoothed
 percentiles.
