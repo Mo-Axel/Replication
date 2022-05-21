@@ -30,7 +30,8 @@ File6.jl (√): Log MDD Estimation with K(4,6,8,10,14,22).
 What is MDD and why we need that?
 In File1.jl, we gain the sieve approximiation of all K. 
 But, we still need to deteremine which K is suitable (model selection).
-In the File6.jl we use the Bayesian marginal data density
+In the File6.jl we derive the marginal data density by Beyesian framework.
+
 
 How to use MDD?
 
