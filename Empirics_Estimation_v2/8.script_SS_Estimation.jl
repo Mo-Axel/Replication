@@ -25,7 +25,7 @@ include(readDir *"Loaddata.jl");
 # choose specification files
 #-------------------------------------------------------------
 nfVARSpec = "10tc"
-nSSSpec   = "4"
+nSSSpec   = "1"
 nSSMCMCSpec= "1"
 specDir   = "$(pwd())/Empirics_Estimation_v2/SpecFiles/"
 include(specDir * "/fVARspec" * nfVARSpec * ".jl")

@@ -20,6 +20,8 @@ Pkg.add("SpecialFunctions")
 Pkg.add("SparseArrays")
 Pkg.add("Random")
 Pkg.add("Revise")
+Pkg.add("Interpolations")
+
 cd("$(pwd())/SageMaker/Replication")
 
 #-using Pkg

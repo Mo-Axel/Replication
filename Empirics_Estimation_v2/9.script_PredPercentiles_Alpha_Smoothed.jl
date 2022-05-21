@@ -24,6 +24,7 @@ include(readDir *"EmpPercentiles_Procedures.jl")
 #-------------------------------------------------------------
 nfVARSpec = "10tc"
 nModSpec  = "1"
+## it was 1,but I only have 4. So I replace it in line 66. It is dose not matter. you will know whenyou do it.
 nMCMCSpec = "1"
 modName   = "SS"  # VAR or SS
 
@@ -31,6 +32,9 @@ specDir   = "$(pwd())/Empirics_Estimation_v2/SpecFiles/"
 include(specDir * "/fVARspec" * nfVARSpec * ".jl")
 include(specDir * "/" * modName * "spec" * nModSpec * ".jl")
 include(specDir * "/" * modName * "MCMCspec" * nMCMCSpec * ".jl")
+
+
+
 
 #-------------------------------------------------------------
 # load aggregate data to obtain unemployment rate
@@ -59,7 +63,7 @@ theta = 1.0
 #-------------------------------------------------------------
 # Load state's posterior mean
 #-------------------------------------------------------------
-
+#nModSpec  = "4"
 sName    = "fVAR" * nfVARSpec * "_" * modName * nModSpec * "_" * "MCMC" * nMCMCSpec;
 loadDir  = "$(pwd())/results/" * sName *"/";
 
@@ -69,11 +73,11 @@ T = size(statepmean)[1]
 ii=getindex.(findall(K_vec.-K.==0),[1 2])[1] # find index ii where K==K_vec
 knots = knots_all[quant_sel[ii,:].==1]
 
-# compute empirical CDF for a grid of values
-# ngrid     = 20
-# grid_temp = range(0.2, stop=1.8, length=ngrid);
-ngrid     = 50
-grid_temp = range(0.05, stop=2.5, length=ngrid);
+#compute empirical CDF for a grid of values
+#ngrid     = 50
+#grid_temp = range(0.05, stop=2.5, length=ngrid);
+ngrid     = 20
+grid_temp = range(0.2, stop=1.8, length=ngrid);
 grid_temp = [0.0; grid_temp]
 
 # initalize the matrices for the time series of percentiles

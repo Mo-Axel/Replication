@@ -36,6 +36,7 @@ include(readDir *"IRF_Procedures.jl")
 #-------------------------------------------------------------
 nfVARSpec = "10tc"
 nModSpec  = "4"
+# =1#
 nMCMCSpec = "1"
 modName   = "SS"  # VAR or SS
 
