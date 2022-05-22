@@ -32,11 +32,11 @@ include(readDir *"GiniFracBelowCutoff_Procedures.jl")
 # choose specification files
 #-------------------------------------------------------------
 nfVARSpec = "10tc"
-nModSpec  = "4"
+nModSpec  = "1"
 nMCMCSpec = "1"
 modName   = "SS"  # VAR or SS
 cutoff    = 1;
-nShockspec= "AggSh1"
+nShockspec= "AggSh3"
 #nShockspec= "DistrSh" "AggSh1"
 # Aggregate shocks 1: TFP shock, 2: GDP shock,  3: Employment shock
 # Distr shock DistrSh is Gini on impact

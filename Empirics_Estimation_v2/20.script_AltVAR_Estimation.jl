@@ -37,14 +37,15 @@ include(specDir * "/AltVARMCMCspec" * nVARMCMCSpec * ".jl")
 agg_data, period_agg, ~ = loadaggdata(SampleStart,SampleEnd,juliaversion)
 n_agg = size(agg_data)[2]
 
+
 if juliaversion == 13
-    percentiles_data     = CSV.read("$(pwd())/data/percentiles_data.csv", header = true); # run with version 1.3.
-    gini_coef_data       = CSV.read("$(pwd())/data/gini_coef_data.csv", header = true); # run with version 1.3.
-    probMass_below1_data = CSV.read("$(pwd())/data/probMass_below1_data.csv", header = true); # run with version 1.3.
+    percentiles_data     = CSV.read("$(pwd())/Empirics_Estimation_v2/Data/percentiles_data.csv", header = true); # run with version 1.3.
+    gini_coef_data       = CSV.read("$(pwd())/Empirics_Estimation_v2/Data/gini_coef_data.csv", header = true); # run with version 1.3.
+    probMass_below1_data = CSV.read("$(pwd())/Empirics_Estimation_v2/Data/probMass_below1_data.csv", header = true); # run with version 1.3.
 else
-    percentiles_data     = CSV.read("$(pwd())/data/percentiles_data.csv", DataFrame, header = true); # run with version 1.5.
-    gini_coef_data       = CSV.read("$(pwd())/data/gini_coef_data.csv", DataFrame, header = true); # run with version 1.5.
-    probMass_below1_data = CSV.read("$(pwd())/data/probMass_below1_data.csv", DataFrame, header = true); # run with version 1.5.
+    percentiles_data     = CSV.read("$(pwd())/Empirics_Estimation_v2/Data/percentiles_data.csv", DataFrame, header = true); # run with version 1.5.
+    gini_coef_data       = CSV.read("$(pwd())/Empirics_Estimation_v2/Data/gini_coef_data.csv", DataFrame, header = true); # run with version 1.5.
+    probMass_below1_data = CSV.read("$(pwd())/Empirics_Estimation_v2/Data/probMass_below1_data.csv", DataFrame, header = true); # run with version 1.5.
 end
 
 percentiles_data = Matrix(percentiles_data)[2:end,2:end] # include 10, 20, 50, 80, 90th percentiles

@@ -35,7 +35,7 @@ include(readDir *"IRF_Procedures.jl")
 # choose specification files
 #-------------------------------------------------------------
 nfVARSpec = "10tc"
-nModSpec  = "4"
+nModSpec  = "1"
 # =1#
 nMCMCSpec = "1"
 modName   = "SS"  # VAR or SS
