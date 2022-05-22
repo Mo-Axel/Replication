@@ -1,21 +1,21 @@
-Before you run codes in this Replication folder，please run code from file "Set jupyter.txt" interminal and please use terminal to run all code.
-if you see (√)，it means that this file can run smoothly after adjustments.
+Before running codes in this Replication folder， please run code from file "Set jupyter.txt" in the terminal and use the terminal to run all code.
+If you see (√)， this file can run smoothly after adjustments.
 
 File1.jl (√): Density Estimation.(Section 2.1-2.3 3.1 3.2 5.1.2) 
 By this file, we can estimate a cross-sectional density of transformed earning-to-gdp ratio for each period t.
 Output includes different approximation order K (4,6,8,10,14,22) (See file "results/fVAR10tc")
-The location of knots is determined by ourself.
+The location of knots is determined by ourselves.
 
-Why we use MLE in this step? 
+Why do we use MLE in this step? 
 The short answer is to gain the sieve coefficients. 
-In the paper, at first, the state-transition equation and the measurement equation are euqation (9) and (6).
-Because of the inclusion of the distributional varibale, this system is nonlinear. 
-To avoide this, we need to replace equation (6) by (14). The latter is MLE of density coeffients.
-This new transition equation can be adjusted to (23), if the distributional data is top coded.
+In the paper, at first, the state-transition and measurement equations are equations (9) and (6).
+Because of the inclusion of the distributional variable, this system is nonlinear. 
+To avoid this, we need to replace equation (6) with (14). The latter is the MLE of density coefficients.
+If the distributional data is top coded, this new transition equation can be adjusted to (23).
 
-What compression means? 
-The coefficients vector (alpha^(wave+hat)_t) probably has colinearlity.
-To aoide it and take a cut short, we need to compress the alpha coefficients.
+What does compression mean? 
+The coefficients vector (alpha^(wave+hat)_t) probably has colinearity.
+To avoid it and take a cut short, we need to compress the alpha coefficients.
 
 See the final state space model in sectional 3.3
 
@@ -23,39 +23,39 @@ File2.jl (√): Percentiles Computation. (Section 5.1.2)
 From File1, we gain spline density for each distribution. 
 In File2, we compute percentiles for each density.
 
-File3.m: Compariation between real data and spline estimation result. See Figure 6-Bottom row.
+File3.m: Compariation between actual data and spline estimation result. See Figure 6-Bottom row.
 
 File4.m: Ditto. See Figure 6-Top row.
 
-File5.m: Estimated Log Earnings Distributions. Because, in this paper, the distributional varibale is a 
-transfomed data, author need to compare data distribution before and after transformation.
+File5.m: Estimated Log Earnings Distributions. Because, in this paper, the distributional variable is a 
+transformed data, the author needs to compare data distribution before and after transformation.
 
 File6.jl (√): Log MDD Estimation with K(4,6,8,10,14,22). (Section 2.4 5.1.4)
 
-What is MDD and why we need that?
-In File1.jl, we gain the sieve approximiation of all K. 
-But, we still need to deteremine which K is suitable (model selection).
-In the File6.jl we derive the marginal data density(MDD) by Beyesian framework.
-The equation (15) defines the MDD formula. 
+What is MDD, and why do we need that?
+In File1.jl, we gain the sieve approximation of all K. 
+But, we still need to determine which K is suitable (model selection).
+In File6.jl, we derive the marginal data density(MDD) by the Bayesian framework.
+Equation (15) defines the MDD formula. 
 After adjustments, the equation (15) becomes equation (20).
-In this proecess, some considerations are included, such as maximized likelihood function from the 
+In this process, some considerations are included, such as maximized likelihood function from the 
 cross-sectional density estimation and the penalty for model complexity.
 
-How to use MDD to deteremine K?
-It can help determine K and other hyperparameter.
+How to use MDD to determine K?
+It can help determine K and other hyperparameters.
 See Section 5.1.4. But I need more details.
 
 
-File8.jl (√)：The estimation of the state-space model.(Section 3.3 3.4 5.1.3 5.1.4)
-A common estimation of the state-space model.
-The prior distribution is IW ditribution.
-The MCMC method is Gibbs sampler
+File8.jl (√)： The estimation of the state-space model.(Section 3.3 3.4 5.1.3 5.1.4)
+A common estimation of the state-space model
+The prior distribution is the IW distribution.
+The MCMC method is a Gibbs sampler.
 
 File9.jl (√): computes percentiles from
 smoothed alpha states using posterior mean parameter estimates.
 See A.C.3 We compare estimated and smoothed coefficients' results.
 
-File12.jl (√): Aggregate shocks identificaiton and IRFs Computation. (Section 5.2.1)
+File12.jl (√): Aggregate shocks identification and IRFs Computation. (Section 5.2.1)
 IRF of aggregate variables to aggregate shocks.
 
 File14.jl (√): IRFs computation for transformed density in response to an aggregate shock. (Section 5.2.2)
@@ -63,7 +63,7 @@ File14.jl (√): IRFs computation for transformed density in response to an aggr
 File16.jl (√): IRFs of aggregate variables to a distributional shock. (Section 5.5
 
 File17.jl (√): IRFs of distributional variables to a distributional shock. (Section 5.5)
-Why A distributional variable will have to respond to a ditributional shcok???
+Why A distributional variable will have to respond to a distributional shock???
 
 File19.jl, File.20.jl and File21.jl are used to deploy the alternative model.
 
