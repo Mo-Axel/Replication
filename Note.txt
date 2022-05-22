@@ -1,7 +1,10 @@
 Before you run codes in this Replication folder，please run code from file "Set jupyter.txt" interminal and please use terminal to run all code.
+if you see (√)，it means that this file can run smoothly after adjustments.
 
-File1.jl (√): Density Estimation. By this file, we can estimate a cross-sectional density of transformed earning-to-gdp ratio for each period t.
+File1.jl (√): Density Estimation.(Section 2.1-2.3 3.1 3.2 5.1.2) 
+By this file, we can estimate a cross-sectional density of transformed earning-to-gdp ratio for each period t.
 Output includes different approximation order K (4,6,8,10,14,22) (See file "results/fVAR10tc")
+The location of knots is determined by ourself.
 
 Why we use MLE in this step? 
 The short answer is to gain the sieve coefficients. 
@@ -16,25 +19,53 @@ To aoide it and take a cut short, we need to compress the alpha coefficients.
 
 See the final state space model in sectional 3.3
 
-File2.jl (√): Percentiles Computation. From File1, we gain spline density for each distribution. 
+File2.jl (√): Percentiles Computation. (Section 5.1.2) 
+From File1, we gain spline density for each distribution. 
 In File2, we compute percentiles for each density.
 
 File3.m: Compariation between real data and spline estimation result. See Figure 6-Bottom row.
 
 File4.m: Ditto. See Figure 6-Top row.
 
-File5.m: Estimated Log Earnings Distributions. Because, in this paper, the distributional varibale is a transfomed data, author need to compare data distribution before and after transformation.
+File5.m: Estimated Log Earnings Distributions. Because, in this paper, the distributional varibale is a 
+transfomed data, author need to compare data distribution before and after transformation.
 
-File6.jl (√): Log MDD Estimation with K(4,6,8,10,14,22). 
+File6.jl (√): Log MDD Estimation with K(4,6,8,10,14,22). (Section 2.4 5.1.4)
 
 What is MDD and why we need that?
 In File1.jl, we gain the sieve approximiation of all K. 
 But, we still need to deteremine which K is suitable (model selection).
-In the File6.jl we derive the marginal data density by Beyesian framework.
+In the File6.jl we derive the marginal data density(MDD) by Beyesian framework.
+The equation (15) defines the MDD formula. 
+After adjustments, the equation (15) becomes equation (20).
+In this proecess, some considerations are included, such as maximized likelihood function from the 
+cross-sectional density estimation and the penalty for model complexity.
+
+How to use MDD to deteremine K?
+It can help determine K and other hyperparameter.
+See Section 5.1.4. But I need more details.
 
 
-How to use MDD?
+File8.jl (√)：The estimation of the state-space model.(Section 3.3 3.4 5.1.3 5.1.4)
+A common estimation of the state-space model.
+The prior distribution is IW ditribution.
+The MCMC method is Gibbs sampler
+
+File9.jl (√): computes percentiles from
+smoothed alpha states using posterior mean parameter estimates.
+See A.C.3 We compare estimated and smoothed coefficients' results.
+
+File12.jl (√): Aggregate shocks identificaiton and IRFs Computation. (Section 5.2.1)
+IRF of aggregate variables to aggregate shocks.
+
+File14.jl (√): IRFs computation for transformed density in response to an aggregate shock. (Section 5.2.2)
+
+File16.jl (√): IRFs of aggregate variables to a distributional shock. (Section 5.5
+
+File17.jl (√): IRFs of distributional variables to a distributional shock. (Section 5.5)
+Why A distributional variable will have to respond to a ditributional shcok???
+
+File19.jl, File.20.jl and File21.jl are used to deploy the alternative model.
 
 
 
-File8.jl (√)：
