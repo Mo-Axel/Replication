@@ -18,7 +18,8 @@ xgrid = linspace(xmin, xmax, xn);
 colsel = 9; 
 K = 20;
 
-nfVARSpec = '7tc';
+nfVARSpec = '10tc';
+%7tc;
 nModSpec  = '1';
 nMCMCSpec = '1';
 sName     = ['fVAR', nfVARSpec, '_MDD', nModSpec, '_MCMC', nMCMCSpec];
@@ -28,7 +29,7 @@ figsaveDir = [pwd, '/', 'Figures' ,'/', sName,'/'];
 
 % load MDDs: use Bayes vs Laplace
 mddDir = [pwd, '/', 'Results' ,'/', sName, '/'];
-lambda_MDD = csvread( [mddDir, sName, '_MDD_Laplace_sum.csv'], 1, 0);
+lambda_MDD = readmatrix( [mddDir, sName, '_MDD_Laplace_sum.csv'], 1, 0);
 
 lambda1 = lambda_MDD(:,1);
 lambda2 = lambda_MDD(:,2);

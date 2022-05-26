@@ -11,7 +11,9 @@ set(0,'defaultTextInterpreter','latex');
 % load data
 
 dataDir = [pwd, '/', 'Data' ,'/'];
-earnings_data = csvread( [dataDir, 'earnings_detrended_inversesign.csv'],1,1);
+earnings_data = readmatrix([dataDir, 'earnings_detrended_inversesign.csv']);
+earnings_data = earnings_data(:,2:end);
+%,1,1
 earnings_t = earnings_data(:,1);
 earnings_detrended = earnings_data(:,2);
 
@@ -32,8 +34,8 @@ saveDir = [pwd, '/', 'figures' ,'/', sNameDir,'/'];
 sNameFile = ['K',num2str(K),'_fVAR',nfVARSpec];    
 
 % given period tt, draw the estimated density
-PhatDensValue = csvread( [loadDir, sNameFile, '_PhatDensValue.csv'], 1, 0); % read table starting one row below
-   
+PhatDensValue = readmatrix([loadDir, sNameFile, '_PhatDensValue.csv']); % read table starting one row below
+%, 1, 0   
 figure(1);clf;
 set(figure(1),'PaperType','usletter','PaperOrientation','Landscape','PaperPosition',[0.1 0.1 11 8.5]);
 plot(xgrid,PhatDensValue(1,:),'Color','b','LineStyle','-','LineWidth',2)
