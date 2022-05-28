@@ -57,7 +57,7 @@ Pen_Bayes_sum   = zeros(hyper_n, K_vec_n+size(hyper_grid)[2])
 lambda_hat_K_BayesMax   = zeros(K_vec_n,6)
 lambda_hat_K_LaplaceMax = zeros(K_vec_n,6)
 
-for ii = 1:K_vec_n
+for ii = 4:K_vec_n
 
     K = K_vec[ii]
 
