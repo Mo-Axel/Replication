@@ -15,7 +15,7 @@ xn = 100;
 xgrid = linspace(xmin, xmax, xn);
 
 % colsel does not count first three columns (hyperparameters)
-colsel = 9; 
+colsel = 7; 
 K = 20;
 
 nfVARSpec = '10tc';
@@ -24,17 +24,18 @@ nModSpec  = '1';
 nMCMCSpec = '1';
 sName     = ['fVAR', nfVARSpec, '_MDD', nModSpec, '_MCMC', nMCMCSpec];
 
-figsaveDir = [pwd, '/', 'Figures' ,'/', sName,'/'];
+figsaveDir= [pwd, '\', 'Figures' ,'\', sName,'\'];
 [~, ~, ~]  = mkdir(figsaveDir);
 
 % load MDDs: use Bayes vs Laplace
-mddDir = [pwd, '/', 'Results' ,'/', sName, '/'];
-lambda_MDD = readmatrix( [mddDir, sName, '_MDD_Laplace_sum.csv'], 1, 0);
-
+mddDir = [pwd, '\', 'Results' ,'\', sName, '\'];
+lambda_MDD = readmatrix([mddDir, sName, '_MDD_Laplace_sum.csv']);
+%, 1, 0
 lambda1 = lambda_MDD(:,1);
 lambda2 = lambda_MDD(:,2);
 lambda3 = lambda_MDD(:,3);
 MDD = lambda_MDD(:,3+colsel);
+
 
 maxMDD_id = find(MDD == max(MDD));
 
