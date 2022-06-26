@@ -1,30 +1,37 @@
-# install "plspm"
-install.packages("devtools") 
-library(devtools)
-install_github("gastonstat/plspm")
 install.packages("plyr")
 install.packages("ggplot2")
 install.packages("reshape")
 install.packages("haven")
 install.packages("randomForest")
-library(plspm)
-library(haven)
+install.packages("mltools")
+install.packages("data.table")
+library(mltools)
+library(data.table)
+
+
+
+#with[,106:231]=lapply(with[,106:231],as.factor) 
+#without[,100:225]=lapply(with[,100:225],as.factor) 
+#library(haven)
 library(randomForest)
 getwd()
 setwd()
-scf_all <- as.data.frame(read_dta(file = "2019revised.dta"))
-scf_all = scf_all[,4:ncol(scf_all)]
-scf_all
 
-scf_all[,150:250]=as.factor(scf_all[,150:250])
-scf_all[,122:264]=lapply(scf_all[,122:264],as.factor)                           
-                           
-ind<-sample(2,nrow(scf_all),replace = TRUE,prob = c(0.7,0.3))
-traindata<-scf_all[ind == 1,]
-testdata<-scf_all[ind == 2,]
-randomForest_rf<-randomForest(c_Lli_ty~.,data = traindata,
-                              ntree = 100,
-                              mtry = 30,
+
+fac_num = funcation(a){
+  a = 2^a - 2
+}
+scf[year == 2019,107:232]
+scf = read.table("all years with timevar.txt",sep=",",head = T)
+  
+scf[,107:232]=lapply(scf[,107:232],fac_num)
+scf = scf[,-1]
+scf = one_hot(as.data.table(scf))
+scf = as.data.frame(scf)
+
+randomForest_rf<-randomForest(c_Lli_ty~.,data = scf,
+                              ntree = 200,
+                              mtry = 20,
                               proximity = TRUE,
                               importance = TRUE)
 A = importance(randomForest_rf,type = 1)
