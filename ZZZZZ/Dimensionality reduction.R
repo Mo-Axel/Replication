@@ -12,9 +12,13 @@ library(haven)
 library(randomForest)
 getwd()
 setwd()
-scf_all <- as.data.frame(read_dta(file = "2007revised.dta"))
+scf_all <- as.data.frame(read_dta(file = "2019revised.dta"))
 scf_all = scf_all[,4:ncol(scf_all)]
 scf_all
+
+scf_all[,150:250]=as.factor(scf_all[,150:250])
+scf_all[,122:264]=lapply(scf_all[,122:264],as.factor)                           
+                           
 ind<-sample(2,nrow(scf_all),replace = TRUE,prob = c(0.7,0.3))
 traindata<-scf_all[ind == 1,]
 testdata<-scf_all[ind == 2,]
