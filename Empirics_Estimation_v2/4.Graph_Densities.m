@@ -57,7 +57,9 @@ for pp = 1:length(periods)
 
         K =  K_vec(ii);
         sNameFile = ['K',num2str(K_vec(ii)),'_fVAR',nfVARSpec];    
-        PhatDensValue = csvread( [loadDir, sNameFile, '_PhatDensValue.csv'], 1, 0); % read table starting one row below
+        
+
+        PhatDensValue = csvread( [loadDir, sNameFile, '_PhatDensValue.csv'],1,1); % read table starting one row below
 
         plot(xgrid,PhatDensValue(tt,:),'Color',color_choice(ii),'LineStyle',linestyle_choice(ii),'LineWidth',4)
         hold on

@@ -24,15 +24,17 @@ sample_percs = readmatrix([dataDir, 'percentiles_data.csv']); % sample percentil
 sample_percs = sample_percs(2:end,2:end)
 %, 2, 1
 % load estimated percentiles 
+pwd = "C:\Users\29017\Desktop\Replication"
 estDir = [pwd, '/', 'Results' ,'/', sName, '/'];
-estimated_percs = readmatrix( [estDir, nKSpec, sName, '_PredPctl_MLE.csv']); % estimated percentiles
+estimated_percs = readmatrix( "C:/Users/29017/Desktop/Replication/results/fVAR10tc/K22_fVAR10tc_PredPctL_MLE.csv")
+%estimated_percs = readmatrix( [estDir, nKSpec, sName, '_PredPctl_MLE.csv']); % estimated percentiles
 %, 1, 0
 %--------------------------------------------------------------------------
 % Percentiles Comparison 
 %--------------------------------------------------------------------------
 T = length(sample_percs(:,1));
-
-figsaveDir = [pwd, '/', 'Figures' ,'/', sName,'/'];
+figsaveDir = "C:\Users\29017\Desktop\Replication\Figures\fVAR10tc"
+%figsaveDir = [pwd, '/', 'Figures' ,'/', sName,'/'];
 [~, ~, ~] = mkdir(figsaveDir);
 
 start_period = 1989.25;
