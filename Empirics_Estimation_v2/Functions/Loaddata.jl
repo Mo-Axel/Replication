@@ -1,7 +1,8 @@
 function loadaggdata(SampleStart,SampleEnd,v)
 
     dataDir = "$(pwd())/Empirics_Estimation_v2/Data/"
-
+    dataDir = "C:/Users/29017/Desktop/Replication/Empirics_Estimation_v2/Data/"
+    #C:\Users\29017\Desktop\Replication\Empirics_Estimation_v2
     GDPpc_data       = CSV.read(dataDir * "GDPpc.csv", DataFrame, header = true); # run with version 1.5.
     TFPgr_data       = CSV.read(dataDir * "TFP.csv", DataFrame, header = false);
     unrate_data       = CSV.read(dataDir * "UNRATE_CPS_FRED.csv", DataFrame, header = true);

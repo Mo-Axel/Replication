@@ -15,7 +15,7 @@ using Random
 #-------------------------------------------------------------
 # include Functions
 #-------------------------------------------------------------
-readDir = "$(pwd())/Empirics_Estimation_v2/Functions/"
+readDir = "$(pwd())/Functions/"
 include(readDir *"vech.jl");
 include(readDir *"VAR_Procedures.jl");
 include(readDir *"Loaddata.jl");
@@ -27,7 +27,7 @@ nfVARSpec = "10tc"
 nMDDSpec  = "1"
 nMCMCSpec = "1"
 
-specDir   = "$(pwd())/Empirics_Estimation_v2/SpecFiles/"
+specDir   = "$(pwd())/SpecFiles/"
 include(specDir * "/fVARspec" * nfVARSpec * ".jl")
 include(specDir * "/MDDspec" * nMDDSpec * ".jl")
 include(specDir * "/MDDMCMCspec" * nMCMCSpec * ".jl")
@@ -36,7 +36,7 @@ include(specDir * "/MDDMCMCspec" * nMCMCSpec * ".jl")
 # load aggregate data
 #-------------------------------------------------------------
 juliaversion = 15 #use 13 for 1.3 and 15 for 1.5
-agg_data, period_agg, ~ = loadaggdata(SampleStart,SampleEnd,juliaversion)
+agg_data, period_agg = loadaggdata(SampleStart,SampleEnd,juliaversion)
 n_agg = size(agg_data)[2]
 
 #-------------------------------------------------------------

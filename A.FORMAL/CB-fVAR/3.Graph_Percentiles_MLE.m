@@ -10,16 +10,17 @@ set(0,'defaultTextInterpreter','latex');
 
 % set specs 
 xmin = 0;
-xmax = 3;
-xn = 301;
+xmax = 1;
+xn = 101;
 xgrid = linspace(xmin, xmax, xn);
 
 nfVARSpec = '10tc';
-nKSpec    = 'K22_';
+nKSpec    = 'K4_';
 sName = ['fVAR', nfVARSpec];
 
 % load sample percentiles (from the data)
-dataDir = [pwd, '/', 'Data' ,'/'];
+%dataDir = [pwd, '/', 'Data' ,'/'];
+dataDir = ['C:/Users/29017/Desktop/Replication/A.FORMAL/CB-fVAR/Data/']
 sample_percs = readmatrix([dataDir, 'percentiles_data.csv']); % sample percentiles
 sample_percs = sample_percs(2:end,2:end)
 %, 2, 1

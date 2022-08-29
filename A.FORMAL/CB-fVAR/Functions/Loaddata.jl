@@ -3,8 +3,8 @@ function loadaggdata(SampleStart,SampleEnd,v)
     dataDir = "$(pwd())/Data/"
 
     GDP_data       = CSV.read(dataDir * "gdp.csv", DataFrame, header = true); # run with version 1.5.
-    Inv_data       = CSV.read(dataDir * "Inv.csv", DataFrame, header = false);
-    BRW_data       = CSV.read(dataDir * "BRW.csv", DataFrame, header = false);
+    Inv_data       = CSV.read(dataDir * "Inv.csv", DataFrame, header = true);
+    BRW_data       = CSV.read(dataDir * "BRW.csv", DataFrame, header = true);
     # TFPgr_data       = CSV.read(dataDir * "Inv.csv", DataFrame, header = false);
     # unrate_data       = CSV.read(dataDir * "UNRATE_CPS_FRED.csv", DataFrame, header = true);
 
@@ -46,14 +46,14 @@ function loadaggdata(SampleStart,SampleEnd,v)
     # TFPgr   = TFPgr[period_TFP_ind]
     # unrate  = UNR[period_UNR_ind];
     GDPpc    = GDPpc[period_GDP_ind]
-    Invpc    = GDPpc[period_GDP_ind]
-    BRWpc    = GDPpc[period_GDP_ind]
+    Invpc    = Invpc[period_Inv_ind]
+    BRWpc    = BRWpc[period_BRW_ind]
 
     period_agg = period_GDP[period_GDP_ind]
 
-    GDPgrdev     = GDPpc .- mean(GDP_data,dims=1)
-    Invgrdev     = Invpc .- mean(Inv_data::Any)
-    BRWdev       = BRWpc .- mean(BRW_data::Any)
+    GDPgrdev     = GDPpc .- mean(GDPpc,dims=1)
+    Invgrdev     = Invpc .- mean(Invpc,dims=1)
+    BRWdev       = BRWpc .- mean(BRWpc,dims=1)
 
     # TFPgrdev     = TFPgr .- mean(TFPgr,dims=1)
     # GDPpcgrdev   = GDPpcgr .- mean(GDPpcgr,dims=1)

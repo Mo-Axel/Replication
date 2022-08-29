@@ -35,7 +35,7 @@ Tend       = length(unrate)
 #-------------------------------------------------------------
 nfVARSpec =  "10tc"
 specDir   = "$(pwd())/SpecFiles/"
-include(specDir * "/fVARspec" * nfVARSpec * "_.jl")
+include(specDir * "/fVARspec" * nfVARSpec * ".jl")
 
 # subsequently use the same knots regardless of sample size N,T
 knots_all = quantile(earnings_detrended, quant_vec)

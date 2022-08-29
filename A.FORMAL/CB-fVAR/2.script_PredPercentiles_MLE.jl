@@ -5,7 +5,7 @@ using CSV
 using LinearAlgebra
 using JLD
 using Interpolations
-
+import Statistics
 #clearconsole()
 
 #-------------------------------------------------------------
@@ -13,17 +13,18 @@ using Interpolations
 #-------------------------------------------------------------
 #cd("$(pwd())/Dropbox/Heterogeneity/Software/KS_Simulation/")
 readDir = "$(pwd())/Functions/"
+
 include(readDir *"vech.jl");
 include(readDir *"logSpline_Procedures.jl");
 include(readDir *"VAR_Procedures.jl");
-include(readDir *"Loaddata_.jl");
+include(readDir *"Loaddata.jl");
 include(readDir *"EmpPercentiles_Procedures.jl")
 
 #-------------------------------------------------------------
 # choose specification files
 #-------------------------------------------------------------
-nfVARSpec   = "10tc_"
-K           = 4
+nfVARSpec   = "10tc"
+K           = 6
 SampleStart = 1998
 SampleEnd   = 2019
 
@@ -90,7 +91,7 @@ for tt = 1:T
 
     print("CDF and Percentiles for Period = $tt \n")
 
-    unrate    = agg_data[tt,3] + mean_unrate
+    unrate    = Matrix(CSV.read(dataDir * "superrate.csv", DataFrame, header = true))[tt,2]
     @time emp_percs = DensPercentiles(PhatDensCoef[tt,:]', knots, unrate, xgrid, grid_temp, vec_percs)
 
     emp_percs_all[tt,:] = emp_percs'
