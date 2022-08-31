@@ -15,7 +15,7 @@ using Random
 #-------------------------------------------------------------
 # include Functions
 #-------------------------------------------------------------
-readDir = "$(pwd())/Functions/"
+readDir = "$(pwd())/CB-fVAR/Functions/"
 include(readDir *"vech.jl");
 include(readDir *"VAR_Procedures.jl");
 include(readDir *"Loaddata.jl");
@@ -27,7 +27,7 @@ nfVARSpec = "10tc"
 nMDDSpec  = "1"
 nMCMCSpec = "1"
 
-specDir   = "$(pwd())/SpecFiles/"
+specDir   = "$(pwd())/CB-fVAR/SpecFiles/"
 include(specDir * "/fVARspec" * nfVARSpec * ".jl")
 include(specDir * "/MDDspec" * nMDDSpec * ".jl")
 include(specDir * "/MDDMCMCspec" * nMCMCSpec * ".jl")

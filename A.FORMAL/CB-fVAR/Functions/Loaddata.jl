@@ -1,6 +1,6 @@
 function loadaggdata(SampleStart,SampleEnd,v)
 
-    dataDir = "$(pwd())/Data/"
+    dataDir = "$(pwd())/CB-fVAR/Data/"
 
     GDP_data       = CSV.read(dataDir * "gdp.csv", DataFrame, header = true); # run with version 1.5.
     Inv_data       = CSV.read(dataDir * "Inv.csv", DataFrame, header = true);

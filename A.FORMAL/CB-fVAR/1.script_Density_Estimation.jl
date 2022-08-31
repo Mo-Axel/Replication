@@ -13,15 +13,15 @@ using LinearAlgebra
 # include Functions
 #-------------------------------------------------------------
 #cd("$(pwd())/Dropbox/Heterogeneity/Software/Empirical_Analysis/")
-readDir = "$(pwd())/Functions/"
+readDir = "$(pwd())/CB-fVAR/Functions/"
 include(readDir *"logSpline_Procedures.jl");
 
 #-------------------------------------------------------------
 # load data
 #-------------------------------------------------------------
-dataDir = "$(pwd())/Data/"
+dataDir = "$(pwd())/CB-fVAR/Data/"
 
-unrate_data     = CSV.read(dataDir * "superrate.csv", DataFrame, header = true);
+unrate_data     = CSV.read(dataDir * "No_superrate.csv", DataFrame, header = true);
 earnings_data   = CSV.read(dataDir * "cross_all.csv", DataFrame, header = true);
 
 unrate     = Matrix(unrate_data)[:,2]
@@ -34,7 +34,7 @@ Tend       = length(unrate)
 # choose specification file
 #-------------------------------------------------------------
 nfVARSpec =  "10tc"
-specDir   = "$(pwd())/SpecFiles/"
+specDir   = "$(pwd())/CB-fVAR/SpecFiles/"
 include(specDir * "/fVARspec" * nfVARSpec * ".jl")
 
 # subsequently use the same knots regardless of sample size N,T
@@ -156,7 +156,7 @@ for ii = 1:K_vec_n
     end
 
     # seasonality adjustment
-    nq = 1 # quarterly data
+    nq = 1# quarterly data
     start_season = 1 # starting from 1989Q1 (first quarter)
     (PhatDensCoef_adj, PhatDensCoef_mean, PhatDensCoef_mean_allt) = seasonality_adj(PhatDensCoef, nq, start_season, Tend)
 
@@ -180,7 +180,7 @@ for ii = 1:K_vec_n
     # save results
     sNameDir  = "fVAR" * nfVARSpec
     sNameFile = "K" * string(K) * "_fVAR" * nfVARSpec
-    savedir = "$(pwd())/results/" * sNameDir *"/";
+    savedir = "$(pwd())/CB-fVAR/results/" * sNameDir *"/";
     try mkdir(savedir) catch; end
     CSV.write(savedir * sNameFile * "_DensityPeriod.csv", DataFrame(Period_all,:auto))
     CSV.write(savedir * sNameFile * "_PhatDensValue.csv", DataFrame(PhatDensValue,:auto))
@@ -198,7 +198,7 @@ end
 
 sNameDir  = "fVAR" * nfVARSpec;
 sNameFile = "fVAR" * nfVARSpec;
-savedir = "$(pwd())/results/" * sNameDir *"/";
+savedir = "$(pwd())/CB-fVAR/results/" * sNameDir *"/";
 try mkdir(savedir) catch; end
 CSV.write(savedir * sNameFile * "_MDD_GoF_sum.csv", DataFrame(MDD_GoF_sum,:auto))
 CSV.write(savedir * sNameFile * "_knots_all.csv", DataFrame(knots_all',:auto))

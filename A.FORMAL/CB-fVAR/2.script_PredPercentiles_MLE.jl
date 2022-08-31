@@ -12,7 +12,7 @@ import Statistics
 # include Functions
 #-------------------------------------------------------------
 #cd("$(pwd())/Dropbox/Heterogeneity/Software/KS_Simulation/")
-readDir = "$(pwd())/Functions/"
+readDir = "$(pwd())/CB-fVAR/Functions/"
 
 include(readDir *"vech.jl");
 include(readDir *"logSpline_Procedures.jl");
@@ -24,13 +24,13 @@ include(readDir *"EmpPercentiles_Procedures.jl")
 # choose specification files
 #-------------------------------------------------------------
 nfVARSpec   = "10tc"
-K           = 6
+K           = 4
 SampleStart = 1998
 SampleEnd   = 2019
 
 nKSpec    = "K$(K)_"
 
-specDir   = "$(pwd())/SpecFiles/"
+specDir   = "$(pwd())/CB-fVAR/SpecFiles/"
 include(specDir * "/fVARspec" * nfVARSpec * ".jl")
 
 #-------------------------------------------------------------
@@ -45,7 +45,7 @@ n_agg = size(agg_data)[2]
 # Load coefficients from density estimation
 #-------------------------------------------------------------
 sName   = "fVAR" * nfVARSpec
-loaddir  = "$(pwd())/results/" * sName *"/";
+loaddir  = "$(pwd())/CB-fVAR/results/" * sName *"/";
 
 knots_all    = CSV.read(loaddir * sName * "_knots_all.csv", DataFrame, header = true);
 PhatDensCoef = CSV.read(loaddir * nKSpec * sName * "_PhatDensCoef.csv", DataFrame, header = true);
@@ -91,12 +91,12 @@ for tt = 1:T
 
     print("CDF and Percentiles for Period = $tt \n")
 
-    unrate    = Matrix(CSV.read(dataDir * "superrate.csv", DataFrame, header = true))[tt,2]
+    unrate    = Matrix(CSV.read(dataDir * "No_superrate.csv", DataFrame, header = true))[tt,2]
     @time emp_percs = DensPercentiles(PhatDensCoef[tt,:]', knots, unrate, xgrid, grid_temp, vec_percs)
 
     emp_percs_all[tt,:] = emp_percs'
 
 end
 
-savedir  = "$(pwd())/results/" * sName *"/";
+savedir  = "$(pwd())/CB-fVAR/results/" * sName *"/";
 CSV.write(savedir * nKSpec * sName * "_PredPctL_MLE.csv", DataFrame(emp_percs_all,:auto));
