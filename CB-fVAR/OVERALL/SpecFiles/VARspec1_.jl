@@ -8,10 +8,9 @@ Tdrop      = 1    # initial observations to be dropped and used for lag initiali
 K         = 6
 lambda1   = 1.25
 lambda2   = 403.43
-lambda3   = 95.16
+lambda3   = 22.45
 
 # priors
 iwishdf = 5
 
 silent = 0
-

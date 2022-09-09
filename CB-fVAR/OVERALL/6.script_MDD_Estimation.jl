@@ -15,7 +15,7 @@ using Random
 #-------------------------------------------------------------
 # include Functions
 #-------------------------------------------------------------
-readDir = "$(pwd())/A.FORMAL/CB-fVAR/Functions/"
+readDir = "$(pwd())/CB-fVAR/OVERALL/Functions/"
 include(readDir *"vech.jl");
 include(readDir *"VAR_Procedures.jl");
 include(readDir *"Loaddata.jl");
@@ -27,7 +27,7 @@ nfVARSpec = "10tc"
 nMDDSpec  = "1"
 nMCMCSpec = "1"
 
-specDir   = "$(pwd())/A.FORMAL/CB-fVAR/SpecFiles/"
+specDir   = "$(pwd())/CB-fVAR/OVERALL/SpecFiles/"
 include(specDir * "/fVARspec" * nfVARSpec * ".jl")
 include(specDir * "/MDDspec" * nMDDSpec * ".jl")
 include(specDir * "/MDDMCMCspec" * nMCMCSpec * ".jl")
@@ -44,8 +44,8 @@ n_agg = size(agg_data)[2]
 #-------------------------------------------------------------
 sNameLoadDir = "fVAR" * nfVARSpec
 sNameSaveDir = "fVAR" * nfVARSpec * "_MDD" * nMDDSpec*"_MCMC" * nMCMCSpec
-loaddir  = "$(pwd())/A.FORMAL/CB-fVAR/results/" * sNameLoadDir *"/";
-savedir  = "$(pwd())/A.FORMAL/CB-fVAR/results/" * sNameSaveDir *"/";
+loaddir  = "$(pwd())/CB-fVAR/OVERALL/results/" * sNameLoadDir *"/";
+savedir  = "$(pwd())/CB-fVAR/OVERALL/results/" * sNameSaveDir *"/";
 
 try mkdir(savedir) catch; end
 

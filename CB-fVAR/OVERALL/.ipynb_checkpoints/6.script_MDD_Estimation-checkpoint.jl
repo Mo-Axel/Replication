@@ -15,7 +15,7 @@ using Random
 #-------------------------------------------------------------
 # include Functions
 #-------------------------------------------------------------
-readDir = "$(pwd())/CB-fVAR/Functions/"
+readDir = "$(pwd())/CB-fVAR/OVERALL/Functions/"
 include(readDir *"vech.jl");
 include(readDir *"VAR_Procedures.jl");
 include(readDir *"Loaddata.jl");
@@ -27,7 +27,7 @@ nfVARSpec = "10tc"
 nMDDSpec  = "1"
 nMCMCSpec = "1"
 
-specDir   = "$(pwd())/CB-fVAR/SpecFiles/"
+specDir   = "$(pwd())/CB-fVAR/OVERALL/SpecFiles/"
 include(specDir * "/fVARspec" * nfVARSpec * ".jl")
 include(specDir * "/MDDspec" * nMDDSpec * ".jl")
 include(specDir * "/MDDMCMCspec" * nMCMCSpec * ".jl")
@@ -36,7 +36,7 @@ include(specDir * "/MDDMCMCspec" * nMCMCSpec * ".jl")
 # load aggregate data
 #-------------------------------------------------------------
 juliaversion = 15 #use 13 for 1.3 and 15 for 1.5
-agg_data, period_agg = loadaggdata(SampleStart,SampleEnd,juliaversion)
+agg_data, period_agg, ~ = loadaggdata(SampleStart,SampleEnd,juliaversion)
 n_agg = size(agg_data)[2]
 
 #-------------------------------------------------------------
@@ -44,8 +44,8 @@ n_agg = size(agg_data)[2]
 #-------------------------------------------------------------
 sNameLoadDir = "fVAR" * nfVARSpec
 sNameSaveDir = "fVAR" * nfVARSpec * "_MDD" * nMDDSpec*"_MCMC" * nMCMCSpec
-loaddir  = "$(pwd())/results/" * sNameLoadDir *"/";
-savedir  = "$(pwd())/results/" * sNameSaveDir *"/";
+loaddir  = "$(pwd())/CB-fVAR/OVERALL/results/" * sNameLoadDir *"/";
+savedir  = "$(pwd())/CB-fVAR/OVERALL/results/" * sNameSaveDir *"/";
 
 try mkdir(savedir) catch; end
 
@@ -155,6 +155,7 @@ for ii = 1:K_vec_n
     lambda_hat_K_LaplaceMax[ii,:] = [ K n_cross MDD_Laplace_sum[argmax(MDD_Laplace_sum[:,3+ii]),[1 2 3 (3+ii)]] ]
 
 end
+
 
 
 sNameFile = "fVAR" * nfVARSpec * "_MDD" * nMDDSpec*"_MCMC" * nMCMCSpec

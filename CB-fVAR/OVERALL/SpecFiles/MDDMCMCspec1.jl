@@ -1,5 +1,5 @@
 nsim       = 5000
-nburn      = 1000
+nburn      = 5000
 
 l1_grid    = exp.(range(-7, stop=6, length=10))
 l1_none    = ones(size(l1_grid))

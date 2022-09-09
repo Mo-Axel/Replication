@@ -10,12 +10,12 @@ using SpecialFunctions
 using SparseArrays
 using Random
 
-##clearconsole()
+#clearconsole()
 
 #-------------------------------------------------------------
 # include Functions
 #-------------------------------------------------------------
-readDir = "$(pwd())/Empirics_Estimation_v2/Functions/"
+readDir = "$(pwd())/CB-fVAR/OVERALL/Functions/"
 include(readDir *"vech.jl");
 include(readDir *"VAR_Procedures.jl");
 include(readDir *"SS_Procedures.jl");
@@ -27,7 +27,7 @@ include(readDir *"Loaddata.jl");
 nfVARSpec = "10tc"
 nSSSpec   = "1"
 nSSMCMCSpec= "1"
-specDir   = "$(pwd())/Empirics_Estimation_v2/SpecFiles/"
+specDir   =  "$(pwd())/CB-fVAR/OVERALL/SpecFiles/"
 include(specDir * "/fVARspec" * nfVARSpec * ".jl")
 include(specDir * "/SSspec" * nSSSpec * ".jl")
 include(specDir * "/SSMCMCspec" * nSSMCMCSpec * ".jl")
@@ -43,7 +43,7 @@ n_agg = size(agg_data)[2]
 # Load coefficients from density estimation
 #-------------------------------------------------------------
 sNameLoadDir = "fVAR" * nfVARSpec
-loaddir  = "$(pwd())/results/" * sNameLoadDir *"/";
+loaddir  = "$(pwd())/CB-fVAR/OVERALL/results/" * sNameLoadDir *"/";
 
 PhatDensCoef_factor, MDD_GoF, VinvLam_all, period_Dens_ind, ~, ~, ~ = loaddensdata(SampleStart,SampleEnd,K,nfVARSpec,juliaversion)
 n_cross = size(PhatDensCoef_factor)[2]
@@ -141,7 +141,7 @@ likidraw     = likidraw[nburn+1:nsim,:];
 #-------------------------------------------------------------
 
 sName    = "fVAR" * nfVARSpec * "_SS" * nSSSpec*"_MCMC" * nSSMCMCSpec
-savedir  = "$(pwd())/results/" * sName *"/";
+savedir  = "$(pwd())/CB-fVAR/OVERALL/results/" * sName *"/";
 try mkdir(savedir) catch; end
 save(savedir * sName* "_PostDraws.jld", "PHIpdraw", PHIpdraw, "SIGMAtrpdraw", SIGMAtrpdraw)
 save(savedir * sName* "_StateDraws.jld", "statepdraw", statepdraw)

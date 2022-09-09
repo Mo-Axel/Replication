@@ -1,6 +1,6 @@
 function loadaggdata(SampleStart,SampleEnd,v)
 
-    dataDir = "$(pwd())/A.FORMAL/CB-fVAR/Data/"
+    dataDir = "$(pwd())/CB-fVAR/OVERALL/Data/"
 
     GDP_data       = CSV.read(dataDir * "gdp.csv", DataFrame, header = true); # run with version 1.5.
     Inv_data       = CSV.read(dataDir * "Inv.csv", DataFrame, header = true);
@@ -51,24 +51,24 @@ function loadaggdata(SampleStart,SampleEnd,v)
 
     period_agg = period_GDP[period_GDP_ind]
 
-    GDPgrdev     = GDPpc .- mean(GDPpc,dims=1)
-    Invgrdev     = Invpc .- mean(Invpc,dims=1)
-    BRWdev       = BRWpc .- mean(BRWpc,dims=1)
+    GDPgrdev     = 100*(GDPpc .- mean(GDPpc,dims=1))
+    Invgrdev     = 100*(Invpc .- mean(Invpc,dims=1))
+    BRWdev       = 100*(BRWpc .- mean(BRWpc,dims=1))
 
     # TFPgrdev     = TFPgr .- mean(TFPgr,dims=1)
     # GDPpcgrdev   = GDPpcgr .- mean(GDPpcgr,dims=1)
     # UNRdev       = unrate .- mean(unrate,dims=1);
     # agg_data     = [TFPgrdev GDPpcgrdev UNRdev]
-    agg_data      = [GDPgrdev Invgrdev BRWdev]
+    agg_data      = [BRWdev Invgrdev GDPgrdev]
     # n_agg        = size(agg_data)[2]
 
     #mean_unrate = mean(unrate,dims=1)[1]
     mean_unrate = 0
-    return agg_data, period_agg,mean_unrate
+    return agg_data, period_agg, mean_unrate
 
 end
 
-##下面的没改呢
+
 
 function loaddensdata(SampleStart,SampleEnd,K,nfVARSpec,v)
 
@@ -114,3 +114,4 @@ function loaddensdata(SampleStart,SampleEnd,K,nfVARSpec,v)
     return PhatDensCoef_factor, MDD_GoF, VinvLam_all, period_Dens_ind, PhatDensCoef_lambda, PhatDensCoef_mean, PhatDensCoef_mean_allt
 
 end
+

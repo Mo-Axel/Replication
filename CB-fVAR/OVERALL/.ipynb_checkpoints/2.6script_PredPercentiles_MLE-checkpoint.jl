@@ -12,7 +12,7 @@ import Statistics
 # include Functions
 #-------------------------------------------------------------
 #cd("$(pwd())/Dropbox/Heterogeneity/Software/KS_Simulation/")
-readDir = "$(pwd())/CB-fVAR/OVERALL/Functions/"
+readDir = "$(pwd())/CB-fVAR/Functions/"
 
 include(readDir *"vech.jl");
 include(readDir *"logSpline_Procedures.jl");
@@ -24,13 +24,13 @@ include(readDir *"EmpPercentiles_Procedures.jl")
 # choose specification files
 #-------------------------------------------------------------
 nfVARSpec   = "10tc"
-K           = 4
+K           = 6
 SampleStart = 1998
 SampleEnd   = 2019
 
 nKSpec    = "K$(K)_"
 
-specDir   = "$(pwd())/CB-fVAR/OVERALL/SpecFiles/"
+specDir   = "$(pwd())/CB-fVAR/SpecFiles/"
 include(specDir * "/fVARspec" * nfVARSpec * ".jl")
 
 #-------------------------------------------------------------
@@ -45,7 +45,7 @@ n_agg = size(agg_data)[2]
 # Load coefficients from density estimation
 #-------------------------------------------------------------
 sName   = "fVAR" * nfVARSpec
-loaddir  = "$(pwd())/CB-fVAR/OVERALL/results/" * sName *"/";
+loaddir  = "$(pwd())/CB-fVAR/results/" * sName *"/";
 
 knots_all    = CSV.read(loaddir * sName * "_knots_all.csv", DataFrame, header = true);
 PhatDensCoef = CSV.read(loaddir * nKSpec * sName * "_PhatDensCoef.csv", DataFrame, header = true);
@@ -75,12 +75,12 @@ knots = knots_all[quant_sel[ii,:].==1]
 # compute empirical CDF for a grid of values
 ngrid     = 20
 grid_temp = range(0.2, stop=1.8, length=ngrid);
-ngrid     = 50
-grid_temp = range(0.05, stop=2.5, length=ngrid);
+# ngrid     = 50
+# grid_temp = range(0.05, stop=2.5, length=ngrid);
 grid_temp = [0.0; grid_temp]
 
 # initalize the matrices for the time series of percentiles
-vec_percs = [0.2;0.4; 0.5; 0.6; 0.8]
+vec_percs = [0.1; 0.2; 0.5; 0.8; 0.9]
 emp_percs_all = zeros(T,length(vec_percs))
 
 #-------------------------------------------------------------
@@ -92,11 +92,11 @@ for tt = 1:T
     print("CDF and Percentiles for Period = $tt \n")
 
     unrate    = Matrix(CSV.read(dataDir * "No_superrate.csv", DataFrame, header = true))[tt,2]
-    @time emp_percs = DensPercentiles(PhatDensCoef[tt,:]', knots, xgrid, grid_temp, vec_percs)
+    @time emp_percs = DensPercentiles(PhatDensCoef[tt,:]', knots, unrate, xgrid, grid_temp, vec_percs)
 
     emp_percs_all[tt,:] = emp_percs'
 
 end
 
-savedir  = "$(pwd())/CB-fVAR/OVERALL/results/" * sName *"/";
+savedir  = "$(pwd())/CB-fVAR/results/" * sName *"/";
 CSV.write(savedir * nKSpec * sName * "_PredPctL_MLE.csv", DataFrame(emp_percs_all,:auto));

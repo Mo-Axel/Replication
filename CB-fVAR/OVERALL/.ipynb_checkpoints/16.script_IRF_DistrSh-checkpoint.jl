@@ -104,13 +104,13 @@ println("")
 # find the optimal q
 Gini_vec = zeros(lenq,1)
 for qq = 1:lenq
-    YY_IRF,~ = IRF_qSh(PHIpmean, SIGMAtrpmean, qgrid[qq,:], sh_size, Hq, xgrid)
+    YY_IRF,~,Gini_IRF = IRF_qSh(PHIpmean, SIGMAtrpmean, qgrid[qq,:], sh_size, Hq, xgrid)
     Gini_vec[qq] = YY_IRF[1+1]
 end
 maxGini_qstar = qgrid[getindex.(findall(Gini_vec.-maximum(Gini_vec).==0),[1 2])[1],:]
 
 # Recompute the IRFs
-YY_IRF,PhatDens_IRF= IRF_qSh(PHIpmean, SIGMAtrpmean, maxGini_qstar, sh_size, H, xgrid)
+YY_IRF,PhatDens_IRF,~ = IRF_qSh(PHIpmean, SIGMAtrpmean, maxGini_qstar, sh_size, H, xgrid)
 savedir = "$(pwd())/CB-fVAR/OVERALL/results/" * sName *"/";
 try mkdir(savedir) catch; end
 CSV.write(savedir * sName * "_IRF_PhatDens_DistrSh_pmean.csv", DataFrame(PhatDens_IRF,:auto))
@@ -135,27 +135,14 @@ for pp = 1:n_subseq
     # find the optimal q
     Gini_vec = zeros(lenq,1)
     for qq = 1:lenq
-        YY_IRF,~ = IRF_qSh(PHIpdraw[pp*n_every,:,:], SIGMAtrpdraw[pp*n_every,:,:], qgrid[qq,:], sh_size, Hq, xgrid)
+        YY_IRF,~,Gini_IRF = IRF_qSh(PHIpdraw[pp*n_every,:,:], SIGMAtrpdraw[pp*n_every,:,:], qgrid[qq,:], sh_size, Hq, xgrid)
         Gini_vec[qq] = YY_IRF[1+1]
     end
     maxGini_qstar = qgrid[getindex.(findall(Gini_vec.-maximum(Gini_vec).==0),[1 2])[1],:]
 
     # Recompute the IRFs
+    YY_IRF,PhatDens_IRF,~ = IRF_qSh(PHIpdraw[pp*n_every,:,:], SIGMAtrpdraw[pp*n_every,:,:], maxGini_qstar, sh_size, H, xgrid)
 
-     try
-         YY_IRF,PhatDens_IRF = IRF_qSh(PHIpdraw[pp*n_every,:,:], SIGMAtrpdraw[pp*n_every,:,:], maxGini_qstar, sh_size, H, xgrid)
-     catch
-        try
-         YY_IRF,PhatDens_IRF = IRF_qSh(PHIpdraw[(pp*n_every-1),:,:], SIGMAtrpdraw[(pp*n_every-1),:,:], maxGini_qstar, sh_size, H, xgrid)
-         println("errort domainError: $errort")
-         errort = errort + 1
-        catch
-        YY_IRF,PhatDens_IRF = IRF_qSh(PHIpdraw[(pp*n_every-2),:,:], SIGMAtrpdraw[(pp*n_every-2),:,:], maxGini_qstar, sh_size, H, xgrid)
-         println("errort domainError: $errort")
-         errort = errort + 1
-        end
-     end
-    
     CSV.write(savedir * sName * "_IRF_PhatDens_DistrSh" * "_" * string(pp) * ".csv", DataFrame(PhatDens_IRF,:auto))
     CSV.write(savedir * sName * "_IRF_YY_DistrSh" * "_" * string(pp) * ".csv", DataFrame(YY_IRF,:auto))
 

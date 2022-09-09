@@ -5,24 +5,24 @@ using CSV
 using LinearAlgebra
 using JLD
 using Interpolations
-
+using Printf
 #clearconsole()
 
 #-------------------------------------------------------------
 # IRF Configuration
 #-------------------------------------------------------------
 
-H = 40 # maximum horizon
+H = 20 # maximum horizon
 n_every = 10 # use every n_every'th draw from the posterior
 sh_size = 3   # shock size, in multiples of standard deviations
-sh_id = 3 # sh_id = 1: TFP shock, sh_id = 2: GDP shock, sh_id = 3: Employment shock
+sh_id = 1  # sh_id = 1: TFP shock, sh_id = 2: GDP shock, sh_id = 3: Employment shock
 
 
 #-------------------------------------------------------------
 # include Functions
 #-------------------------------------------------------------
 #cd("$(pwd())/Dropbox/Heterogeneity/Software/KS_Simulation/")
-readDir = "$(pwd())/Empirics_Estimation_v2/Functions/"
+readDir = "$(pwd())/CB-fVAR/OVERALL/Functions/"
 include(readDir *"vech.jl");
 include(readDir *"logSpline_Procedures.jl");
 include(readDir *"VAR_Procedures.jl");
@@ -40,23 +40,25 @@ nModSpec  = "1"
 nMCMCSpec = "1"
 modName   = "SS"  # VAR or SS
 
-specDir   = "$(pwd())/Empirics_Estimation_v2/SpecFiles/"
+specDir   = "$(pwd())/CB-fVAR/OVERALL/SpecFiles"
 include(specDir * "/fVARspec" * nfVARSpec * ".jl")
 include(specDir * "/" * modName * "spec" * nModSpec * ".jl")
+
 include(specDir * "/" * modName * "MCMCspec" * nMCMCSpec * ".jl")
+
 
 #-------------------------------------------------------------
 # load aggregate data
 #-------------------------------------------------------------
 juliaversion = 15;
-agg_data, period_agg, mean_unrate = loadaggdata(SampleStart,SampleEnd,juliaversion)
+agg_data, period_agg, mean_ = loadaggdata(SampleStart,SampleEnd,juliaversion)
 n_agg = size(agg_data)[2]
 
 #-------------------------------------------------------------
 # Load coefficients from density estimation
 #-------------------------------------------------------------
 sNameLoadDir = "fVAR" * nfVARSpec
-loaddir  = "$(pwd())/results/" * sNameLoadDir *"/";
+loaddir  = "$(pwd())/CB-fVAR/OVERALL/results/" * sNameLoadDir *"/";
 
 knots_all = CSV.read(loaddir * sNameLoadDir * "_knots_all.csv", DataFrame, header = true);
 knots_all = Matrix(knots_all)'
@@ -72,7 +74,7 @@ n_cross = size(PhatDensCoef_factor)[2]
 #-------------------------------------------------------------
 
 sName    = "fVAR" * nfVARSpec * "_" * modName * nModSpec * "_" * "MCMC" * nMCMCSpec;
-loadDir  = "$(pwd())/results/" * sName *"/";
+loadDir  = "$(pwd())/CB-fVAR/OVERALL/results/" * sName *"/";
 
 PHIpdraw     = load(loadDir * sName * "_PostDraws.jld", "PHIpdraw")
 SIGMAtrpdraw = load(loadDir * sName * "_PostDraws.jld", "SIGMAtrpdraw")
@@ -84,7 +86,7 @@ SIGMAtrpmean = load(loadDir * sName * "_PostMeans.jld", "SIGMAtrpmean")
 # hh=1 is steady state
 # hh=2 is period of impact
 #-------------------------------------------------------------
-
+hh = 1
 qstar = zeros(n_agg+n_cross)
 qstar[sh_id] = 1
 
@@ -92,9 +94,9 @@ println("")
 println("Generating IRFs at posterior mean... ")
 println("")
 
-YY_IRF,PhatDens_IRF,~ = IRF_qSh(PHIpmean, SIGMAtrpmean, qstar, sh_size, H, xgrid)
+YY_IRF,PhatDens_IRF = IRF_qSh(PHIpmean, SIGMAtrpmean, qstar, sh_size, H, xgrid)
 
-savedir = "$(pwd())/results/" * sName *"/";
+savedir = "$(pwd())/CB-fVAR/OVERALL/results/" * sName *"/";
 try mkdir(savedir) catch; end
 CSV.write(savedir * sName * "_IRF_PhatDens_AggSh"*string(sh_id)*"_pmean.csv", DataFrame(PhatDens_IRF,:auto))
 CSV.write(savedir * sName * "_IRF_YY_AggSh"*string(sh_id)*"_pmean.csv", DataFrame(YY_IRF,:auto))
@@ -108,15 +110,20 @@ println("Generating IRFs for subset of posterior draws... ")
 println("")
 
 n_subseq                 = floor(Int,size(PHIpdraw)[1]/n_every)
-
+errort                   = 1
 for pp = 1:n_subseq
 
     time_init_loop = time_ns();
     println("Draw number:  $pp")
     println("Remaining draws:  $(n_subseq-pp)")
     println("Posterior draw number: $(pp*n_every)")
-
-    YY_IRF,PhatDens_IRF,~ = IRF_qSh(PHIpdraw[pp*n_every,:,:], SIGMAtrpdraw[pp*n_every,:,:], qstar, sh_size, H, xgrid)
+     try
+         YY_IRF,PhatDens_IRF = IRF_qSh(PHIpdraw[pp*n_every,:,:], SIGMAtrpdraw[pp*n_every,:,:], qstar, sh_size, H, xgrid)
+     catch
+         YY_IRF,PhatDens_IRF = IRF_qSh(PHIpdraw[(pp*n_every-1),:,:], SIGMAtrpdraw[(pp*n_every-1),:,:], qstar, sh_size, H, xgrid)
+         println("errort domainError: $errort")
+         errort = errort + 1
+     end
 
     CSV.write(savedir * sName * "_IRF_PhatDens_AggSh" * string(sh_id) * "_" * string(pp) * ".csv", DataFrame(PhatDens_IRF,:auto))
     CSV.write(savedir * sName * "_IRF_YY_AggSh" * string(sh_id) * "_" * string(pp) * ".csv", DataFrame(YY_IRF,:auto))

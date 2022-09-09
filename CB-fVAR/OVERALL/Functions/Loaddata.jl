@@ -1,74 +1,61 @@
 function loadaggdata(SampleStart,SampleEnd,v)
 
-    dataDir = "$(pwd())/A.FORMAL/CB-fVAR/Data/"
+    dataDir = "$(pwd())/CB-fVAR/OVERALL/Data/"
 
     GDP_data       = CSV.read(dataDir * "gdp.csv", DataFrame, header = true); # run with version 1.5.
     Inv_data       = CSV.read(dataDir * "Inv.csv", DataFrame, header = true);
     BRW_data       = CSV.read(dataDir * "BRW.csv", DataFrame, header = true);
-    # TFPgr_data       = CSV.read(dataDir * "Inv.csv", DataFrame, header = false);
-    # unrate_data       = CSV.read(dataDir * "UNRATE_CPS_FRED.csv", DataFrame, header = true);
 
-    # # initial transformations
-    # period_GDP = Matrix(GDPpc_data)[:,1]
-    # GDPpc      = log.(Matrix(GDPpc_data)[:,2])
-    period_GDP  = Matrix(GDP_data)[:,1]
-    GDPpc       = Matrix(GDP_data)[:,2]
-    period_Inv  = Matrix(Inv_data)[:,1]
-    Invpc       = Matrix(Inv_data)[:,2]
-    period_BRW  = Matrix(BRW_data)[:,1]
-    BRWpc       = Matrix(BRW_data)[:,2]
-    # period_TFP = Matrix(TFPgr_data)[:,1]
-    # TFPgr      = Matrix(TFPgr_data)[:,2]
-    # #TFPutilgr = convert(Array, TFPgr_data[:,3])
+    # initial transformations
+    period_GDP = convert(Array, GDP_data[:,1])
+    GDPgr      = convert(Array, GDP_data[:,2])
 
-    # period_UNR = Matrix(unrate_data)[:,1]
-    # UNR        = Matrix(unrate_data)[:,2]
-    # #earnings_detrended = convert(Array,earnings_data[:,3])
-    # #earnings_t = convert(Array,earnings_data[:,2])
+    period_Inv = convert(Array, Inv_data[:,1])
+    Invgr      = convert(Array, Inv_data[:,2])
+    #TFPutilgr = convert(Array, TFPgr_data[:,3])
 
-    # # compute GDP growth rates
+    period_BRW = convert(Array, BRW_data[:,1])
+    BRW        = convert(Array, BRW_data[:,2])
+    # period_GDP  = Matrix(GDP_data)[:,1]
+    # GDPpc       = Matrix(GDP_data)[:,2]
+    # period_Inv  = Matrix(Inv_data)[:,1]
+    # Invpc       = Matrix(Inv_data)[:,2]
+    # period_BRW  = Matrix(BRW_data)[:,1]
+    # BRWpc       = Matrix(BRW_data)[:,2]
+    #earnings_detrended = convert(Array,earnings_data[:,3])
+    #earnings_t = convert(Array,earnings_data[:,2])
+
+    # compute GDP growth rates
     # GDPpcgr        = zeros(size(GDPpc))
     # GDPpcgr[2:end] = 400*(GDPpc[2:end]-GDPpc[1:end-1])
 
-    # # accumulate TFP growth rates
+    # accumulate TFP growth rates
     # TFP            = cumsum(TFPgr/400,dims=1)
 
-    # # trim the sample
-    # period_TFP_ind = (SampleStart .<= period_TFP .<= SampleEnd)
-    # period_GDP_ind = (SampleStart .<= period_GDP .<= SampleEnd)
-    # period_UNR_ind = (SampleStart .<= period_UNR .<= SampleEnd)
+    # trim the sample
     period_GDP_ind = (SampleStart .<= period_GDP .<= SampleEnd)
     period_Inv_ind = (SampleStart .<= period_Inv .<= SampleEnd)
     period_BRW_ind = (SampleStart .<= period_BRW .<= SampleEnd)
-    # GDPpc   = GDPpc[period_GDP_ind]
-    # GDPpcgr = GDPpcgr[period_GDP_ind]
-    # TFP     = TFP[period_TFP_ind]
-    # TFPgr   = TFPgr[period_TFP_ind]
-    # unrate  = UNR[period_UNR_ind];
-    GDPpc    = GDPpc[period_GDP_ind]
-    Invpc    = Invpc[period_Inv_ind]
-    BRWpc    = BRWpc[period_BRW_ind]
+
+    GDPgr   = GDPgr[period_GDP_ind]
+    Invgr   = Invgr[period_Inv_ind]
+    BRW     = BRW[period_BRW_ind];
 
     period_agg = period_GDP[period_GDP_ind]
 
-    GDPgrdev     = GDPpc .- mean(GDPpc,dims=1)
-    Invgrdev     = Invpc .- mean(Invpc,dims=1)
-    BRWdev       = BRWpc .- mean(BRWpc,dims=1)
-
-    # TFPgrdev     = TFPgr .- mean(TFPgr,dims=1)
-    # GDPpcgrdev   = GDPpcgr .- mean(GDPpcgr,dims=1)
-    # UNRdev       = unrate .- mean(unrate,dims=1);
-    # agg_data     = [TFPgrdev GDPpcgrdev UNRdev]
-    agg_data      = [BRWdev Invgrdev GDPgrdev]
-    # n_agg        = size(agg_data)[2]
+    GDPgrdev     = GDPgr .- mean(GDPgr,dims=1)
+    Invgrdev     = Invgr .- mean(Invgr,dims=1)
+    BRWdev       = BRW   .- mean(BRW,dims=1);
+    agg_data     = [BRWdev Invgrdev GDPgrdev]
+    #n_agg        = size(agg_data)[2]
 
     #mean_unrate = mean(unrate,dims=1)[1]
-    mean_unrate = 0
-    return agg_data, period_agg,mean_unrate
+
+    return agg_data, period_agg #, mean_unrate
 
 end
 
-
+##
 
 function loaddensdata(SampleStart,SampleEnd,K,nfVARSpec,v)
 
@@ -83,19 +70,19 @@ function loaddensdata(SampleStart,SampleEnd,K,nfVARSpec,v)
     N_all               = CSV.read(loaddir * sNameFile * "_N_all.csv", DataFrame, header = true);
 
 
-    period_Dens         = Matrix(period_Dens)
+    period_Dens         = convert(Array,period_Dens)
     period_Dens_ind     = dropdims((SampleStart .<= period_Dens .<= SampleEnd),dims=2)
     period_Dens         = period_Dens[period_Dens_ind]
-    PhatDensCoef_factor = Matrix(PhatDensCoef_factor)
+    PhatDensCoef_factor = convert(Array,PhatDensCoef_factor)
     PhatDensCoef_factor = PhatDensCoef_factor[period_Dens_ind,:]
-    PhatDensCoef_lambda = Matrix(PhatDensCoef_lambda)
-    PhatDensCoef_mean   = Matrix(PhatDensCoef_mean)
-    PhatDensCoef_mean_allt = Matrix(PhatDensCoef_mean_allt)
+    PhatDensCoef_lambda = convert(Array,PhatDensCoef_lambda)
+    PhatDensCoef_mean   = convert(Array,PhatDensCoef_mean)
+    PhatDensCoef_mean_allt = convert(Array,PhatDensCoef_mean_allt)
     PhatDensCoef_mean_allt = PhatDensCoef_mean_allt[period_Dens_ind,:]
-    MDD_GoF             = Matrix(MDD_GoF)
+    MDD_GoF             = convert(Array,MDD_GoF)
     MDD_GoF             = MDD_GoF[period_Dens_ind]
-    N_all               = Matrix(N_all)
-    Vinv_all            = Matrix(Vinv_all)
+    N_all               = convert(Array,N_all)
+    Vinv_all            = convert(Array,Vinv_all)
     Ktilde              = size(PhatDensCoef_lambda)[1]
 
     VinvLam_all = zeros(Ktilde, Ktilde, sum(period_Dens_ind))

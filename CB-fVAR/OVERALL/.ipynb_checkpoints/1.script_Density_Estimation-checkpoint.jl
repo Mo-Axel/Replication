@@ -24,21 +24,21 @@ dataDir = "$(pwd())/CB-fVAR/OVERALL/Data/"
 year_data     = CSV.read(dataDir * "No_superrate.csv", DataFrame, header = true);
 li_ty_data   = CSV.read(dataDir * "cross_all.csv", DataFrame, header = true);
 
-
-period_year = convert(Array, year_data[:,1])
-li_ty_detrended = convert(Array,li_ty_data[:,3])
-li_ty_t = convert(Array,li_ty_data[:,2])
-Tend       = length(period_year)
+year     = convert(Array,year_data[:,2])
+year = convert(Array, year_data[:,1])
+earnings_detrended = convert(Array,li_ty_data[:,3])
+earnings_t = convert(Array,li_ty_data[:,2])
+Tend       = length(year)
 
 #-------------------------------------------------------------
 # choose specification file
 #-------------------------------------------------------------
 nfVARSpec = "10tc"
-specDir   = "$(pwd())/SpecFiles/"
+specDir   = "$(pwd())/CB-fVAR/OVERALL/SpecFiles"
 include(specDir * "/fVARspec" * nfVARSpec * ".jl")
 
 # subsequently use the same knots regardless of sample size N,T
-knots_all = quantile(li_ty_detrended, quant_vec)
+knots_all = quantile(earnings_detrended, quant_vec)
 
 #-------------------------------------------------------------
 # log spline density estimation over K and t
@@ -65,7 +65,7 @@ for ii = 1:K_vec_n
         Period_all[tt] = timeidx
 
         # time t data
-        selecteddraws_t = li_ty_detrended[li_ty_t.==timeidx]
+        selecteddraws_t = earnings_detrended[earnings_t.==timeidx]
         timeidx = timeidx + 1
         N_all[tt]       = length(selecteddraws_t)
 
@@ -123,7 +123,7 @@ for ii = 1:K_vec_n
 
         # results
         PhatDensCoef[tt,:]  = coef_t
-        PhatDensNorm[tt,:]  = lnpdfNormalize(coef_t', knots, minimum(xgrid), maximum(xgrid))
+        PhatDensNorm[tt,:]  = lnpdfNormalize(coef_t',knots, minimum(xgrid), maximum(xgrid))
         PhatDensValue[tt,:] = pdfEval(xgrid,coef_t,knots,[PhatDensNorm[tt,1]])';
         N_details[tt,:]     = [N_all[tt] N_max pi_hat C_topcode N_knots]
 
@@ -203,3 +203,4 @@ savedir = "$(pwd())/CB-fVAR/OVERALL/results/" * sNameDir *"/";
 try mkdir(savedir) catch; end
 CSV.write(savedir * sNameFile * "_MDD_GoF_sum.csv", DataFrame(MDD_GoF_sum,:auto))
 CSV.write(savedir * sNameFile * "_knots_all.csv", DataFrame(knots_all',:auto))
+
