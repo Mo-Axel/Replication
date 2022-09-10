@@ -100,10 +100,12 @@ qgrid = [zeros(lenq,n_agg) qgrid]; # save candidate shocks
 println("")
 println("Generating IRFs at posterior mean... ")
 println("")
-
+qq = 1
+    ~,~,Gini_IRF = IRF_qSh(PHIpmean, SIGMAtrpmean, qgrid[qq,:], sh_size, Hq, xgrid)
 # find the optimal q
 Gini_vec = zeros(lenq,1)
 for qq = 1:lenq
+    qq = 1
     ~,~,Gini_IRF = IRF_qSh(PHIpmean, SIGMAtrpmean, qgrid[qq,:], sh_size, Hq, xgrid)
     Gini_vec[qq] = Gini_IRF[1+1]
 end
@@ -135,7 +137,6 @@ for pp = 1:n_subseq
     # find the optimal q
     Gini_vec = zeros(lenq,1)
     for qq = 1:lenq
-        print("first!!!")
         try
             ~,~,Gini_IRF = IRF_qSh(PHIpdraw[pp*n_every,:,:], SIGMAtrpdraw[pp*n_every,:,:], qgrid[qq,:], sh_size, Hq, xgrid)
             Gini_vec[qq] = Gini_IRF[1+1]
@@ -146,7 +147,6 @@ for pp = 1:n_subseq
         end
     end
     maxGini_qstar = qgrid[getindex.(findall(Gini_vec.-maximum(Gini_vec).==0),[1 2])[1],:]
-    print("second!!!")
     # Recompute the IRFs
     try
         YY_IRF,PhatDens_IRF,~ = IRF_qSh(PHIpdraw[pp*n_every,:,:], SIGMAtrpdraw[pp*n_every,:,:], maxGini_qstar, sh_size, H, xgrid)

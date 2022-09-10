@@ -17,9 +17,9 @@ function IRF_qSh(PHI, SIGMAtr, qstar, sh_size, Hmax, xgrid)
         PhatDensNorm_hh    = lnpdfNormalize(PhatDensCoef_hh,knots, minimum(xgrid), maximum(xgrid))
         #PhatDensNorm_hh    = lnpdfNormalize_unrate_Rsum(PhatDensCoef_hh,knots,YY_IRF[hh,3]+mean_unrate, minimum(xgrid), maximum(xgrid))
         PhatDens_IRF[hh,:] = pdfEval(xgrid,PhatDensCoef_hh',knots,[PhatDensNorm_hh[1]]);
-        Gini_IRF[hh]       = GiniCoef(PhatDens_IRF[hh,:], xgrid)
+        Gini_IRF[hh]       = GiniCoef(PhatDensNorm_hh, xgrid)
     end
     
     return YY_IRF, PhatDens_IRF, Gini_IRF
-    end
+end
     

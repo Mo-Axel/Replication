@@ -19,7 +19,7 @@ include(readDir *"logSpline_Procedures.jl");
 include(readDir *"VAR_Procedures.jl");
 include(readDir *"Loaddata.jl");
 include(readDir *"EmpPercentiles_Procedures.jl")
-
+dataDir = "$(pwd())/CB-fVAR/OVERALL/Data/"
 #-------------------------------------------------------------
 # choose specification files
 #-------------------------------------------------------------
