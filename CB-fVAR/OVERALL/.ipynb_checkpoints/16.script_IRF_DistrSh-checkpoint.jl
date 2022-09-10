@@ -48,8 +48,8 @@ include(specDir * "/" * modName * "MCMCspec" * nMCMCSpec * ".jl")
 #-------------------------------------------------------------
 # load aggregate data
 #-------------------------------------------------------------
-
-agg_data, period_agg, mean_unrate = loadaggdata(SampleStart,SampleEnd,juliaversion)
+juliaversion = 15
+agg_data, period_agg = loadaggdata(SampleStart,SampleEnd,juliaversion)
 n_agg = size(agg_data)[2]
 
 #-------------------------------------------------------------
@@ -59,7 +59,7 @@ sNameLoadDir = "fVAR" * nfVARSpec
 loaddir  = "$(pwd())/CB-fVAR/OVERALL/results/" * sNameLoadDir *"/";
 knots_all = CSV.read(loaddir * sNameLoadDir * "_knots_all.csv", DataFrame, header = true);
 
-knots_all = Matrix(knots_all)'
+knots_all = Array(knots_all)'
 ii=getindex.(findall(K_vec.-K.==0),[1 2])[1] # find index ii where K==K_vec
 knots = knots_all[quant_sel[ii,:].==1]
 
@@ -104,8 +104,8 @@ println("")
 # find the optimal q
 Gini_vec = zeros(lenq,1)
 for qq = 1:lenq
-    YY_IRF,~,Gini_IRF = IRF_qSh(PHIpmean, SIGMAtrpmean, qgrid[qq,:], sh_size, Hq, xgrid)
-    Gini_vec[qq] = YY_IRF[1+1]
+    ~,~,Gini_IRF = IRF_qSh(PHIpmean, SIGMAtrpmean, qgrid[qq,:], sh_size, Hq, xgrid)
+    Gini_vec[qq] = Gini_IRF[1+1]
 end
 maxGini_qstar = qgrid[getindex.(findall(Gini_vec.-maximum(Gini_vec).==0),[1 2])[1],:]
 
@@ -124,7 +124,7 @@ println("Generating IRFs for subset of posterior draws... ")
 println("")
 
 n_subseq                 = floor(Int,size(PHIpdraw)[1]/n_every)
-
+errort = 0
 for pp = 1:n_subseq
 
     time_init_loop = time_ns();
@@ -135,13 +135,24 @@ for pp = 1:n_subseq
     # find the optimal q
     Gini_vec = zeros(lenq,1)
     for qq = 1:lenq
-        YY_IRF,~,Gini_IRF = IRF_qSh(PHIpdraw[pp*n_every,:,:], SIGMAtrpdraw[pp*n_every,:,:], qgrid[qq,:], sh_size, Hq, xgrid)
-        Gini_vec[qq] = YY_IRF[1+1]
+        print("first!!!")
+        try
+            ~,~,Gini_IRF = IRF_qSh(PHIpdraw[pp*n_every,:,:], SIGMAtrpdraw[pp*n_every,:,:], qgrid[qq,:], sh_size, Hq, xgrid)
+            Gini_vec[qq] = Gini_IRF[1+1]
+        catch
+            ~,~,Gini_IRF = IRF_qSh(PHIpdraw[pp*n_every,:,:], SIGMAtrpdraw[pp*n_every,:,:], qgrid[(qq-1),:], sh_size, Hq, xgrid)
+            Gini_vec[qq] = Gini_IRF[1+1]
+            errort = errort + 1
+        end
     end
     maxGini_qstar = qgrid[getindex.(findall(Gini_vec.-maximum(Gini_vec).==0),[1 2])[1],:]
-
+    print("second!!!")
     # Recompute the IRFs
-    YY_IRF,PhatDens_IRF,~ = IRF_qSh(PHIpdraw[pp*n_every,:,:], SIGMAtrpdraw[pp*n_every,:,:], maxGini_qstar, sh_size, H, xgrid)
+    try
+        YY_IRF,PhatDens_IRF,~ = IRF_qSh(PHIpdraw[pp*n_every,:,:], SIGMAtrpdraw[pp*n_every,:,:], maxGini_qstar, sh_size, H, xgrid)
+    catch
+        YY_IRF,PhatDens_IRF,~ = IRF_qSh(PHIpdraw[(pp-1)*n_every,:,:], SIGMAtrpdraw[(pp-1)*n_every,:,:], maxGini_qstar, sh_size, H, xgrid)
+    end
 
     CSV.write(savedir * sName * "_IRF_PhatDens_DistrSh" * "_" * string(pp) * ".csv", DataFrame(PhatDens_IRF,:auto))
     CSV.write(savedir * sName * "_IRF_YY_DistrSh" * "_" * string(pp) * ".csv", DataFrame(YY_IRF,:auto))

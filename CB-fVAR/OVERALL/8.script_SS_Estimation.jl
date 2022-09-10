@@ -36,7 +36,7 @@ include(specDir * "/SSMCMCspec" * nSSMCMCSpec * ".jl")
 # load aggregate data
 #-------------------------------------------------------------
 juliaversion = 15
-agg_data, period_agg, ~ = loadaggdata(SampleStart,SampleEnd,juliaversion)
+agg_data, period_agg = loadaggdata(SampleStart,SampleEnd,juliaversion)
 n_agg = size(agg_data)[2]
 
 #-------------------------------------------------------------

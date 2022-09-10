@@ -34,7 +34,7 @@ Tend       = length(period_year)
 # choose specification file
 #-------------------------------------------------------------
 nfVARSpec = "10tc"
-specDir   = "$(pwd())/SpecFiles/"
+specDir   = "$(pwd())/CB-fVAR/OVERALL/SpecFiles/"
 include(specDir * "/fVARspec" * nfVARSpec * ".jl")
 
 # subsequently use the same knots regardless of sample size N,T

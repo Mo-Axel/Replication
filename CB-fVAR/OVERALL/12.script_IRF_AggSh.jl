@@ -12,7 +12,7 @@ using Printf
 # IRF Configuration
 #-------------------------------------------------------------
 
-H = 40 # maximum horizon
+H = 15 # maximum horizon
 n_every = 10 # use every n_every'th draw from the posterior
 sh_size = 3   # shock size, in multiples of standard deviations
 sh_id = 1 # sh_id = 1: TFP shock, sh_id = 2: GDP shock, sh_id = 3: Employment shock
@@ -58,7 +58,7 @@ sNameLoadDir = "fVAR" * nfVARSpec
 loaddir  = "$(pwd())/CB-fVAR/OVERALL/results/" * sNameLoadDir *"/";
 
 knots_all = CSV.read(loaddir * sNameLoadDir * "_knots_all.csv", DataFrame, header = true);
-knots_all = convert(Array, knots_all)'
+knots_all = Array(knots_all)'
 
 ii = getindex.(findall(K_vec.-K.==0),[1 2])[1] # find index ii where K==K_vec
 knots = knots_all[quant_sel[ii,:].==1]
@@ -95,8 +95,8 @@ YY_IRF,PhatDens_IRF,~ = IRF_qSh(PHIpmean, SIGMAtrpmean, qstar, sh_size, H, xgrid
 
 savedir = "$(pwd())/CB-fVAR/OVERALL/results/" * sName *"/";
 try mkdir(savedir) catch; end
-CSV.write(savedir * sName * "_IRF_PhatDens_AggSh"*string(sh_id)*"_pmean.csv", DataFrame(PhatDens_IRF))
-CSV.write(savedir * sName * "_IRF_YY_AggSh"*string(sh_id)*"_pmean.csv", DataFrame(YY_IRF))
+CSV.write(savedir * sName * "_IRF_PhatDens_AggSh"*string(sh_id)*"_pmean.csv", DataFrame(PhatDens_IRF,:auto))
+CSV.write(savedir * sName * "_IRF_YY_AggSh"*string(sh_id)*"_pmean.csv", DataFrame(YY_IRF,:auto))
 
 #-------------------------------------------------------------
 # Generate IRFs for a subset of posterior draws
@@ -108,6 +108,7 @@ println("")
 
 n_subseq                 = floor(Int,size(PHIpdraw)[1]/n_every)
 
+errort = 0
 for pp = 1:n_subseq
 
     time_init_loop = time_ns();
@@ -118,7 +119,7 @@ for pp = 1:n_subseq
     try
         YY_IRF,PhatDens_IRF = IRF_qSh(PHIpdraw[pp*n_every,:,:], SIGMAtrpdraw[pp*n_every,:,:], qstar, sh_size, H, xgrid)
     catch
-        YY_IRF,PhatDens_IRF = IRF_qSh(PHIpdraw[(pp*n_every-1),:,:], SIGMAtrpdraw[(pp*n_every-1),:,:], qstar, sh_size, H, xgrid)
+        YY_IRF,PhatDens_IRF = IRF_qSh(PHIpdraw[(pp-1)*n_every,:,:], SIGMAtrpdraw[(pp-1)*n_every,:,:], qstar, sh_size, H, xgrid)
         println("errort domainError: $errort")
         errort = errort + 1
     end

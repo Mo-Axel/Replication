@@ -70,19 +70,19 @@ function loaddensdata(SampleStart,SampleEnd,K,nfVARSpec,v)
     N_all               = CSV.read(loaddir * sNameFile * "_N_all.csv", DataFrame, header = true);
 
 
-    period_Dens         = convert(Array,period_Dens)
+    period_Dens         = Array(period_Dens)
     period_Dens_ind     = dropdims((SampleStart .<= period_Dens .<= SampleEnd),dims=2)
     period_Dens         = period_Dens[period_Dens_ind]
-    PhatDensCoef_factor = convert(Array,PhatDensCoef_factor)
+    PhatDensCoef_factor = Array(PhatDensCoef_factor)
     PhatDensCoef_factor = PhatDensCoef_factor[period_Dens_ind,:]
-    PhatDensCoef_lambda = convert(Array,PhatDensCoef_lambda)
-    PhatDensCoef_mean   = convert(Array,PhatDensCoef_mean)
-    PhatDensCoef_mean_allt = convert(Array,PhatDensCoef_mean_allt)
+    PhatDensCoef_lambda = Array(PhatDensCoef_lambda)
+    PhatDensCoef_mean   = Array(PhatDensCoef_mean)
+    PhatDensCoef_mean_allt = Array(PhatDensCoef_mean_allt)
     PhatDensCoef_mean_allt = PhatDensCoef_mean_allt[period_Dens_ind,:]
-    MDD_GoF             = convert(Array,MDD_GoF)
+    MDD_GoF             = Array(MDD_GoF)
     MDD_GoF             = MDD_GoF[period_Dens_ind]
-    N_all               = convert(Array,N_all)
-    Vinv_all            = convert(Array,Vinv_all)
+    N_all               = Array(N_all)
+    Vinv_all            = Array(Vinv_all)
     Ktilde              = size(PhatDensCoef_lambda)[1]
 
     VinvLam_all = zeros(Ktilde, Ktilde, sum(period_Dens_ind))
